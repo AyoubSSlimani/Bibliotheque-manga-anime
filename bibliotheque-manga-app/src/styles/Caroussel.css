@@ -27,12 +27,16 @@
     align-items: center;
 }
 
-.icone-fleche {
+.icone-fleche-droite, .icone-fleche-gauche {
     overflow: hidden;
     border-radius: 50%;
 }
 
-.icone-fleche:hover {
+.icone-fleche-droite:hover, .icone-fleche-gauche:hover {
     cursor: pointer;
     background-color: grey;
+}
+
+.icone-fleche-droite-unable, .icone-fleche-gauche-unable {
+    background-color: red;
 }

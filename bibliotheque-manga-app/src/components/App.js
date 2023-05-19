@@ -1,6 +1,7 @@
 import '../styles/App.css';
-import Caroussel from './Caroussel';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
+import Accueil from './Accueil'
 
 function App() {
   return (
@@ -12,13 +13,16 @@ function App() {
           </NavBar>
         </div>
       </header>
-    <div className="caroussel">
-        <Caroussel>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/accueil" />
+        </Route>
+        <Route path="/accueil" component={Accueil} />
+      </Switch>
+    </Router>
 
-        </Caroussel>
     </div>
-    </div>
-
   );
 }
 

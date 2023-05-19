@@ -27,10 +27,10 @@ function NavBar(){
                 </li>
                 <li>
                     <div>                    
-                        <a href="#">
+                        <link to="/">
                             <img src={abri} alt="icone-maison" height="30px" width="30px"/>
                             ACCUEIL
-                        </a>
+                        </link>
                     </div>
                 </li>
                 <li>
