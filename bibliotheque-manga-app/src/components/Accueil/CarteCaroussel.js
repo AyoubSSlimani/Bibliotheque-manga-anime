@@ -1,4 +1,4 @@
-import '../styles/CarteCaroussel.css'
+import '../../styles/CarteCaroussel.css'
 
 function CarteCaroussel() {
 

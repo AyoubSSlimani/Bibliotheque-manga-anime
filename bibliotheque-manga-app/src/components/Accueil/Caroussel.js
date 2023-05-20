@@ -1,7 +1,7 @@
-import '../styles/Caroussel.css'
-import oeil from '../assets/oeil.png'
-import flecheGauche from '../assets/flecheGauche.png'
-import flecheDroite from '../assets/flecheDroite.png'
+import '../../styles/Caroussel.css'
+import oeil from '../../assets/oeil.png'
+import flecheGauche from '../../assets/flecheGauche.png'
+import flecheDroite from '../../assets/flecheDroite.png'
 import CarteCaroussel from './CarteCaroussel'
 import React, {useState} from 'react' 
 

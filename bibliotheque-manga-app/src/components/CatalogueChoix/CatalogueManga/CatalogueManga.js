@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBarCatalogue from '../../SearchBarCatalogue'
+import SearchBarCatalogue from '../SearchBarCatalogue'
 
 export default function CatalogueManga() {
   return (
