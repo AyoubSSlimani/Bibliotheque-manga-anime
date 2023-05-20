@@ -8,13 +8,13 @@ export default function CatalogueChoix() {
         <h1>Catalogue</h1>
 
         <div className="containerCatalogueChoix">
-                <Link to="/Catalogue-choix/Catalogue-anime" className='link-catalogue'>
+                <Link to="/Catalogue-anime" className='link-catalogue'>
                     <div className="anime">
                         <h2>ANIME</h2>
                     </div>
                 </Link>
 
-                <Link to="/Catalogue-choix/Catalogue-manga" className='link-catalogue'>
+                <Link to="/Catalogue-manga" className='link-catalogue'>
                     <div className="manga">
                         <h2>MANGA</h2>
                     </div>

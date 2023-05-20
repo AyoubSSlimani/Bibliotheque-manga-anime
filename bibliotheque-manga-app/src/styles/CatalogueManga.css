@@ -1,0 +1,23 @@
+.blockCarteManga {
+    width: 70%;
+    height: auto;
+    background-color: #662D91;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blockCarteManga .container-card {
+    align-self: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container-card {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    margin-top: 20px;
+}

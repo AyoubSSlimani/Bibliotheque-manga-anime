@@ -19,10 +19,9 @@ function App() {
     <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/Accueil" element={<Accueil />} />
-        <Route path="/Catalogue-choix" element={<CatalogueChoix />}>
-          <Route path='/Catalogue-choix/Catalogue-manga' element={<CatalogueManga />} />
-          <Route path='/Catalogue-choix/Catalogue-anime' element={<CatalogueAnime />} />
-        </ Route>
+        <Route path="/Catalogue-choix" element={<CatalogueChoix />}/>
+        <Route path='/Catalogue-manga' element={<CatalogueManga />} />
+        <Route path='/Catalogue-anime' element={<CatalogueAnime />} />
     </Routes>
 
     </div>

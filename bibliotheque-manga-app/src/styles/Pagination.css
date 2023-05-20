@@ -1,0 +1,61 @@
+.container-pagination {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.sous-container-pagination {
+    width: 10%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sous-container-pagination a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding-left: 15px;
+}
+
+.sous-container-pagination a:hover {
+    color: blue;
+}
+
+.bg-fleche  {
+    width: 40px;
+    height: 40px;
+    background-color: #1F305E;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-fleche img {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    top: 20%;
+    left: 20%;
+}
+
+.prev img {
+    transform: rotate(90deg);
+}
+
+.next img {
+    transform: rotate(-90deg);
+}
+
+.bg-fleche:hover {
+    background-color: blue;
+}

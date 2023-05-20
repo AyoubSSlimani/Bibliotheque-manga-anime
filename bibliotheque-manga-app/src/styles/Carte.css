@@ -1,0 +1,84 @@
+.blockCarteManga {
+    width: 70%;
+    height: auto;
+    background-color: #662D91;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blockCarteManga .container-card {
+    align-self: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.select-nbr-card {
+    width: 10%;
+    height: 20%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.nbr-card {
+    width: 70px;
+    border-radius: 3px;
+}
+
+
+.container-card {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes avec largeur égale */
+    grid-gap: 20px; /* Espacement entre les cartes */
+}
+
+.card {
+    background-color: white;
+    border: 2px solid black;
+    width: 200px;
+    height: 268px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.icone-option-card {
+    position: absolute;
+    right: 1%;
+    margin-top: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url(../assets/add.png);
+    background-color: white;
+    background-size: cover;
+}
+
+.icone-option-card:hover {
+    background-color: pink;
+}
+
+.card:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.ligne {
+    width: 80%;
+    padding-top: 10px;
+    border-bottom: 2px solid black;
+}
+
+.name-card {
+    font-size: 30px;
+    margin-top: -30px;
+}
