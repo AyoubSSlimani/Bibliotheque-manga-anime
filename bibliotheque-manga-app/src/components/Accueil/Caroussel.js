@@ -8,11 +8,13 @@ import React, {useState} from 'react'
 
 function Caroussel(){
     const imgCount = 16;
-    const cardPerPage = 3;
+    const cardPerPage = 4;
 
     const [startIndex, setStartIndex] = useState(0);
     const [isValidRight, setIsValidRight] = useState(true);
     const [isValidLeft, setIsValidLeft] = useState(false);
+    const newIsValidLeft = true;
+    const newIsValidRight = true;
 
     const divCards = [];
     for(let i=0; i < imgCount; i++){
@@ -22,6 +24,9 @@ function Caroussel(){
     const handleNextRightPage = () => {
          if(startIndex + cardPerPage < divCards.length) {
             setStartIndex(startIndex + cardPerPage);
+            if(!isValidLeft){
+                setIsValidLeft(newIsValidLeft);
+            }
         } else {
             setIsValidRight(!isValidRight)
         }
@@ -30,10 +35,11 @@ function Caroussel(){
     const handleNextLefttPage = () => {
         if (startIndex - cardPerPage > 3) {
             setStartIndex(startIndex - cardPerPage);
-            
+            if(!isValidRight){
+                setIsValidRight(newIsValidRight);
+            }
         } else { 
-            setIsValidLeft(isValidLeft);        
-                
+            setIsValidLeft(!newIsValidLeft);        
         }
     };
     
@@ -45,14 +51,16 @@ function Caroussel(){
             </div>
             <div className="page">
 
-                <img onClick={handleNextLefttPage} src={flecheGauche} alt="icone-flecheGauche" className={isValidLeft ? 'icone-fleche-gauche' : 'icone-fleche-gauche-unable'} height="50px" width="50px"/>
+                <img onClick={handleNextLefttPage} src={flecheGauche} alt="icone-flecheGauche" 
+                className={isValidLeft ? 'icone-fleche-gauche' : 'icone-fleche-gauche-unable'} height="50px" width="50px"/>
 
                 {divCards.slice(startIndex, startIndex + cardPerPage).map((divCard, index) => (
                 <div key={index}>{divCard}</div>
                 ))}  
 
         
-                <img onClick={handleNextRightPage} src={flecheDroite} alt="icone-flecheDroite" className={isValidRight ? 'icone-fleche-droite' : 'icone-fleche-droite-unable'} height="50px" width="50px"/>
+                <img onClick={handleNextRightPage} src={flecheDroite} alt="icone-flecheDroite" 
+                className={isValidRight ? 'icone-fleche-droite' : 'icone-fleche-droite-unable'} height="50px" width="50px"/>
 
 
             </div>

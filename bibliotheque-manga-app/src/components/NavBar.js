@@ -56,7 +56,7 @@ function NavBar(){
                     </Link>
                 </li>
                 <li>
-                    <Link to="paramètre">
+                    <Link to="Parametre">
                         <img src={parametres} alt="icone-paramètre" height="40px" width="40px"/>
                     </Link>
                 </li>

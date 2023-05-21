@@ -6,6 +6,7 @@ import BlockCarte from '../BlockCarte'
 import Pagination from '../Pagination'
 import { useState } from 'react'
 import '../../../styles/Carte.css'
+import '../../../styles/CatalogueManga.css'
 
 export default function CatalogueManga() {
   const [nbCard, setNbCard] = useState(12);
@@ -24,7 +25,7 @@ export default function CatalogueManga() {
   
 
   return (
-    <div>
+    <div className='container'>
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue></SearchBarCatalogue>
       <CatalogueFiltre></CatalogueFiltre>
@@ -34,7 +35,11 @@ export default function CatalogueManga() {
           {tabCards}  
         </div>
       </div>
-      <Pagination></Pagination>
+      <div classNameName="container-pagination">
+            <div className="sous-container-pagination">
+              <Pagination></Pagination>
+            </div>
+      </div>
     </div>
   )
 }
