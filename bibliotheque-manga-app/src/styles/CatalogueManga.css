@@ -7,6 +7,14 @@
     align-items: center;
 }
 
+.button-filtre-component {
+    width: 70%;
+}
+
+.container .button-filtre-component {
+    align-self: center;
+}
+
 .blockCarteManga {
     width: 70%;
     height: auto;
@@ -30,6 +38,7 @@
     display: flex;
     margin-top: 20px;
 }
+
 
 /*----------------------------------------- PAGINATION --------------------------------------*/
 

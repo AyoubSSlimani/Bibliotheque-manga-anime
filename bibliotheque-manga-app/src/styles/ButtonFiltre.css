@@ -1,0 +1,10 @@
+.button-filtre button {
+    background-color: #3a86ff;
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+}

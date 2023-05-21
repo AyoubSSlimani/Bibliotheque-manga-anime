@@ -1,5 +1,5 @@
 .blockTrier {
-    width: 70%;
+    width: 100%;
     height: auto;
     background-color: #662D91;
     border-radius: 5px;
@@ -10,82 +10,6 @@
 
 .blockTrier h3, p {
     color: white;
-}
-
-.container-nbr-chapitre {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.sous-container-nbr-chapitre {
-    width: 50%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-left: 30px;
-}
-
-.signe-inferieur {
-    transform: rotate(90deg);
-}
-
-.moinsDe, .plusDe {
-    height: 30px;
-    width: 30px;
-    background-color: white;
-    display: flex;
-}
-
-.moinsDe input, .plusDe input {
-    width: 40px;
-    border: none;
-    background-color: transparent;
-}
-
-.moinsDe input:focus, .plusDe input:focus {
-    outline: none;
-}
-
-
-input[type="checkbox"] {
-    transform: scale(2.3); 
-  }
-
-.checkboxText {
-    display: flex;
-    margin-left: 10px;
-}
-
-.checkboxText input {
-    margin-right: 15px;
-}
-
-.container-genre {
-    margin-left: 15px;
-    width: auto;
-    height: 60%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.sous-container-genre {
-    width: 50%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.genre {
-    padding-left: 15px;
-    padding-bottom: 15px;
 }
 
 .petitContainer3 {

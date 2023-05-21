@@ -7,6 +7,7 @@ import Pagination from '../Pagination'
 import { useState } from 'react'
 import '../../../styles/Carte.css'
 import '../../../styles/CatalogueManga.css'
+import ButtonFiltre from '../ButtonFiltre'
 
 export default function CatalogueManga() {
   const [nbCard, setNbCard] = useState(12);
@@ -28,7 +29,9 @@ export default function CatalogueManga() {
     <div className='container'>
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue></SearchBarCatalogue>
-      <CatalogueFiltre></CatalogueFiltre>
+      <div className='button-filtre-component'>
+        <ButtonFiltre></ButtonFiltre>
+      </div>
       <div className='blockCarteManga'>
         <BlockCarte nbCard={nbCard} handleSelectChange={handleSelectChange}/>
         <div className="container-card">

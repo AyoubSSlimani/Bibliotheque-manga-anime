@@ -8,7 +8,7 @@ import React, {useState} from 'react'
 
 function Caroussel(){
     const imgCount = 16;
-    const cardPerPage = 4;
+    const cardPerPage = 3;
 
     const [startIndex, setStartIndex] = useState(0);
     const [isValidRight, setIsValidRight] = useState(true);
