@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../styles/Carte.css'
 import ImageManga from '../../assets/A_l_Aube_d_une_grande_aventure_One_Piece_tome_1-361143691.jpg'
+import ButtonOptionCard from './ButtonOptionCard'
 
 export default function Carte() {
   return (
@@ -13,8 +14,7 @@ export default function Carte() {
             <h4>Nom</h4>
         </div>
 
-        <div className="icone-option-card">
-        </div>
+        <ButtonOptionCard />
     </div>
   )
 }

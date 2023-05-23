@@ -49,5 +49,7 @@
 
 .btn-effacer-tri:hover {
     background-color: lightgrey;
+    color: #33B5DF;
+    border: 1px solid #33B5DF;
     cursor: pointer;
 }

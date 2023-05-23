@@ -25,6 +25,8 @@ export default function CatalogueManga() {
 
   
 
+  
+
   return (
     <div className='container'>
       <h1>Catalogue Manga</h1>

@@ -51,22 +51,6 @@
     position: relative;
 }
 
-.icone-option-card {
-    position: absolute;
-    right: 1%;
-    margin-top: 4px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-image: url(../assets/add.png);
-    background-color: white;
-    background-size: cover;
-}
-
-.icone-option-card:hover {
-    background-color: pink;
-}
-
 .card:hover {
     background-color: lightgrey;
     cursor: pointer;

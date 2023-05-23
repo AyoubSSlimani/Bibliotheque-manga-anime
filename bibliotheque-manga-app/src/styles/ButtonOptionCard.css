@@ -1,0 +1,23 @@
+.icone-option-card {
+    position: absolute;
+    right: 1%;
+    margin-top: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url(../assets/add.png);
+    background-color: white;
+    background-size: cover;
+}
+
+.icone-option-card:hover {
+    background-color: pink;
+}
+
+.option-deffilement {
+    width: 60px;
+    height: 40px;
+    border: 1px solid black;
+    position: relative;
+    left: 30px;
+}

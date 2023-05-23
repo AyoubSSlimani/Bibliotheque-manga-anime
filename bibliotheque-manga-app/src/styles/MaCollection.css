@@ -1,0 +1,106 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-ma-collection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* --------------------------------------------------- OPTION MENU ------------------------------------- */
+.option-menu {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.title-menu-left {
+    display: flex;
+    justify-content: space-around;
+    width: 17%;
+    font-size: 30px;
+    height: 80px;
+    background-color: red;
+}
+
+.new-page {
+    display: flex;
+    justify-content: space-between;
+    width: 74%;
+}
+
+.new-page .icon-add {
+    align-self: center;
+    padding-top: 12px;
+}
+
+.title-menu-right {
+    display: flex;
+}
+
+.button-title:hover {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 8px solid black;
+}
+
+
+.button-filter {
+    height: 40px;
+    width: 110px;
+    font-size: 20px;
+    background-color: #8EED62;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.button-filter:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid #8EED62;
+    color: #8EED62;
+}
+
+.loupe:hover {
+    cursor: pointer;
+}
+
+
+
+/* ------------------------------------------------------------- CONTAINER CARD ------------------------------------*/
+
+.container-card-ma-collection {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+    height: auto;
+    background-color: blueviolet;
+    
+}
+
+.sous-container-card-ma-collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+    background-color: brown;
+    padding: 60px;
+}
+
+
+
+
+
+
