@@ -26,33 +26,58 @@
 
 .title-menu-left {
     display: flex;
-    justify-content: space-around;
-    width: 17%;
-    font-size: 30px;
-    height: 80px;
-    background-color: red;
-}
-
-.new-page {
-    display: flex;
     justify-content: space-between;
-    width: 74%;
+    align-items: center;
+    width: auto;
+    font-size: 30px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
-.new-page .icon-add {
-    align-self: center;
-    padding-top: 12px;
+.title-menu-left .new-page {
+    padding-left: 15px;
 }
 
 .title-menu-right {
     display: flex;
 }
 
-.button-title:hover {
+.button-title {
     display: flex;
     align-items: center;
-    padding: 15px;
-    border-bottom: 8px solid black;
+    align-content: center;
+    height: 60px;
+    width: auto;
+    justify-content: space-between;
+}
+
+
+
+.button-underline {
+    border-bottom: 2px solid transparent;
+}
+
+.button-underline:hover {
+    border-bottom: 2px solid black;
+}
+
+.current-button-underline {
+    border: 2px solid black;
+}
+
+.blabla {
+    border: 2px solid black;
+}
+
+
+
+.button-title:hover {
+    cursor: pointer;
+}
+
+.icon-add {
+    padding-top: 11px;
+    padding-left: 10px;
 }
 
 
@@ -76,6 +101,9 @@
     cursor: pointer;
 }
 
+.container-new-page {
+    display: flex;
+}
 
 
 /* ------------------------------------------------------------- CONTAINER CARD ------------------------------------*/

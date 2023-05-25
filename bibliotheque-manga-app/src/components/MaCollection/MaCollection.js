@@ -2,10 +2,10 @@ import React, {useState } from 'react'
 import '../../styles/MaCollection.css'
 import Carte from '../CatalogueChoix/Carte';
 import '../../styles/Carte.css'
-import buttonPlus from '../../assets/btn-plus.png'
 import loupe from '../../assets/loupe.png'
 import MaCollectionFiltre from './MaCollectionFiltre';
 import MaCollectionSearchBar from './MaCollectionSearchBar';
+import Newpage from './Newpage';
 
 export default function MaCollection() {
 
@@ -16,7 +16,6 @@ export default function MaCollection() {
     const [windowPosition, setWindowPosition] = useState({ x: 0, y: 0 });
 
     const handleIconClick = (event) => {
-        // Récupère la position de l'icône cliquée
         const { clientX, clientY } = event;
         setWindowPosition({ x: clientX, y: clientY });
         setShowWindow(true);
@@ -34,14 +33,7 @@ export default function MaCollection() {
             setFiltreVisible(false);
         }
     }
-
-    // const handleSearchBarClick = () => {
-    //     if(!isSearchBarVisible){
-    //         setSearchBarVisible(true);
-    //     } else {
-    //         setSearchBarVisible(false);
-    //     }
-    // }
+    
 
     const nbCard = 10;
 
@@ -49,18 +41,48 @@ export default function MaCollection() {
     for(let i=0; i < nbCard; i++){
         tabCards.push(<Carte key={i}></Carte>);
     }
+
+    // PERMET DE CREER UNE NOUVELLE PAGE A CHAQUE CLIC SUR "NEWPAGE +"
+    
+    
+    
+    
+    
+    // PERMET DE MONTRER SUR QUELLE PAGE ON EST 
+    
+    // const handleCurrentPageClick = (event) => { 
+    //     event.target.classList.add('current-button-underline');
+        
+    // }
+
+     const changeClass = (event) => {
+        let secondTarget = '';
+        
+
+
+
+        };
+
+       
+      };
+
+      
+    
+
+
   return (
     <div className='container'>
         <div className='container-ma-collection'>
 
             <div className='option-menu'>
                 <div className='title-menu-left'>
-                    <h3 className='button-title'>All</h3>
-                    <div className='new-page button-title'>
-                        <h3 className='' >New Page</h3>
-                        <img src={buttonPlus} className='icon-add' alt="ajouter" width="30px" height="30px" />
-                    </div>
-                </div>
+                    <div className={`all button-title button-underlin blabla`} onClick={changeClass}>
+                        All
+                    
+                    <Newpage changeClass={changeClass}/>
+                    </div>             
+                    
+                </div>  
 
                 <div className='title-menu-right'>
                     <button className='button-filter' onClick={handleButtonClick}>Filtrer</button>
