@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles/SearchBarCatalogue.css'
-import loupe from '../../assets/loupe.png'
+import '../../../../styles/SearchBarCatalogue.css'
+import loupe from '../../../../assets/loupe.png'
 
 function SearchBarCatalogue(){
     return(

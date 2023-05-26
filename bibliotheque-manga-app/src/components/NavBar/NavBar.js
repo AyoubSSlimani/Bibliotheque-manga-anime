@@ -1,10 +1,10 @@
-import '../styles/NavBar.css'
-import loupe from '../assets/loupe.png'
-import abri from '../assets/abri.png'
-import livreOuvert2 from '../assets/livreOuvert2.png'
-import coffreAuTresor from '../assets/coffreAuTresor.png'
-import profilUser from '../assets/profilUser.png'
-import parametres from '../assets/parametres.png'
+import '../../styles/NavBar.css'
+import loupe from '../../assets/loupe.png'
+import abri from '../../assets/abri.png'
+import livreOuvert2 from '../../assets/livreOuvert2.png'
+import coffreAuTresor from '../../assets/coffreAuTresor.png'
+import profilUser from '../../assets/profilUser.png'
+import parametres from '../../assets/parametres.png'
 import { Link } from 'react-router-dom'
 
 

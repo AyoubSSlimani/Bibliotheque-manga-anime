@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CatalogueFiltre from './CatalogueFiltre';
-import '../../styles/ButtonFiltre.css'
+import '../../../../styles/ButtonFiltre.css'
 
 export default function ButtonFiltre() {
 
@@ -16,7 +16,7 @@ export default function ButtonFiltre() {
 
   return (
     <div className='button-filtre'>
-        <button  onClick={handleButtonClick}>
+        <button  onClick={handleButtonClick}>   
             Filtrer
         </button>
         {isDivVisible && <CatalogueFiltre></CatalogueFiltre>}

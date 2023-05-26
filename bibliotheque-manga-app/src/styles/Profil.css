@@ -1,0 +1,69 @@
+.container-profil{
+    border: 2px solid black;
+}
+
+
+.fond-ecran{
+    border: 0.2px solid black;
+    width:100%;
+    height: 300px;
+    background-image: url('../assets/naruroUzumaki.png');
+    background-size: cover;
+    background-position: center;
+    
+}
+.photo-profil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px; /* Double du rayon pour obtenir le diamètre */
+    height: 350px; /* Double du rayon pour obtenir le diamètre */
+    border-radius: 175px; /* Rayon de 100px pour obtenir le cercle */
+    background-color: #fff;
+    color: #fff;
+    text-align: center;
+    line-height: 200px; /* Centre verticalement le texte */
+    font-size: 18px;
+    z-index: 2;
+    background-image:url('../assets/naruroUzumaki.png');
+    background-size: contain;
+    background-position: center;
+    mask-image: radial-gradient(circle at center, white 51%); /* Masque l'image avec un dégradé radial pour obtenir la rondeur */
+    
+    
+}   
+
+.pseudo-titre-biographie{
+width: 100%;
+height: 300px;
+margin-left: 5px;
+margin-right: 5px;
+border: 1px solid black;
+
+}
+
+.watchtime{
+    width: 100%;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+}
+
+.mes-badges{
+    width: 100%;
+    height: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+}
+
+.statistiques{
+
+    width: 100%;
+    height: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/BlockCarte.css'
+import '../../../../styles/BlockCarte.css'
 
 
 export default function BlockCarte({nbCard, handleSelectChange}) {

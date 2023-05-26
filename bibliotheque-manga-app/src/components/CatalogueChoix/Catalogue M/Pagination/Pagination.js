@@ -1,7 +1,7 @@
 import React from 'react'
-import '../../styles/Pagination.css'
+import '../../../../styles/Pagination.css'
 import { Link } from 'react-router-dom'
-import FlecheVersLeBas from '../../assets/fleche-vers-le-bas-pour-naviguer.png'
+import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png'
 
 
 

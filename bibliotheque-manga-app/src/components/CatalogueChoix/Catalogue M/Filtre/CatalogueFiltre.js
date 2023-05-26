@@ -1,12 +1,13 @@
-import React from 'react'
-import '../../styles/CatalogueFiltre.css'
-import CheckboxGenre from '../CheckboxGenre'
+import React, { useState } from 'react'
+import '../../../../styles/CatalogueFiltre.css'
+import CheckboxGenre from './CheckboxGenre'
 import BlockNombreChapitre from './BlockNombreChapitre'
 
 
 export default function CatalogueFiltre() {
+
     
-  return (
+  return ( 
     <div className="blockTrier">
             <BlockNombreChapitre></BlockNombreChapitre>
             <CheckboxGenre></CheckboxGenre>

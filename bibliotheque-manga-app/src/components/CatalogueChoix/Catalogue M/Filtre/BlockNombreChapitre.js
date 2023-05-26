@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../styles/BlockNombreChapitre.css'
-import flecheVersLeBas2 from '../../assets/fleche-vers-le-bas2.png'
+import '../../../../styles/BlockNombreChapitre.css'
+import flecheVersLeBas2 from '../../../../assets/fleche-vers-le-bas2.png'
 
 
 export default function BlockNombreChapitre() {
