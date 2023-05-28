@@ -7,6 +7,9 @@ import CatalogueAnime from './CatalogueChoix/Catalogue M/CatalogueAnime/Catalogu
 import CatalogueChoix from './CatalogueChoix/CatalogueChoix';
 import MaCollection from './MaCollection/MaCollection';
 import Profil from './Profil/Profil'
+
+
+
 function App() {
   return (
     <div>
@@ -26,7 +29,7 @@ function App() {
         <Route path='/Ma-collection' element={<MaCollection />} />
         <Route path='/Profil' element={<Profil />} />
     </Routes>
-
+    
     </div>
   );
 }
