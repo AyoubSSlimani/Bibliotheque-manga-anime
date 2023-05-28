@@ -1,47 +1,25 @@
-import React, { useState } from 'react'
-import {tabGenre} from '../../../../data/DataGenre.js'
-import '../../../../styles/CheckboxGenre.css'
+import React from 'react';
+import { tabGenre } from '../../../../data/DataGenre.js';
+import '../../../../styles/CheckboxGenre.css';
 
-export default function CheckboxGenre() {
-
-
-    // const divGenre = [];
-    // for(let i=0; i < nbGenre; i++){
-    //     divGenre.push(<CheckboxGenre key={i}></CheckboxGenre>);
-    // }
-
-    // for(let i=0; i < tabGenre.length; i++){
-    //     divGenre.push(
-    //     <div className="checkboxText genre">
-    //       <input type="checkbox"/>
-    //       <p>{tabGenre[i]}</p>
-    //     </div>
-    //     )
-    // }
-    
-    // const [tabGenre, setGenreSelected] = useState(false);
-
-    // const selectGenre = (id) => {
-    //   const updatedTabGenre = tabGenre.map((genre, index) => {
-    //     if(index === id){
-          
-    //     }
-      // });
-      
-    
-   
+export default function CheckboxGenre({ checked, onCheckboxChange, onUncheckAll }) {
   return (
     <div className="container-genre">
-        <div className={`sous-container-genre`} >
-          {tabGenre.map((genre, index) => (
-            <div key={index} className="checkboxText genre">
-            <input type="checkbox" />
-        
+      <div className="sous-container-genre">
+        {tabGenre.map((genre, index) => (
+          <div key={index} className={genre}>
+            <input
+              type="checkbox"
+              checked={checked[genre] || false}
+              onChange={() => onCheckboxChange(genre)}
+            />
             <p>{genre}</p>
           </div>
-          ))
-          }
-        </div>
+        ))}
+      </div>
+      <button onClick={onUncheckAll}>Décocher tout</button>
     </div>
-  )
-        };
+    
+  );
+
+}

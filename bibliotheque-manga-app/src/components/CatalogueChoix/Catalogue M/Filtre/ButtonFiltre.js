@@ -1,26 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import CatalogueFiltre from './CatalogueFiltre';
-import '../../../../styles/ButtonFiltre.css'
+import '../../../../styles/ButtonFiltre.css';
 
 export default function ButtonFiltre() {
+  const [isDivVisible, setDivVisible] = useState(false);
 
-    const [isDivVisible, setDivVisible] = useState(false);
 
-    const handleButtonClick = () => {
-        if(!isDivVisible){
-            setDivVisible(true);
-        } else {
-            setDivVisible(false);
-        }
+  const handleButtonClick = () => {
+    if (!isDivVisible) {
+      setDivVisible(true);
+    } else {
+      setDivVisible(false);
     }
+  };
+
+  
+
 
   return (
     <div className='button-filtre'>
-        <button  onClick={handleButtonClick}>   
-            Filtrer
-        </button>
-        {isDivVisible && <CatalogueFiltre></CatalogueFiltre>}
+      <button onClick={handleButtonClick}>Filtrer</button>
+      {isDivVisible && (
+        <CatalogueFiltre
+        
+          
+        />
+      )}
     </div>
-  )
-  
+  );
 }
