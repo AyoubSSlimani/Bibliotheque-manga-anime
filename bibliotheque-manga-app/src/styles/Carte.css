@@ -1,18 +1,3 @@
-.blockCarteManga {
-    width: 70%;
-    height: auto;
-    background-color: #662D91;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.blockCarteManga .container-card {
-    align-self: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
 
 .select-nbr-card {
     width: 10%;
@@ -27,20 +12,16 @@
 }
 
 
-.container-card {
-    width: 70%;
-    height: auto;
-    margin-bottom: 10px;
+.sous-container-card {
+    width: 100%;
     display: flex;
-    margin-top: 20px;
-    grid-template-columns: repeat(2, 1fr); /* Deux colonnes avec largeur égale */
-    grid-gap: 20px; /* Espacement entre les cartes */
+    flex-wrap: wrap;
 }
 
 .card {
     background-color: white;
     border: 2px solid black;
-    width: 200px;
+    width: 180px;
     height: 268px;
     display: flex;
     flex-wrap: wrap;
@@ -49,6 +30,7 @@
     margin-bottom: 30px;
     padding-top: 10px;
     position: relative;
+    margin-left: 10px;
 }
 
 .card:hover {

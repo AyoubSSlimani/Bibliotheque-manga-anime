@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SearchBarCatalogue from '../SearchBar/SearchBarCatalogue'
 import CatalogueFiltre from '../Filtre/CatalogueFiltre'
 import Carte from '../BlockCarte/Carte'
 import BlockCarte from '../BlockCarte/BlockCarte'
 import Pagination from '../Pagination/Pagination'
-import { useState } from 'react'
 import '../../../../styles/Carte.css'
 import '../../../../styles/CatalogueManga.css'
 import ButtonFiltre from '../Filtre/ButtonFiltre'
@@ -12,6 +11,8 @@ import ButtonFiltre from '../Filtre/ButtonFiltre'
 
 export default function CatalogueManga() {
   const [nbCard, setNbCard] = useState(12);
+  const [isDivVisible, setDivVisible] = useState(false);
+
 
   const handleSelectChange = (event) => {
     const newValue = parseInt(event.target.value, 10); // Convertir la valeur en nombre entier
@@ -25,8 +26,15 @@ export default function CatalogueManga() {
 
   
   
-  // console.log(tabCards);
+    // console.log(tabCards);
 
+    const handleButtonClick = () => {
+        if(!isDivVisible){
+            setDivVisible(true);
+        } else {
+            setDivVisible(false);
+        }
+    }
   
 
   
@@ -36,18 +44,18 @@ export default function CatalogueManga() {
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue></SearchBarCatalogue>
       <div className='button-filtre-component'>
-        <ButtonFiltre></ButtonFiltre>
+        <ButtonFiltre handleButtonClick={handleButtonClick}></ButtonFiltre>
+        {isDivVisible && <CatalogueFiltre></CatalogueFiltre>}
       </div>
       <div className='blockCarteManga'>
         <BlockCarte nbCard={nbCard}  handleSelectChange={handleSelectChange}/>
         <div className="container-card">
-          {/* {tabCards}   */}
-          <Carte></Carte>
+          <Carte nbCard={nbCard} handleSelectChange={handleSelectChange}></Carte>
         </div>
       </div>
       <div classNameName="container-pagination">
             <div className="sous-container-pagination">
-              <Pagination></Pagination>
+              <Pagination nbCard={nbCard}></Pagination>
             </div>
       </div>
     </div>

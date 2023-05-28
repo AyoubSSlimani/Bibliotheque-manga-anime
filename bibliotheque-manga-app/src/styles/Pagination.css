@@ -23,7 +23,25 @@
     overflow: hidden;
 }
 
+.bg-fleche-unable {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
 .bg-fleche img {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    top: 20%;
+    left: 20%;
+}
+
+.bg-fleche-unable img {
     position: absolute;
     max-width: 100%;
     height: auto;
@@ -42,4 +60,8 @@
 
 .bg-fleche:hover {
     background-color: blue;
+}
+
+.nombre-page {
+    display: flex;
 }
