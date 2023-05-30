@@ -35,6 +35,8 @@ export default function Pagination({nbCard}) {
 
     nombreDePage(nbCard, tabManga.length);
 
+   
+
     //Fonction qui permet de changer la couleur des flèches de pagination par rapport au nombre de page suivant ou précédent
     
     // const [startIndex, setStartIndex] = useState(0);

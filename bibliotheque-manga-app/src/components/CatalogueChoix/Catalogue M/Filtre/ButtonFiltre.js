@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import CatalogueFiltre from './CatalogueFiltre';
 import '../../../../styles/ButtonFiltre.css';
 
-export default function ButtonFiltre() {
-  const [isDivVisible, setDivVisible] = useState(false);
+
+export default function ButtonFiltre({checked, onCheckboxChange, onUncheckAll}) {
+    const [isDivVisible, setDivVisible] = useState(false);
 
 
-  const handleButtonClick = () => {
-    if (!isDivVisible) {
-      setDivVisible(true);
-    } else {
-      setDivVisible(false);
-    }
-  };
+    const handleButtonClick = () => {
+      if (!isDivVisible) {
+        setDivVisible(true);
+      } else {
+        setDivVisible(false);
+      }
+    };
 
-  
 
 
   return (
@@ -22,7 +22,9 @@ export default function ButtonFiltre() {
       <button onClick={handleButtonClick}>Filtrer</button>
       {isDivVisible && (
         <CatalogueFiltre
-        
+        checked={checked} 
+        onCheckboxChange={onCheckboxChange} 
+        onUncheckAll={onUncheckAll}
           
         />
       )}
