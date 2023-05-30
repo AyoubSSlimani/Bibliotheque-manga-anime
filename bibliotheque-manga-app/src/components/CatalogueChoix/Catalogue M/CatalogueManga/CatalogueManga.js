@@ -17,18 +17,8 @@ export default function CatalogueManga() {
 
 
   const handleSelectChange = (event) => {
-    const newValue = parseInt(event.target.value, 10); // Convertir la valeur en nombre entier
-    setNbCard(newValue);}
-
-
-  // const tabCards = [];
-  // for(let i=0; i < nbCard; i++){
-  //   tabCards.push(<Carte key={i}></Carte>);
-  // }
-
-  
-  
-    // console.log(tabCards);
+  const newValue = parseInt(event.target.value, 10);
+  setNbCard(newValue);}
     
 
     const [checked, setChecked] = useState(() => {
@@ -61,6 +51,7 @@ export default function CatalogueManga() {
     const checkedGenres = Object.keys(checked).filter((genre) => checked[genre]);
   
 
+    //Fonction qui permet de trier les cartes en fonction des checkbox
     const handleTrierClick = () => {
 
       if (checkedGenres.length === 0) {
