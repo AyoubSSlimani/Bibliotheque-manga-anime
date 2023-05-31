@@ -6,7 +6,7 @@ import { tabManga } from '../../../../data/DataGenre'
 
 
 
-export default function Pagination({nbCard}) {
+export default function Pagination({nbCard, handlePageChange, totalPages, currentPage}) {
 
     //Fonction pagination()
     //Prend en paramètre le nombre de carte à afficher par page (CLEAR)
@@ -17,23 +17,24 @@ export default function Pagination({nbCard}) {
     //Lorsque je change de page avec la flèche de droite la flèche de gauche change de couleur
 
 
-    console.log(nbCard);
-    const pages = [];
+    // const pages = [];
 
     //Fonction qui permet d'afficher le nombre de page en fonction du nombre de carte et du nombre de carte par page
-    const nombreDePage = (nbCarteParPage, nbCarte) => {
-        let page = 1;
-        if(nbCarteParPage < nbCarte){
-        for(let i=0; i < nbCarte / nbCarteParPage; i++){
-            pages.push(<Link to="" className="page">{page++}</Link>);
-        }} else if(nbCarte == 0) {
-            pages.push(<Link to="" className="page"></Link>);
-        } else {
-            pages.push(<Link to="" className="page">1</Link>);
-        }
-    }
+    // const nombreDePage = (nbCarteParPage, nbCarte) => {
+    //     let page = 1;
+    //     if(nbCarteParPage < nbCarte){
+    //     for(let i=0; i < nbCarte / nbCarteParPage; i++){
+    //         pages.push(<Link to="" className="page">{page++}</Link>);
+    //     }} else if(nbCarte == 0) {
+    //         pages.push(<Link to="" className="page"></Link>);
+    //     } else {
+    //         pages.push(<Link to="" className="page">1</Link>);
+    //     }
+    // }
 
-    nombreDePage(nbCard, tabManga.length);
+    // nombreDePage(nbCard, tabManga.length);
+
+    
 
    
 
@@ -59,27 +60,27 @@ export default function Pagination({nbCard}) {
     // }
 
 
-    
+    const isDisabled = currentPage === totalPages;
 
 
   return (
         <nav className="page">
-            <Link to=""className="prev">
-                {/* <div className={isValidLeftPage? 'bg-fleche' : 'bg-fleche-unable'}> */}
-                <div  className='bg-fleche'>
-                    <img src={FlecheVersLeBas} alt="fleche-gauche" width="25px" height="25px"/>
-                </div>
-            </Link>
+            <button  className='bg-fleche prev' onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                <img src={FlecheVersLeBas} alt="fleche-gauche" width="25px" height="25px"/>
+            </button>
             <div className='nombre-page'>
-                {pages}
+                {Array.from(Array(totalPages).keys()).map((index) => (
+                    <button className={currentPage ? 'current-button' : 'other-button' }
+                        key={index + 1}
+                        onClick={() => handlePageChange(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
             </div> 
-            <Link to="" className="next"> 
-                {/* <div onClick={handleNextLefttPage}  className='bg-fleche'> */}
-                <div  className='bg-fleche'>
-
-                    <img src={FlecheVersLeBas} alt="fleche-droite" width="25px" height="25px"/>
-                </div>
-            </Link>
+            <button  className='bg-fleche next' onClick={() => handlePageChange(currentPage + 1)} disabled={isDisabled}>
+                <img src={FlecheVersLeBas} alt="fleche-droite" width="25px" height="25px"/>
+            </button>
         </nav>
 
   )

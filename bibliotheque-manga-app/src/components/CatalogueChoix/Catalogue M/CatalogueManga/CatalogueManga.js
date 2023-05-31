@@ -18,7 +18,8 @@ export default function CatalogueManga() {
 
   const handleSelectChange = (event) => {
   const newValue = parseInt(event.target.value, 10);
-  setNbCard(newValue);}
+  setNbCard(newValue);
+}
     
 
     const [checked, setChecked] = useState(() => {
@@ -75,7 +76,19 @@ export default function CatalogueManga() {
       return filteredMangaList;
     };
 
-    console.log(handleTrierClick());
+    //Gérer la pagination 
+    const [totalItems, setTotalItems] = useState(handleTrierClick().length);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.ceil(totalItems / nbCard);
+
+    const handlePageChange = (pageNumber) => {
+      setCurrentPage(pageNumber);
+    };
+
+    const startIndex = (currentPage - 1) * nbCard;
+    const endIndex = startIndex + nbCard;
+    const currentItems = handleTrierClick().slice(startIndex, endIndex);
     
 
   return (
@@ -94,12 +107,24 @@ export default function CatalogueManga() {
       <div className='blockCarteManga'>
         <BlockCarte nbCard={nbCard}  handleSelectChange={handleSelectChange}/>
         <div className="container-card">
-          <Carte nbCard={nbCard} handleSelectChange={handleSelectChange} handleTrierClick={handleTrierClick} checked={checked}></Carte>
+          <Carte 
+          nbCard={nbCard} 
+          handleSelectChange={handleSelectChange} 
+          handleTrierClick={handleTrierClick} 
+          checked={checked} 
+          currentItems={currentItems}
+          currentPage={currentPage}
+          />
         </div>
       </div>
       <div classNameName="container-pagination">
             <div className="sous-container-pagination">
-              <Pagination nbCard={nbCard}></Pagination>
+              <Pagination 
+              nbCard={nbCard} 
+              handlePageChange={handlePageChange} 
+              totalPages={totalPages}
+              currentPage={currentPage}
+              />
             </div>
       </div>
     </div>
