@@ -30,6 +30,6 @@ export const tabManga = [
     {id:18 ,name: "Grand Blue", genre: ["Comédie", "Aventure"], cover: grandblue, terminer: false},
     {id:19 ,name: "Naruto", genre: ["Action", "Aventure"], cover: naruto, terminer: true},
     {id:20 ,name: "One Piece", genre: ["Action", "Aventure"], cover: onepiece,  terminer: false},
-    {id:21 ,name: "Grand Blue", genre: ["Comédie", "Aventure"], cover: grandblue, terminer: false},
+    {id:21 ,name: "Grand Blue", genre: ["Comédie", "Aventure"], cover: grandblue, terminer: true},
 
 ]

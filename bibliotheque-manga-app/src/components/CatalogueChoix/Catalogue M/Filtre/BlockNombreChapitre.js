@@ -3,7 +3,10 @@ import '../../../../styles/BlockNombreChapitre.css'
 import flecheVersLeBas2 from '../../../../assets/fleche-vers-le-bas2.png'
 
 
-export default function BlockNombreChapitre() {
+export default function BlockNombreChapitre({ handleTerminerChange, checkedTerminer }) {
+    const appelDeHandleTerminerChange = (event) => {
+        handleTerminerChange(event);
+    };
   return (
     <div className="container-nbr-chapitre">
         <div className="sous-container">
@@ -17,7 +20,11 @@ export default function BlockNombreChapitre() {
                     <input type="number"/>
                 </div>
                 <div className="checkboxText terminer">
-                    <input type="checkbox"/>
+                    <input type="checkbox"
+                    checked={checkedTerminer}
+                    onChange={appelDeHandleTerminerChange}
+                    name='terminer'
+                    />
                     <p>Terminé</p>
                 </div>
             </div>

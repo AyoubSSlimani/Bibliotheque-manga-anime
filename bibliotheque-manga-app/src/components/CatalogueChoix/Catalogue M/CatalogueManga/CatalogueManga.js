@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchBarCatalogue from '../SearchBar/SearchBarCatalogue'
 import CatalogueFiltre from '../Filtre/CatalogueFiltre'
 import Carte from '../BlockCarte/Carte'
@@ -13,6 +13,21 @@ import { tabGenre, tabManga } from '../../../../data/DataGenre';
 
 
 export default function CatalogueManga() {
+
+  const [searchText, setSearchText] = useState('');
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const searchText = event.target.elements.search.value;
+    event.target.reset();
+    console.log(searchText)
+  };
+  const handleChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+
   const [nbCard, setNbCard] = useState(12);
 
 
@@ -33,7 +48,10 @@ export default function CatalogueManga() {
       setChecked((prevState) => ({
         ...prevState,
         [genre]: !prevState[genre]
-      }));
+      }
+      ));
+
+    
      
     };
   
@@ -49,31 +67,58 @@ export default function CatalogueManga() {
     };
 
     const checkedGenres = Object.keys(checked).filter((genre) => checked[genre]);
-  
+
+    const [checkedTerminer, setCheckedTerminer] = useState(false);
+
+    
+
+    const handleTerminerChange = (event) => {
+      setCheckedTerminer(event.target.checked);
+      };
+    
+    
 
     //Fonction qui permet de trier les cartes en fonction des checkbox
     const handleTrierClick = () => {
+      if (checkedGenres.length === 0 && !checkedTerminer) {
+        // Aucun genre sélectionné et aucun filtrage par terminé, retourner la liste complète de mangas
+        return tabManga;
+      }
+    
+      let filteredMangaList = tabManga;
+    
+      if (checkedGenres.length > 0) {
+        // Filtrer par genres
+        filteredMangaList = filteredMangaList.filter((manga) => {
+          const mangaGenres = manga.genre;
+          const isMangaGenreMatched = mangaGenres.some((mangaGenre) =>
+            checkedGenres.includes(mangaGenre)
+          );
+          return isMangaGenreMatched;
+          
+        });
+      }
+    
+      if (checkedTerminer) {
+        // Filtrer par manga terminé (true)
+        filteredMangaList = filteredMangaList.filter((manga) => {
+          const mangaTerminer = manga.terminer;
+          return mangaTerminer === true;
+        });
+      }
 
-      if (checkedGenres.length === 0) {
-        // Aucun genre sélectionné, retourner la liste complète de mangas
-        return tabManga}
-      
-
-      const filteredMangaList = tabManga.filter((manga) => {
-        const mangaGenres = manga.genre;
-        
-
-        const isMangaGenreMatched = mangaGenres.some((mangaGenre) =>
-          checkedGenres.includes(mangaGenre)
-        );
-
-        return isMangaGenreMatched;
+      if (searchText) {
+        filteredMangaList = filteredMangaList.filter((manga) => {
+          
       });
-
-      // Faites ce que vous souhaitez avec la liste filtrée de mangas ici
       
+    }
+    
+      // Faites ce que vous souhaitez avec la liste filtrée de mangas ici
+    
       return filteredMangaList;
     };
+    
 
     console.log(handleTrierClick());
     
@@ -81,13 +126,22 @@ export default function CatalogueManga() {
   return (
     <div className='container'>
       <h1>Catalogue Manga</h1>
-      <SearchBarCatalogue></SearchBarCatalogue>
+      <SearchBarCatalogue 
+          handleSearchSubmit={handleSubmit}
+          handleSearchChange={handleChange}
+          searchText={searchText}>
+      </SearchBarCatalogue>
       <div className='button-filtre-component'>
         <div className='button-filtre'>
           <ButtonFiltre 
           checked={checked} 
           onCheckboxChange={handleCheckboxChange} 
           onUncheckAll={handleUncheckAll}
+          checkedTerminer={checkedTerminer}
+          handleTerminerChange={handleTerminerChange}
+          handleSearchSubmit={handleSubmit}
+          handleSearchChange={handleChange}
+          searchText={searchText}
           ></ButtonFiltre>
         </div>
       </div>
