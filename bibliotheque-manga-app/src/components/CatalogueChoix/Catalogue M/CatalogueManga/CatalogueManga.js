@@ -116,13 +116,17 @@ export default function CatalogueManga() {
     }
     
       // Faites ce que vous souhaitez avec la liste filtrée de mangas ici
-    
+      
       return filteredMangaList;
     };
     
 
     //Gérer la pagination 
     const [totalItems, setTotalItems] = useState(handleTrierClick().length);
+    useEffect(() => {
+      setTotalItems(handleTrierClick().length);
+    }, [handleTrierClick]);
+    
     const [currentPage, setCurrentPage] = useState(1);
 
     const totalPages = Math.ceil(totalItems / nbCard);
