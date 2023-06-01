@@ -23,14 +23,20 @@
     overflow: hidden;
 }
 
+.bg-fleche:hover {
+    color: pointer;
+}
+
+
 .bg-fleche-unable {
     width: 40px;
     height: 40px;
-    background-color: red;
+    background-color: grey;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
 }
+
 
 .bg-fleche img {
     position: absolute;
@@ -47,7 +53,7 @@
     height: auto;
     transform: translate(-50%, -50%);
     top: 20%;
-    left: 20%;
+    left: 10%;
 }
 
 .prev img {
@@ -59,6 +65,7 @@
 }
 
 .bg-fleche:hover {
+    cursor: pointer;
     background-color: blue;
 }
 
@@ -75,15 +82,15 @@
     color: blue;
 }
 
-.current-button:hover {
-    cursor: pointer;
-    color: white;
-}
-
 .current-button {
     border: none;
     padding: 0;
     background-color: transparent;
     color: white;
-    font-size: 35px;
+    font-size: 40px;
+}
+
+.current-button:hover, .other-button:hover {
+    cursor: pointer;
+    color: white;
 }

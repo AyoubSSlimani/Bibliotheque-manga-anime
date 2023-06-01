@@ -1,0 +1,9 @@
+.container-accueil {
+    display: flex;
+    background-color: red;
+    flex-direction: column;
+    align-items: center;
+    height: 60vw;
+    justify-content: space-around;
+
+}

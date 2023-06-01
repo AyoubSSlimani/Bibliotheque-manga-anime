@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.bg-image {
+/* .bg-image {
     border: 1px solid black;
     height: 110px;
     width: 190px;
@@ -22,13 +22,21 @@
     background-position: center top ;
     background-size: cover;
     border-radius: 10px;
+} */
+
+.carte-caroussel img {
+    width: 90%;
+    height: 50%;
+    margin-top: 10px;
 }
 
-h3 {
+.title-carte-carousel {
     height: 5px;
+    margin-bottom: -5px;
 }
 
 .ligne {
+    position: relative;
     width: 80%;
     border-bottom: 2px solid black;
     margin-bottom: 5px;

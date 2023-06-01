@@ -2,13 +2,16 @@
     width: auto;
     height: 60%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
 }
 
 .sous-container-genre {
     width: 90%;
     height: 200px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
 }

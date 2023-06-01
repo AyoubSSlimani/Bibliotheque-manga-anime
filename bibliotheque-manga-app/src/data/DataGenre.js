@@ -53,3 +53,28 @@ export const tabManga = [
     {id:41 ,name: "Grand Blue", genre: ["Comédie", "Aventure"], cover: grandblue, terminer: false},
 
 ]
+
+export const carousselNouveaute = [
+    {id:1 ,name: "Naruto", cover: naruto, type: "manga"},
+    {id:1 ,name: "One Piece", cover: onepiece, type: "manga"},
+    {id:1 ,name: "Naruto", cover: naruto, type: "manga"},
+    {id:1 ,name: "Grand Blue", cover: grandblue, type: "manga"},
+    {id:1 ,name: "Naruto", cover: naruto, type: "manga"},
+    {id:1 ,name: "One Piece", cover: onepiece, type: "manga"},
+    {id:1 ,name: "Naruto", type: "manga"},
+    {id:1 ,name: "Grand Blue", type: "manga"},
+]
+
+export const carousselDernierAjout = [
+    {id:1 ,name: "Narutodernierajout", cover: naruto, type: "manga"},
+    {id:1 ,name: "One Piece", cover: onepiece, type: "manga"},
+    {id:1 ,name: "Naruto", cover: naruto, type: "manga"},
+    {id:1 ,name: "Grand Blue", cover: grandblue, type: "manga"},
+]
+
+export const carousselPepite = [
+    {id:1 ,name: "Narutopepite", cover: naruto, type: "manga"},
+    {id:1 ,name: "One Piece", cover: onepiece, type: "manga"},
+    {id:1 ,name: "Naruto", cover: naruto, type: "manga"},
+    {id:1 ,name: "Grand Blue", cover: grandblue, type: "manga"},
+]

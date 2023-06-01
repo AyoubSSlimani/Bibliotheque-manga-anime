@@ -60,17 +60,20 @@ export default function Pagination({nbCard, handlePageChange, totalPages, curren
     // }
 
 
-    const isDisabled = currentPage === totalPages;
+    const pageOne = currentPage === 1;
+    const lastPage = currentPage === totalPages;
+
+
 
 
   return (
         <nav className="page">
-            <button  className='bg-fleche prev' onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+            <button  className={pageOne ? 'bg-fleche-unable prev' : 'bg-fleche prev'} onClick={() => handlePageChange(currentPage - 1)} disabled={pageOne}>
                 <img src={FlecheVersLeBas} alt="fleche-gauche" width="25px" height="25px"/>
             </button>
             <div className='nombre-page'>
                 {Array.from(Array(totalPages).keys()).map((index) => (
-                    <button className={currentPage ? 'current-button' : 'other-button' }
+                    <button className={currentPage === index + 1 ? 'current-button' : 'other-button' }
                         key={index + 1}
                         onClick={() => handlePageChange(index + 1)}
                     >
@@ -78,7 +81,7 @@ export default function Pagination({nbCard, handlePageChange, totalPages, curren
                     </button>
                 ))}
             </div> 
-            <button  className='bg-fleche next' onClick={() => handlePageChange(currentPage + 1)} disabled={isDisabled}>
+            <button  className={lastPage ? 'bg-fleche-unable next' : 'bg-fleche next'} onClick={() => handlePageChange(currentPage + 1)} disabled={lastPage}>
                 <img src={FlecheVersLeBas} alt="fleche-droite" width="25px" height="25px"/>
             </button>
         </nav>

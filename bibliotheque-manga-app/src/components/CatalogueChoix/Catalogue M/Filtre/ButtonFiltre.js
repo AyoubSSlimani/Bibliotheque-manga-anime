@@ -4,7 +4,9 @@ import '../../../../styles/ButtonFiltre.css';
 import BlockNombreChapitre from './BlockNombreChapitre';
 
 
-export default function ButtonFiltre({checked, onCheckboxChange, onUncheckAll, checkedTerminer, handleTerminerChange, handleSearchSubmit, handleSearchChange, searchText}) {
+export default function ButtonFiltre({
+  checked, onCheckboxChange, onUncheckAll, checkedTerminer, handleTerminerChange, handleSearchSubmit, handleSearchChange, searchText
+}) {
     const [isDivVisible, setDivVisible] = useState(false);
 
 

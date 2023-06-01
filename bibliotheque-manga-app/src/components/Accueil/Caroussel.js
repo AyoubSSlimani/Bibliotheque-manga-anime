@@ -1,65 +1,72 @@
 import '../../styles/Caroussel.css'
+import '../../styles/CarteCaroussel.css'
 import oeil from '../../assets/oeil.png'
 import flecheGauche from '../../assets/flecheGauche.png'
 import flecheDroite from '../../assets/flecheDroite.png'
-import CarteCaroussel from './CarteCaroussel'
 import React, {useState} from 'react' 
 
 
-function Caroussel(){
+
+function Caroussel({  title, data }){
     const imgCount = 16;
-    const cardPerPage = 3;
+    const cardPerPage = 4;
 
     const [startIndex, setStartIndex] = useState(0);
     const [isValidRight, setIsValidRight] = useState(true);
     const [isValidLeft, setIsValidLeft] = useState(false);
-    const newIsValidLeft = true;
-    const newIsValidRight = true;
-
-    const divCards = [];
-    for(let i=0; i < imgCount; i++){
-        divCards.push(<CarteCaroussel key={i}></CarteCaroussel>);
-    }
+    console.log(startIndex, isValidRight, isValidLeft)
 
     const handleNextRightPage = () => {
-         if(startIndex + cardPerPage < divCards.length) {
+         if(startIndex + cardPerPage < data.length) {
             setStartIndex(startIndex + cardPerPage);
             if(!isValidLeft){
-                setIsValidLeft(newIsValidLeft);
+                console.log("oui")
+                setIsValidLeft(true);
+            } else {
+                console.log("non")
+                setIsValidRight(false);
             }
+            
         } else {
-            setIsValidRight(!isValidRight)
+            setIsValidRight(false)
         }
     };
 
     const handleNextLefttPage = () => {
-        if (startIndex - cardPerPage > 3) {
+        if (startIndex - cardPerPage >= 0) {
             setStartIndex(startIndex - cardPerPage);
             if(!isValidRight){
-                setIsValidRight(newIsValidRight);
+                setIsValidRight(true);
+            } else {
+                setIsValidLeft(false);
             }
         } else { 
-            setIsValidLeft(!newIsValidLeft);        
+            setIsValidLeft(false);        
         }
     };
     
     return(
         <div className='containerCaroussel'>    
-            <div className="title">
+            <div className='title'>
                 <img src={oeil} alt="icone-oeil" className="icone-title" height="30px" width="30px"/>
-                <h2>Un titre</h2>
+                <h2>{title}</h2>
             </div>
             <div className="page">
 
-                <img onClick={handleNextLefttPage} src={flecheGauche} alt="icone-flecheGauche" 
-                className={isValidLeft ? 'icone-fleche-gauche' : 'icone-fleche-gauche-unable'} height="50px" width="50px"/>
+                <img  src={flecheGauche} onClick={handleNextLefttPage} alt="icone-flecheGauche" 
+                className={isValidLeft ? 'icone-fleche-gauche' : 'icone-fleche-gauche-unable' } height="50px" width="50px"/>
 
-                {divCards.slice(startIndex, startIndex + cardPerPage).map((divCard, index) => (
-                <div key={index}>{divCard}</div>
-                ))}  
+                {data.slice(startIndex, startIndex + cardPerPage).map((manga) => (
+                    <div key={manga.id} className="carte-caroussel">
+                    <img src={manga.cover}  alt={manga.name} height='50px' width='50px'/>
+                    <h3 className='title-carte-carousel'>{manga.name}</h3>
+                    <div className="ligne"></div>
+                    <div className="type">{manga.type}</div>
+                    </div>
+                ))}
 
         
-                <img onClick={handleNextRightPage} src={flecheDroite} alt="icone-flecheDroite" 
+                <img  src={flecheDroite} onClick={handleNextRightPage} alt="icone-flecheDroite" 
                 className={isValidRight ? 'icone-fleche-droite' : 'icone-fleche-droite-unable'} height="50px" width="50px"/>
 
 
