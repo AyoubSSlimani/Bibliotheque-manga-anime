@@ -4,18 +4,18 @@ import loupe from '../../../../assets/loupe.png';
 
 
 
-function SearchBarCatalogue({handleSearchSubmit, handleSearchChange, searchText}) {
-
+function SearchBarCatalogue({filterName, onFilterNameChange, handleTrierClick}) {
+ 
   
   return (
-    <form className="searchBar" onSubmit={handleSearchSubmit}>
+    <form className="searchBar" >
       <img src={loupe} alt="icone-loupe" width="50px" height="50px" />
       <input
         type="text"
         placeholder="RECHERCHER..."
         name="search"
-        value={searchText}
-        onChange={handleSearchChange}
+        value={filterName}
+        onChange={(e) => {onFilterNameChange(e.target.value)}}
       />
       <button type="submit" style={{ display: 'none' }}></button>
     </form>

@@ -77,16 +77,29 @@ export default function CatalogueManga() {
       setCheckedTerminer(event.target.checked);
       };
     
-    
+    const [filterName, setFilterName] = useState('');
 
     //Fonction qui permet de trier les cartes en fonction des checkbox
     const handleTrierClick = () => {
+      
+      
       if (checkedGenres.length === 0 && !checkedTerminer) {
         // Aucun genre sélectionné et aucun filtrage par terminé, retourner la liste complète de mangas
         return tabManga;
       }
     
       let filteredMangaList = tabManga;
+
+      if (filterName.length > 0) {
+        console.log(filterName)
+        filteredMangaList = filteredMangaList.filter((manga) => {
+          if (manga.name.toLowerCase().indexOf(filterName.toLowerCase()) === -1) {
+            return null;
+          } else if (manga.name.toLowerCase().indexOf(filterName.toLowerCase()) === 0) {
+            return manga.id;
+          }
+        });
+      }
     
       if (checkedGenres.length > 0) {
         // Filtrer par genres
@@ -96,7 +109,6 @@ export default function CatalogueManga() {
             checkedGenres.includes(mangaGenre)
           );
           return isMangaGenreMatched;
-          
         });
       }
     
@@ -107,29 +119,21 @@ export default function CatalogueManga() {
           return mangaTerminer === true;
         });
       }
-
-      if (searchText) {
-        filteredMangaList = filteredMangaList.filter((manga) => {
-          
-      });
-      
-    }
+    
+     
     
       // Faites ce que vous souhaitez avec la liste filtrée de mangas ici
-      
       return filteredMangaList;
     };
     
+    
 
     //Gérer la pagination 
-    const [totalItems, setTotalItems] = useState(handleTrierClick().length);
-    useEffect(() => {
-      setTotalItems(handleTrierClick().length);
-    }, [handleTrierClick]);
+    
     
     const [currentPage, setCurrentPage] = useState(1);
 
-    const totalPages = Math.ceil(totalItems / nbCard);
+    
 
     const handlePageChange = (pageNumber) => {
       setCurrentPage(pageNumber);
@@ -138,15 +142,32 @@ export default function CatalogueManga() {
     const startIndex = (currentPage - 1) * nbCard;
     const endIndex = startIndex + nbCard;
     const currentItems = handleTrierClick().slice(startIndex, endIndex);
+    console.log(startIndex, endIndex)
+
+    const [totalItems, setTotalItems] = useState(handleTrierClick().length);
+    
+    useEffect(() => {
+      setTotalItems(handleTrierClick().length);
+    }, [handleTrierClick]);
+    console.log(totalItems)
+
+    const totalPages = Math.ceil(totalItems / nbCard);
+
+    //Fonction qui permet de recherche un manga par son nom
+    
+    
+    
     
 
   return (
     <div className='container'>
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue 
-          handleSearchSubmit={handleSubmit}
-          handleSearchChange={handleChange}
-          searchText={searchText}>
+          filterName={filterName}
+          onFilterNameChange={setFilterName}
+          handleTrierClick={handleTrierClick}
+          >
+            
       </SearchBarCatalogue>
       <div className='button-filtre-component'>
         <div className='button-filtre'>
@@ -172,6 +193,8 @@ export default function CatalogueManga() {
           checked={checked} 
           currentItems={currentItems}
           currentPage={currentPage}
+          filterName={filterName}
+          setTotalItems={setTotalItems}
           />
         </div>
       </div>

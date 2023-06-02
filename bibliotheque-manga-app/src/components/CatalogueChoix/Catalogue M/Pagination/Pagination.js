@@ -65,7 +65,7 @@ export default function Pagination({nbCard, handlePageChange, totalPages, curren
 
 
 
-
+    
   return (
         <nav className="page">
             <button  className={pageOne ? 'bg-fleche-unable prev' : 'bg-fleche prev'} onClick={() => handlePageChange(currentPage - 1)} disabled={pageOne}>
