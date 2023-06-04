@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import SearchBarCatalogue from '../SearchBar/SearchBarCatalogue'
 import Carte from '../BlockCarte/Carte'
 import BlockCarte from '../BlockCarte/BlockCarte'
@@ -12,7 +12,7 @@ import { tabGenre, tabManga } from '../../../../data/DataGenre';
 
 
 export default function CatalogueManga() {
-  console.log("hello")
+
 
 
   const [nbCard, setNbCard] = useState(12);
@@ -185,6 +185,7 @@ export default function CatalogueManga() {
           currentPage={currentPage}
           filterName={filterName}
           setTotalItems={setTotalItems}
+         
           />
         </div>
       </div>
