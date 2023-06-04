@@ -5,7 +5,7 @@ import BlockNombreChapitre from './BlockNombreChapitre';
 
 
 export default function ButtonFiltre({
-  checked, onCheckboxChange, onUncheckAll, checkedTerminer, handleTerminerChange, handleSearchSubmit, handleSearchChange, searchText
+  checked, onCheckboxChange, onUncheckAll, checkedTerminer, handleTerminerChange
 }) {
     const [isDivVisible, setDivVisible] = useState(false);
 
@@ -30,10 +30,7 @@ export default function ButtonFiltre({
         onUncheckAll={onUncheckAll}
         checkedTerminer={checkedTerminer}
         handleTerminerChange={handleTerminerChange}
-        handleSearchSubmit={handleSearchSubmit}
-        handleSearchChange={handleSearchChange}
-        searchText={searchText}
-          
+       
         />
       )}
     </div>

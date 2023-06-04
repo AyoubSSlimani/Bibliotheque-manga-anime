@@ -1,4 +1,4 @@
-import React from 'react';
+
 import naruto from '../assets/CardNaruto.png'
 import onepiece from '../assets/CardOnePiece.png'
 import grandblue from '../assets/CardGrandBlue.png'

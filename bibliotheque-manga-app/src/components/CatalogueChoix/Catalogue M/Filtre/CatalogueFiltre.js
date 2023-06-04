@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../../../styles/CatalogueFiltre.css';
 import CheckboxGenre from './CheckboxGenre';
 import BlockNombreChapitre from './BlockNombreChapitre';

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import SearchBarCatalogue from '../SearchBar/SearchBarCatalogue'
-import CatalogueFiltre from '../Filtre/CatalogueFiltre'
 import Carte from '../BlockCarte/Carte'
 import BlockCarte from '../BlockCarte/BlockCarte'
 import Pagination from '../Pagination/Pagination'
@@ -13,19 +12,7 @@ import { tabGenre, tabManga } from '../../../../data/DataGenre';
 
 
 export default function CatalogueManga() {
-
-  const [searchText, setSearchText] = useState('');
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const searchText = event.target.elements.search.value;
-    event.target.reset();
-    console.log(searchText)
-  };
-  const handleChange = (event) => {
-    setSearchText(event.target.value);
-  };
+  console.log("hello")
 
 
   const [nbCard, setNbCard] = useState(12);
@@ -80,26 +67,16 @@ export default function CatalogueManga() {
     const [filterName, setFilterName] = useState('');
 
     //Fonction qui permet de trier les cartes en fonction des checkbox
-    const handleTrierClick = () => {
+    const handleTrierClick = useCallback(() => {
       
       
-      if (checkedGenres.length === 0 && !checkedTerminer) {
+      if (checkedGenres.length === 0 && !checkedTerminer && filterName.length === 0) {
         // Aucun genre sélectionné et aucun filtrage par terminé, retourner la liste complète de mangas
         return tabManga;
       }
     
       let filteredMangaList = tabManga;
 
-      if (filterName.length > 0) {
-        console.log(filterName)
-        filteredMangaList = filteredMangaList.filter((manga) => {
-          if (manga.name.toLowerCase().indexOf(filterName.toLowerCase()) === -1) {
-            return null;
-          } else if (manga.name.toLowerCase().indexOf(filterName.toLowerCase()) === 0) {
-            return manga.id;
-          }
-        });
-      }
     
       if (checkedGenres.length > 0) {
         // Filtrer par genres
@@ -118,13 +95,25 @@ export default function CatalogueManga() {
           const mangaTerminer = manga.terminer;
           return mangaTerminer === true;
         });
+        return filteredMangaList;
+      }
+      
+      if (filterName.length > 0) {
+        filteredMangaList = filteredMangaList.filter((manga) => {
+          if (manga.name.toLowerCase().indexOf(filterName.toLowerCase()) === -1) {
+            return null;
+          } else if (manga.name.toLowerCase().indexOf(filterName.toLowerCase()) === 0) {
+            return manga.id;
+          }
+          return filteredMangaList;
+        });
       }
     
      
     
       // Faites ce que vous souhaitez avec la liste filtrée de mangas ici
       return filteredMangaList;
-    };
+    }, [checkedGenres, checkedTerminer, filterName]);
     
     
 
@@ -142,14 +131,16 @@ export default function CatalogueManga() {
     const startIndex = (currentPage - 1) * nbCard;
     const endIndex = startIndex + nbCard;
     const currentItems = handleTrierClick().slice(startIndex, endIndex);
-    console.log(startIndex, endIndex)
-
-    const [totalItems, setTotalItems] = useState(handleTrierClick().length);
+   
+    const [totalItems, setTotalItems] = useState(currentItems.length);
     
     useEffect(() => {
-      setTotalItems(handleTrierClick().length);
-    }, [handleTrierClick]);
-    console.log(totalItems)
+      const filteredMangaList = handleTrierClick(); // Récupérer la liste filtrée actuelle
+      setTotalItems(filteredMangaList.length); // Mettre à jour le nombre total d'items
+  
+      }, [handleTrierClick]); 
+     
+   
 
     const totalPages = Math.ceil(totalItems / nbCard);
 
@@ -177,9 +168,8 @@ export default function CatalogueManga() {
           onUncheckAll={handleUncheckAll}
           checkedTerminer={checkedTerminer}
           handleTerminerChange={handleTerminerChange}
-          handleSearchSubmit={handleSubmit}
-          handleSearchChange={handleChange}
-          searchText={searchText}
+          
+          
           ></ButtonFiltre>
         </div>
       </div>

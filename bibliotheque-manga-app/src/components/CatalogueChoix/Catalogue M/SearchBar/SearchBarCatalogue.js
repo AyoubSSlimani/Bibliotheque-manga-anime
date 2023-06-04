@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../../../styles/SearchBarCatalogue.css';
 import loupe from '../../../../assets/loupe.png';
 
 
 
-function SearchBarCatalogue({filterName, onFilterNameChange, handleTrierClick}) {
+function SearchBarCatalogue({filterName, onFilterNameChange}) {
  
   
   return (

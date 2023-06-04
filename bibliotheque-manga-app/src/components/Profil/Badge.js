@@ -5,7 +5,7 @@ import '../../styles/Badge.css';
 const Badge = () => {
     return (
         <div className='badge' alt='badge'>
-           
+        
            
         </div>
     );

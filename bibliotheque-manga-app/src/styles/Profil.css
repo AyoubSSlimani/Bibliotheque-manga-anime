@@ -1,69 +1,75 @@
-.container-profil{
+.container-profil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     border: 2px solid black;
+    background-color: #ddd;
+    height: 100vh;
+    overflow-y: auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
-
-.fond-ecran{
+.fond-ecran-container {
+    margin-top: 50px;
+}
+/* Styles pour les autres éléments */
+.fond-ecran {
     border: 0.2px solid black;
-    width:100%;
-    height: 300px;
+    width: 100%;
+    height: 30vh;
     background-image: url('../assets/naruroUzumaki.png');
     background-size: cover;
-    background-position: center;
-    
+    background-position: center center;
+    background-repeat: no-repeat;
+    align-self: flex-start;
 }
+
 .photo-profil {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px; /* Double du rayon pour obtenir le diamètre */
-    height: 350px; /* Double du rayon pour obtenir le diamètre */
-    border-radius: 175px; /* Rayon de 100px pour obtenir le cercle */
+    width: 350px;
+    height: 350px;
+    border-radius: 175px;
     background-color: #fff;
     color: #fff;
     text-align: center;
-    line-height: 200px; /* Centre verticalement le texte */
+    line-height: 200px;
     font-size: 18px;
     z-index: 2;
     background-image:url('../assets/naruroUzumaki.png');
     background-size: contain;
     background-position: center;
-    mask-image: radial-gradient(circle at center, white 51%); /* Masque l'image avec un dégradé radial pour obtenir la rondeur */
-    
-    
-}   
-
-.pseudo-titre-biographie{
-width: 100%;
-height: 300px;
-margin-left: 5px;
-margin-right: 5px;
-border: 1px solid black;
-
+    mask-image: radial-gradient(circle at center, white 51%);
 }
 
-.watchtime{
+.pseudo-titre-biographie {
+    width: 100%;
+    height: 300px;
+
+    border: 1px solid black;
+}
+
+.watchtime {
     width: 100%;
     height: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
     border: 1px solid black;
 }
 
-.mes-badges{
+.mes-badges {
     width: 100%;
     height: 200px;
-    margin-left: 5px;
-    margin-right: 5px;
     border: 1px solid black;
 }
 
-.statistiques{
-
+.statistiques {
     width: 100%;
     height: 200px;
-    margin-left: 5px;
-    margin-right: 5px;
-    border: 1px solid black;
+    
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
 }

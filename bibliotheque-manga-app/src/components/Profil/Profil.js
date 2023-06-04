@@ -7,7 +7,8 @@ const Profil = () => {
 
     return (
         <div className='container-profil'>
-            <div className='fond-ecran' alt='profil-cover' ></div>
+            <div className='fond-ecran-container' alt='fond-ecran-container' ></div>
+            <div className='fond-ecran' alt='fond-ecran'></div>
             <div className='photo-profil' alt='photo-profil'></div>
             <div className='pseudo-titre-biographie' alt='pseudo-biographie'>
             <h2>PSEUDO</h2>
