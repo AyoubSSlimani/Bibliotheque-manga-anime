@@ -118,8 +118,6 @@ export default function CatalogueManga() {
     
 
     //Gérer la pagination 
-    
-    
     const [currentPage, setCurrentPage] = useState(1);
 
     
