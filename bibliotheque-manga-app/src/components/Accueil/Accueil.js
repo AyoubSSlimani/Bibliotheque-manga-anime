@@ -1,8 +1,23 @@
 import Caroussel from './Caroussel';
 import '../../styles/Accueil.css';
 import { useSelector } from 'react-redux';
+import { getCarouselDernierAjoutCards, getCarouselNouveauteCards, getCarouselPepiteCards } from '../../actions/cartecarousel.action';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+
+
 
 function Accueil() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCarouselNouveauteCards());
+        dispatch(getCarouselDernierAjoutCards());
+        dispatch(getCarouselPepiteCards());
+      }, []);
+    
+
     const cartesCarouselNouveaute = useSelector(state => state.carteCarouselReducer.nouveauteCards);
     const cartesCarouselDernierAjout = useSelector(state => state.carteCarouselReducer.dernierAjoutCards);
     const cartesCarouselPepite = useSelector(state => state.carteCarouselReducer.pepiteCards);

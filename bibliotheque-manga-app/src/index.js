@@ -10,18 +10,11 @@ import rootReducer from './reducers'
 import { getCarouselDernierAjoutCards, getCarouselNouveauteCards, getCarouselPepiteCards } from './actions/cartecarousel.action';
 
 // CONFIGURATION STORE REDUX 
-export const store = configureStore({
+const store = configureStore({
   reducer: rootReducer,
   devTools: true,
 });
 //
-// DISPATCH ACCUEIL 
-store.dispatch(getCarouselNouveauteCards());
-store.dispatch(getCarouselDernierAjoutCards());
-store.dispatch(getCarouselPepiteCards());
-//
-
-
 
 
 

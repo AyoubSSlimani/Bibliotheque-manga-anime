@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {isEmpty} from "../../../Utils"
+import { Link } from 'react-router-dom';
 
 export default function Carte() {
 
@@ -13,6 +14,7 @@ export default function Carte() {
       {!isEmpty(cartes) && cartes.map((carte) => {
             return (
               <div key={carte.id} className="card card-carte">
+                <Link to="/CatalogueManga/PageCard">
                 <div className='container-image-optn'>
                   <img src={carte.cover}  alt={carte.name} width="150px" height="200px" />                
                 </div>
@@ -20,6 +22,7 @@ export default function Carte() {
                 <div className="name-card">
                   <h3>{carte.name}</h3>
                 </div>
+                </Link>
               </div>
             );
           

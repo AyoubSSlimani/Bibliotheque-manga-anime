@@ -7,6 +7,7 @@ import CatalogueAnime from './CatalogueChoix/Catalogue M/CatalogueAnime/Catalogu
 import CatalogueChoix from './CatalogueChoix/CatalogueChoix';
 import MaCollection from './MaCollection/MaCollection';
 import Profil from './Profil/Profil'
+import PageCard from './CatalogueChoix/Catalogue M/BlockCarte/PageCard';
 
 
 
@@ -28,6 +29,8 @@ function App() {
         <Route path='/Catalogue-anime' element={<CatalogueAnime />} />
         <Route path='/Ma-collection' element={<MaCollection />} />
         <Route path='/Profil' element={<Profil />} />
+        <Route path='/CatalogueManga/PageCard' element={<PageCard />} />
+
     </Routes>
     
     </div>

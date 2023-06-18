@@ -8,10 +8,13 @@ import "../../../../styles/CatalogueManga.css";
 import ButtonFiltre from "../Filtre/ButtonFiltre";
 import { store } from "../../../..";
 import { getCards } from "../../../../actions/carte.action";
+import { useDispatch } from "react-redux";
 
 export default function CatalogueManga() {
-
-  store.dispatch(getCards())
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCards());
+  }, []);
   // const [nbCard, setNbCard] = useState(12);
 
   // const handleSelectChange = (event) => {
