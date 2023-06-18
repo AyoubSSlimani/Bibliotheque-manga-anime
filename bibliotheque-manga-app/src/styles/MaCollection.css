@@ -38,6 +38,10 @@
     padding-left: 15px;
 }
 
+.Hello {
+    margin: 0 0;
+}
+
 .title-menu-right {
     display: flex;
 }
@@ -119,6 +123,7 @@
 }
 
 .sous-container-card-ma-collection {
+   
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -127,7 +132,19 @@
     padding: 60px;
 }
 
-
+.catalogue-link {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    background: white;
+  }
+  
+  .catalogue-link:hover {
+    background-color: #8a2be2;
+  }
 
 
 

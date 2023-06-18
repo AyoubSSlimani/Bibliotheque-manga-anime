@@ -1,16 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {isEmpty} from "../../../Utils"
-// import '../../../../styles/Carte.css';
+
+export default function Carte() {
+
+  const cartes = useSelector(state => state.carteReducer);
+
+  return (
+ 
+
+  <div className="sous-container-card" >
+      {!isEmpty(cartes) && cartes.map((carte) => {
+            return (
+              <div key={carte.id} className="card card-carte">
+                <div className='container-image-optn'>
+                  <img src={carte.cover}  alt={carte.name} width="150px" height="200px" />                
+                </div>
+                <div className="ligne"></div>
+                <div className="name-card">
+                  <h3>{carte.name}</h3>
+                </div>
+              </div>
+            );
+          
+        })}
+    </div>
+  );
+
+  
+};
+
+
+  // import '../../../../styles/Carte.css';
 // import { tabManga } from '../../../../data/DataGenre';
 // import add from '../../../../assets/add.png'
 // import OptionCardSelector from './OptionCardSelector';
 
 // export default function Carte({ handleSelectChange, nbCard, handleTrierClick, currentItems, filterName, setTotalItems }) {
-export default function Carte() {
-  const cartes = useSelector(state => state.carteReducer);
-  
-
 
   // const [isDivVisible, setDivVisible] = useState(null);
 
@@ -41,11 +67,8 @@ export default function Carte() {
   //   };
   // }, []);
 
-  
-  
 
-  return (
-    // <div className="sous-container-card" onChange={handleSelectChange}>
+   // <div className="sous-container-card" onChange={handleSelectChange}>
     //   {currentItems.map((carte) => {
     //       return (
     //         <div key={carte.id} className="card card-carte">
@@ -73,24 +96,3 @@ export default function Carte() {
 </p>;
 
 </div> */
-
-<div className="sous-container-card" >
-    {!isEmpty(cartes) && cartes.map((carte) => {
-          return (
-            <div key={carte.id} className="card card-carte">
-              <div className='container-image-optn'>
-                <img src={carte.cover}  alt={carte.name} width="150px" height="200px" />                
-              </div>
-              <div className="ligne"></div>
-              <div className="name-card">
-                <h3>{carte.name}</h3>
-              </div>
-            </div>
-          );
-        
-      })}
-  </div>
-  );
-
-  
-}

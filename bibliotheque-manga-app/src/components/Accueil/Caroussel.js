@@ -4,10 +4,13 @@ import oeil from '../../assets/oeil.png'
 import flecheGauche from '../../assets/flecheGauche.png'
 import flecheDroite from '../../assets/flecheDroite.png'
 import React, {useState} from 'react' 
+import {isEmpty} from "../Utils"
 
 
 
-function Caroussel({  title, data }){
+function Caroussel({ title, data }){
+
+
     const imgCount = 16;
     const cardPerPage = 4;
 
@@ -56,14 +59,18 @@ function Caroussel({  title, data }){
                 <img  src={flecheGauche} onClick={handleNextLefttPage} alt="icone-flecheGauche" 
                 className={isValidLeft ? 'icone-fleche-gauche' : 'icone-fleche-gauche-unable' } height="50px" width="50px"/>
 
-                {data.slice(startIndex, startIndex + cardPerPage).map((manga) => (
-                    <div key={manga.id} className="carte-caroussel">
-                    <img src={manga.cover}  alt={manga.name} height='50px' width='50px'/>
-                    <h3 className='title-carte-carousel'>{manga.name}</h3>
+                {!isEmpty(data) && data.slice(startIndex, startIndex + cardPerPage).map((carte) => {
+                    return (
+                    <div key={carte.id} className="carte-caroussel">
+                    <img src={carte.cover}  alt={carte.name} height='50px' width='50px'/>
+                    <h3 className='title-carte-carousel'>{carte.name}</h3>
                     <div className="ligne"></div>
-                    <div className="type">{manga.type}</div>
+                    <div className="type">{carte.type}</div>
                     </div>
-                ))}
+                    );
+       
+                })};
+                
 
         
                 <img  src={flecheDroite} onClick={handleNextRightPage} alt="icone-flecheDroite" 
@@ -73,6 +80,9 @@ function Caroussel({  title, data }){
             </div>
         </div>
     )
+
 }
+
+// 
 
 export default Caroussel

@@ -7,15 +7,21 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './reducers'
-import { getCards } from './actions/carte.action';
+import { getCarouselDernierAjoutCards, getCarouselNouveauteCards, getCarouselPepiteCards } from './actions/cartecarousel.action';
 
-
-const store = configureStore({
+// CONFIGURATION STORE REDUX 
+export const store = configureStore({
   reducer: rootReducer,
   devTools: true,
 });
+//
+// DISPATCH ACCUEIL 
+store.dispatch(getCarouselNouveauteCards());
+store.dispatch(getCarouselDernierAjoutCards());
+store.dispatch(getCarouselPepiteCards());
+//
 
-store.dispatch(getCards());
+
 
 
 

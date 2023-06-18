@@ -6,6 +6,7 @@ import loupe from '../../assets/loupe.png';
 import MaCollectionFiltre from './MaCollectionFiltre';
 import MaCollectionSearchBar from './MaCollectionSearchBar';
 import Newpage from './Newpage';
+import { Link } from 'react-router-dom';
 
 export default function MaCollection() {
   const [isFiltreVisible, setFiltreVisible] = useState(false);
@@ -82,9 +83,14 @@ function changeClass(event) {
         </div>
 
         {isFiltreVisible && <MaCollectionFiltre></MaCollectionFiltre>}
-
+        
         <div className='container-card-ma-collection'>
-          <div className='sous-container-card-ma-collection'>{tabCards}</div>
+          <div className='sous-container-card-ma-collection'>
+            <p>
+              Vous n'avez pas encore ajouté d'œuvre à votre collection.
+              Pour en ajouter aller dans <Link to="/Catalogue-choix" className='catalogue-link'>Catalogue</Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

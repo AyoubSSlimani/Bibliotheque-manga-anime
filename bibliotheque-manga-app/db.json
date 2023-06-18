@@ -9,7 +9,7 @@
 
 
  "cartes": [
-    {"id":1 ,"name": "Naruto", "genre": ["Action", "Aventure"], "cover": "http://localhost:3001/src/assets/CardNaruto.png", "terminer": true},
+    {"id":1 ,"name": "Naruto", "genre": ["Action", "Aventure"], "cover": "naruto", "terminer": true},
     {"id":2 ,"name": "One Piece", "genre": ["Action", "Aventure"], "cover": "onepiece",  "terminer": false},
     {"id":3 ,"name": "Grand Blue", "genre": ["Comédie", "Aventure"], "cover": "grandblue", "terminer": false},
     {"id":4 ,"name": "Naruto", "genre": ["Action", "Aventure"], "cover": "naruto", "terminer": true},
@@ -52,29 +52,38 @@
     {"id":41 ,"name": "Grand Blue", "genre": ["Comédie", "Aventure"], "cover": "grandblue", "terminer": false}
 ],
 
-"carousselNouveaute" : [
-    {"id":1 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
-    {"id":1 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"},
-    {"id":1 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
-    {"id":1 ,"name": "Naruto", "type": "manga"},
-    {"id":1 ,"name": "Grand Blue", "type": "manga"}
+"caroussel-nouveaute" : [
+    {"id":1 ,"name": "Naruto1", "cover": "naruto", "type": "manga"},
+    {"id":2 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
+    {"id":3 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
+    {"id":4 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"},
+    {"id":5 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
+    {"id":6 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
+    {"id":7 ,"name": "Naruto2", "type": "manga"},
+    {"id":8 ,"name": "Grand Blue", "type": "manga"}
+
 ],
 
-"carousselDernierAjout" : [
-    {"id":1 ,"name": "Narutodernierajout", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
-    {"id":1 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"}
+"caroussel-dernier-ajout" : [
+    {"id":1 ,"name": "Narutodernierajout1", "cover": "naruto", "type": "manga"},
+    {"id":2 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
+    {"id":3 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
+    {"id":4 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"},
+    {"id":5 ,"name": "Narutodernierajout2", "cover": "naruto", "type": "manga"},
+    {"id":6 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
+    {"id":7 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
+    {"id":8 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"}
 ],
 
- "carousselPepite" : [
-    {"id":1 ,"name": "Narutopepite", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
-    {"id":1 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
-    {"id":1 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"}
+ "caroussel-pepite" : [
+    {"id":1 ,"name": "Narutopepite1", "cover": "naruto", "type": "manga"},
+    {"id":2 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
+    {"id":3 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
+    {"id":4 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"},
+    {"id":1 ,"name": "Narutopepite2", "cover": "naruto", "type": "manga"},
+    {"id":2 ,"name": "One Piece", "cover": "onepiece", "type": "manga"},
+    {"id":3 ,"name": "Naruto", "cover": "naruto", "type": "manga"},
+    {"id":4 ,"name": "Grand Blue", "cover": "grandblue", "type": "manga"}
 ]
 
 }

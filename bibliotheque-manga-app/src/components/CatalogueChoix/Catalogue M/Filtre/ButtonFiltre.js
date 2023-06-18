@@ -4,9 +4,7 @@ import '../../../../styles/ButtonFiltre.css';
 import BlockNombreChapitre from './BlockNombreChapitre';
 
 
-export default function ButtonFiltre({
-  checked, onCheckboxChange, onUncheckAll, checkedTerminer, handleTerminerChange
-}) {
+export default function ButtonFiltre() {
     const [isDivVisible, setDivVisible] = useState(false);
 
 
@@ -24,14 +22,7 @@ export default function ButtonFiltre({
     <div className='button-filtre'>
       <button onClick={handleButtonClick}>Filtrer</button>
       {isDivVisible && (
-        <CatalogueFiltre
-        checked={checked} 
-        onCheckboxChange={onCheckboxChange} 
-        onUncheckAll={onUncheckAll}
-        checkedTerminer={checkedTerminer}
-        handleTerminerChange={handleTerminerChange}
-       
-        />
+        <CatalogueFiltre/>
       )}
     </div>
   );

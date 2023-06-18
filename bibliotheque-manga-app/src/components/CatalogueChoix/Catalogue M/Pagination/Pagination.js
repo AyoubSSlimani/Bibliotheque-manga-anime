@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import '../../../../styles/Pagination.css'
 import { Link } from 'react-router-dom'
 import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png'
-import { tabManga } from '../../../../data/DataGenre'
-
-
 
 export default function Pagination({nbCard, handlePageChange, totalPages, currentPage}) {
 
