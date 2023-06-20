@@ -55,22 +55,7 @@
     margin-top: -30px;
 }
 
-.selector {
-    position: absolute;
-    top: 0;
-    right: 10;
-    width: 100px;
-    margin-left: 5px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 999;
-}
 
-
-.option-card {
- 
-}
 
 .add-optn {
     padding-left: 10px;

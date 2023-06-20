@@ -1,7 +1,7 @@
 import '../styles/App.css';
 import NavBar from './NavBar/NavBar';
 import Accueil from './Accueil/Accueil';
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router"
 import CatalogueManga from './CatalogueChoix/Catalogue M/CatalogueManga/CatalogueManga';
 import CatalogueAnime from './CatalogueChoix/Catalogue M/CatalogueAnime/CatalogueAnime';
 import CatalogueChoix from './CatalogueChoix/CatalogueChoix';

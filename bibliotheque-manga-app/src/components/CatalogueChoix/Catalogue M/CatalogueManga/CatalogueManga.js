@@ -6,7 +6,6 @@ import Pagination from "../Pagination/Pagination";
 import "../../../../styles/Carte.css";
 import "../../../../styles/CatalogueManga.css";
 import ButtonFiltre from "../Filtre/ButtonFiltre";
-import { store } from "../../../..";
 import { getCards } from "../../../../actions/carte.action";
 import { useDispatch } from "react-redux";
 
@@ -15,6 +14,8 @@ export default function CatalogueManga() {
   useEffect(() => {
     dispatch(getCards());
   }, []);
+  
+
   // const [nbCard, setNbCard] = useState(12);
 
   // const handleSelectChange = (event) => {
@@ -143,6 +144,7 @@ export default function CatalogueManga() {
         <div className="container-card">
           <Carte />
         </div>
+        
       </div>
       <div classNameName="container-pagination">
         <div className="sous-container-pagination">
