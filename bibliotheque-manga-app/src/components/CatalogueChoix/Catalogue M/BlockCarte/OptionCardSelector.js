@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { getCollectionCards, getOneCard, postCollectionCards } from '../../../../actions/carte.action';
-
+import React from 'react';
+import { useDispatch } from "react-redux";
+import { postCollectionCards } from '../../../../actions/carte.action';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function OptionCardSelector({cardId, cartes}) {
   // Dispatch Redux pour déclencher une action
   const dispatch = useDispatch();
   
 
-  const form = useRef();
- console.log(cardId);
-  console.log(cartes[cardId-1].name);
+  
+
 
  // Gère le clic à l'intérieur de la liste déroulante de l'option de carte
   const handleOptionClick = async (event) => {
@@ -22,13 +21,16 @@ export default function OptionCardSelector({cardId, cartes}) {
       console.log("collection");
       const postData = {
         name: cartes[cardId-1].name,
-        type: cartes[cardId-1].type
+        cover: cartes[cardId-1].cover,
+        genre: cartes[cardId-1].genre,
+        terminer: cartes[cardId-1].terminer,
+        id: uuidv4(),
       };
 
     dispatch(postCollectionCards(postData));
         
     } else if (selectedOption === 'PageCard') {
-      console.log("wesh");
+    
     }
   
 };
@@ -40,7 +42,6 @@ export default function OptionCardSelector({cardId, cartes}) {
         key={cardId}
         name="selector"
         className="option-deffilement selector"
-        ref={form}
         onClick={(e) => handleOptionClick(e) }
         size="2"
       >
