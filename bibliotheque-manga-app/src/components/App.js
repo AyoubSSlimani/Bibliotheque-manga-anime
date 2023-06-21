@@ -8,6 +8,7 @@ import CatalogueChoix from './CatalogueChoix/CatalogueChoix';
 import MaCollection from './MaCollection/MaCollection';
 import Profil from './Profil/Profil'
 import PageCard from './CatalogueChoix/Catalogue M/BlockCarte/PageCard';
+import InternalPage from './MaCollection/InternalPage';
 
 
 

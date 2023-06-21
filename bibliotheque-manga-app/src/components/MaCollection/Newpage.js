@@ -10,10 +10,14 @@ export default function Newpage({changeClass}) {
 
 
     const [newPages, setNewPages] = useState([]);
+    console.log(newPages);
 
 
     const handleNewPageClick = () => {
-        const newPage = <div className={`new-page button-title button-underline`} key={newPages.length} onClick={(event) => { changeClass(event);}}>New Page </div>;
+        const newPage = 
+        <div className={`new-page button-title button-underline`} key={newPages.length} onClick={(event) => { changeClass(event);}}>
+          <h3>New Page</h3> 
+        </div>;
         setNewPages(prevPages => [...prevPages, newPage]);
         console.log(newPage);
 
@@ -22,7 +26,7 @@ export default function Newpage({changeClass}) {
 
 
   return (
-    <div className='container-new-page'>
+    <div className='container-new-page' >
         {newPages}
         <div className={`new-page button-title button-underline `} onClick={(event) => {handleNewPageClick();}}>
             <h3 className = "Hello">New Page</h3>

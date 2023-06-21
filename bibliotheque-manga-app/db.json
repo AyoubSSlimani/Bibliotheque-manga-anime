@@ -436,7 +436,14 @@
       "terminer": false
     },
     {
-      "id": 42
+      "id": 42,
+      "name": "Bleach",
+      "genre": [
+        "Comédie",
+        "Aventure"
+      ],
+      "cover": "grandblue",
+      "terminer": false
     }
   ],
   "caroussel-nouveaute": [
@@ -589,16 +596,6 @@
   ],
   "maCollection": [
     {
-      "name": "Naruto",
-      "cover": "naruto",
-      "genre": [
-        "Action",
-        "Aventure"
-      ],
-      "terminer": true,
-      "id": "783fb844-b0d5-4132-b8e5-1ef8ac94757f"
-    },
-    {
       "name": "One Piece",
       "cover": "onepiece",
       "genre": [
@@ -606,17 +603,7 @@
         "Aventure"
       ],
       "terminer": false,
-      "id": "adbb5b12-0fe0-4cd9-9177-9f337c23d2fe"
-    },
-    {
-      "name": "Grand Blue",
-      "cover": "grandblue",
-      "genre": [
-        "Comédie",
-        "Aventure"
-      ],
-      "terminer": false,
-      "id": "7923dde2-2ba4-415f-ab79-d0f4a02b2e8e"
+      "id": "8b48057d-20d0-40ff-b789-b703b31e7e1c"
     }
   ]
 }

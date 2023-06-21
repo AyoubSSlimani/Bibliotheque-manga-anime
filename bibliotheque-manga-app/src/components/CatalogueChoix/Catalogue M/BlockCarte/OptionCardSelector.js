@@ -18,7 +18,7 @@ export default function OptionCardSelector({cardId, cartes}) {
     
 
     if (selectedOption === 'Collection') {
-      console.log("collection");
+      
       const postData = {
         name: cartes[cardId-1].name,
         cover: cartes[cardId-1].cover,

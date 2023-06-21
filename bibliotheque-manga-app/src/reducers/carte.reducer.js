@@ -1,9 +1,9 @@
-import { GET_CARDS, POST_COLLECTION_CARDS } from '../actions/carte.action';
+import { GET_CARDS, GET_COLLECTION_CARDS, POST_COLLECTION_CARDS, DELETE_COLLECTION_CARDS } from '../actions/carte.action';
 
 const initialState = {
   allCards: [],
-  collectionCards:[],
-
+  collectionCardsPost:[],
+  collectionCardsGet:[],
 };
 
 
@@ -17,10 +17,19 @@ export default function carteReducer(state= initialState, action) {
     case POST_COLLECTION_CARDS:
         return {
           ...state,
-          collectionCards: [...state.collectionCards, action.payload],
+          collectionCardsPost: [...state.collectionCardsPost, action.payload],
         };
-      
-      break;
+    case GET_COLLECTION_CARDS:
+        return {
+          ...state,
+          collectionCardsGet: action.payload,
+        }
+    case DELETE_COLLECTION_CARDS:
+      console.log(state.collectionCardsGet.filter((post) => post.id));
+      return {
+        ...state,
+      collectionCardsGet: state.collectionCardsGet.filter((post) => post.id != action.payload)
+      };
     default:
       return state;
   };
