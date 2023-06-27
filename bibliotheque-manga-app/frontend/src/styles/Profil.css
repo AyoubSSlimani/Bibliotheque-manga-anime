@@ -1,0 +1,78 @@
+.container-profil {
+width: 80%;
+margin: 0 auto;
+border-right: 2px solid black;
+border-left: 2px solid black;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 250px 0px 1fr 1fr 300px 400px;
+grid-template-areas: 
+ "fe fe"
+ "pf pf"
+ "ptb ptb"
+ "wt wt"
+ "mb mb"
+ "st st"
+ ;
+}
+
+.fond-ecran {
+    grid-area: fe;
+    background: url(../assets/naruroUzumaki.png) center/cover;
+    border-bottom: 1px solid black;
+    
+}
+
+.container-photo-profil {
+    grid-area: pf;
+    display:flex;
+    justify-content: center;
+    height:150px;
+    
+
+}
+.photo-profil {
+    background: url(../assets/naruroUzumaki.png) center/cover ;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-top: -150px;
+    border: 1px solid black;
+
+}
+
+.pseudo-titre-biographie {
+    grid-area: ptb;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+}
+
+.watchtime {
+    grid-area: wt;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+    
+
+}
+
+
+.title-badge {
+    grid-area: mb;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+}
+
+.mes-badges {
+    display:flex;
+    justify-content: space-around;
+}
+
+
+.statistiques {
+    grid-area: st;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+}
+
+
+

@@ -1,0 +1,47 @@
+
+.container h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+
+}
+
+.containerCatalogueChoix {
+    display: flex;
+    justify-content: center;
+}
+
+.containerCatalogueChoix .link-catalogue {
+    text-decoration: none;
+}
+
+.anime {
+    width: 500px;
+    height: 500px;
+    background-color: #FF6767;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime h2 {
+    color: white;
+}
+
+.manga {
+    width: 500px;
+    height: 500px;
+    background-color: #33B5DF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manga h2 {
+    color: white;
+}

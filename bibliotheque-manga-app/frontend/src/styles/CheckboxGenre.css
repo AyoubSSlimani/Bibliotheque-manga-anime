@@ -1,0 +1,38 @@
+.container-genre {
+    width: auto;
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.sous-container-genre {
+    width: 90%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.checkboxText {
+    display: flex;
+    margin-left: 10px;
+}
+
+.checkboxText input {
+    margin-right: 15px;
+}
+
+.genre {
+    padding-left: 15px;
+    padding-bottom: 15px;
+}

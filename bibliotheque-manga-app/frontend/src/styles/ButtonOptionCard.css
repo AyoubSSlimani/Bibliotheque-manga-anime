@@ -1,0 +1,64 @@
+.icone-option-card {
+    position: absolute;
+    right: 10px;
+    margin-top: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../assets/add.png);
+    background-color: white;
+    background-size: cover;
+    
+    
+}
+
+.icone-option-card:hover {
+    background-color: pink;
+}
+
+
+.selector {
+    position: relative;
+    left: 45px;
+    bottom: 15px;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+.selector::-webkit-scrollbar {
+    display: none;
+}
+  .selector:hover {
+    background-color: #882d60;
+  }
+  
+  .selector:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(75, 47, 47, 0.3);
+  }
+  
+  .selector option {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .selector option:last-child {
+    border-bottom: none;
+  }
+  
+  .selector option:hover {
+    background-color: #e3d365;
+  }
+  
+  

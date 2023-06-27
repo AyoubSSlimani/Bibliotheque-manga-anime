@@ -1,0 +1,50 @@
+.container-nbr-chapitre {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+.sous-container {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.sous-container-nbr-chapitre {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 90px;
+}
+
+
+.signe-inferieur {
+    transform: rotate(90deg);
+}
+
+.moinsDe, .plusDe {
+    height: 30px;
+    width: 60px;
+    background-color: white;
+    display: flex;
+    
+}
+
+
+.moinsDe input, .plusDe input {
+    width: 50px;
+    border: none;
+    background-color: transparent;
+}
+
+.moinsDe input:focus, .plusDe input:focus {
+    outline: none;
+}
+
+input[type="checkbox"] {
+    transform: scale(2.3); 
+  }
+
+
