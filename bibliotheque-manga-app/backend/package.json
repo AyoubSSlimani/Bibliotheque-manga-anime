@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyoubSSlimani/Bibliotheque-manga-anime.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "ali&ayoub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyoubSSlimani/Bibliotheque-manga-anime/issues"
+  },
+  "homepage": "https://github.com/AyoubSSlimani/Bibliotheque-manga-anime#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
