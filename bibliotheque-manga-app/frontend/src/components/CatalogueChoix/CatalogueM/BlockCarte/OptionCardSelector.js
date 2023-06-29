@@ -6,29 +6,20 @@ import { v4 as uuidv4 } from 'uuid';
 export default function OptionCardSelector({cardId, cartes}) {
   // Dispatch Redux pour déclencher une action
   const dispatch = useDispatch();
+  const carte = cartes.find(carte => carte.mal_id === cardId);
   
-
-  
-
 
  // Gère le clic à l'intérieur de la liste déroulante de l'option de carte
   const handleOptionClick = async (event) => {
-
     const selectedOption = event.target.value;
-    
 
     if (selectedOption === 'Collection') {
-      
-      const postData = {
-        name: cartes[cardId-1].name,
-        cover: cartes[cardId-1].cover,
-        genre: cartes[cardId-1].genre,
-        terminer: cartes[cardId-1].terminer,
-        id: uuidv4(),
-      };
-
-    dispatch(postCollectionCards(postData));
-        
+      if (carte) {
+        const modifiedCard = {...carte, mal_id: uuidv4()};
+        dispatch(postCollectionCards(modifiedCard));
+    } else {
+      return <div>Carte Introuvable</div>
+    }
     } else if (selectedOption === 'PageCard') {
       window.location.href = '/PageCard'
     }

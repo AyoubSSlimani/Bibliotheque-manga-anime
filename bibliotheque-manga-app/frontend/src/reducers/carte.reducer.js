@@ -10,6 +10,7 @@ import {
   TOGGLE_DECOCHER_TOUT,
   TOGGLE_TERMINER,
 } from "../actions/checkboxes.action";
+import { GET_NB_CARD, GET_PAGINATION } from "../actions/pagination.action";
 import { filterCards } from "../components/Utils";
 
 
@@ -46,6 +47,8 @@ const initialState = {
   ],
   terminer: [{ id: 50, name: "Terminé", checked: false }],
   searchText: "",
+  pagination: [],
+  nbCard: "12",
 };
 
 export default function carteReducer(state = initialState, action) {
@@ -53,7 +56,7 @@ export default function carteReducer(state = initialState, action) {
     case GET_CARDS:
       return {
         ...state,
-        allCards: action.payload,
+        allCards: [...state.allCards, ...action.payload],
         initialCards: action.payload,
         filteredCards: action.payload, // Initialisation de filteredCards avec toutes les cartes
       };
@@ -153,6 +156,18 @@ export default function carteReducer(state = initialState, action) {
           filteredCards: state.initialCards,
           allCards: state.initialCards,
         };
+
+      case GET_PAGINATION:
+        console.log(action.payload);
+        return {
+          ...state,
+          pagination: action.payload,
+        };
+      case GET_NB_CARD:
+        return {
+        ...state,
+        nbCard: action.payload,
+        }
       default:
         return state;
   }

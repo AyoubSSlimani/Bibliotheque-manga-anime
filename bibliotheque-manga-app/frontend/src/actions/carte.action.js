@@ -6,44 +6,36 @@ export const POST_COLLECTION_CARDS = "POST_COLLECTION_CARDS";
 export const GET_COLLECTION_CARDS = "GET_COLLECTION_CARDS";
 export const DELETE_COLLECTION_CARDS = "DELETE_COLLECTION_CARDS";
 
-
 // Récupère toutes les cartes de la base de données (sauf caroussels et macollection)
-export const getCards = () => {
-    return (dispatch) => {
-        return axios.get("http://localhost:3001/cartes").then((res) => {
-            dispatch({ type: GET_CARDS, payload: res.data });
-        });
-        
+export const getCards = (page) => {
+  return (dispatch) => {
 
+    return axios.get(`https://api.jikan.moe/v4/anime?page=${page}`).then((res) => {
+      dispatch({ type: GET_CARDS, payload: res.data.data});
+    }).catch((error) => {
+      console.error(error);
+      // Gérer les erreurs de récupération des données
+    });
+  };
 };
-
-};
-
 
 // Envoie à la base de données les cartes que l'on a ajouté à maCollection
 
 export const postCollectionCards = (data) => {
-    return (dispatch) => {
-      // Vérifier si le nom existe déjà dans la base de données
-      axios.get('http://localhost:3001/maCollection?name=' + data.name)
-        .then((res) => {
-          if (res.data.length > 0) {
-            // Le nom existe déjà, vous pouvez gérer cette situation en conséquence
-            console.log('Le nom existe déjà dans la base de données');
-          } else {
-            // Le nom n'existe pas, vous pouvez procéder à l'ajout
-            return axios.post('http://localhost:3001/maCollection', data)
-              .then((res) => {
-                dispatch({ type: POST_COLLECTION_CARDS, payload: data });
-              });
-          }
-        })
-        .catch((error) => {
-          // Gérer les erreurs de requête GET
-          console.error('Erreur lors de la requête GET :', error);
-        });
-    };
+  console.log(data);
+  return (dispatch) => {
+    return axios
+      .post('http://localhost:3010/MaCollection', data)
+      .then((res) => {
+        dispatch({ type: POST_COLLECTION_CARDS, payload: data });
+      })
+      .catch((error) => {
+        // Gérer les erreurs de requête POST
+        console.error('Erreur lors de la requête POST :', error);
+      });
   };
+};
+
 
 
   // récupère les cartes de maCollection de la bdd
@@ -72,5 +64,7 @@ export const postCollectionCards = (data) => {
 
     };  
 
+
+    
 
 

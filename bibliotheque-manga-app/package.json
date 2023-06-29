@@ -1,0 +1,28 @@
+{
+  "name": "bibliotheque-manga-app",
+  "version": "1.0.0",
+  "description": "Projet Bibliotheque-manga-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
+    "start-backend": "cd backend && npm start",
+    "start-frontend": "cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyoubSSlimani/Bibliotheque-manga-anime.git"
+  },
+  "keywords": [
+    "Bibliotheque"
+  ],
+  "author": "ali&ayoub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyoubSSlimani/Bibliotheque-manga-anime/issues"
+  },
+  "homepage": "https://github.com/AyoubSSlimani/Bibliotheque-manga-anime#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
