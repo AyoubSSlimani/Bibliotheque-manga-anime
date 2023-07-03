@@ -1,5 +1,5 @@
 //REACT
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useEffect } from "react";
 //REDUX
 import { useDispatch } from "react-redux";
 //COMPONENTS
@@ -11,17 +11,19 @@ import Pagination from "../Pagination/Pagination";
 import "../../../../styles/Carte.css";
 import "../../../../styles/CatalogueManga.css";
 import ButtonFiltre from "../Filtre/ButtonFiltre";
+import { getCheckboxesName } from "../../../../actions/filtres.action";
 import { getCards } from "../../../../actions/carte.action";
 
 
 export default function CatalogueManga() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCards());
+   useEffect(() => {
+    dispatch(getCheckboxesName());
   }, []);
 
-  
-
+  useEffect(() => {
+    dispatch(getCards(1));
+  }, []);
 
   return (
     <div className="container">

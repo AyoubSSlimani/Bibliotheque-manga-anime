@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const isEmpty = (value) => {
     return (
       value === undefined ||
@@ -7,58 +9,46 @@ export const isEmpty = (value) => {
     );
   };
   
+  export async function filterCards(checkboxes) {
+      try {
+        const timestamp = parseInt(Date.now() / 1000); // Divisez par 1000 pour obtenir le timestamp en secondes
+        let filteredCards = [];
 
-
-  export function filterCards(initialCards, checkboxes, terminer, searchText) {
-    const checkboxesUnchecked = checkboxes.every(checkbox => !checkbox.checked);
-    let filteredCards = [];
-  
-    if (checkboxesUnchecked && !terminer && searchText === "") {
-      return initialCards;
-    } 
-  
-    if (!checkboxesUnchecked) {
-      const checkedGenres = checkboxes
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.name);
-  
-      const genreMatchedCards = initialCards.filter(card => {
-        const genreMatch = card.genre.some(genre => checkedGenres.includes(genre));
-        console.log(genreMatch);
-        return genreMatch;
-      });
-  
-      filteredCards = genreMatchedCards;
-    }
-  
-    if (terminer) {
-      const terminerMatchedCards = initialCards.filter(card => {
-        const terminerMatch = card.terminer;
-        console.log(terminerMatch);
-        return terminerMatch;
-      });
-  
-      filteredCards = terminerMatchedCards;
-    }
-  
-    if (searchText !== "") {
-      const searchTextMatchedCards = initialCards.filter(card => {
-        const cardName = card.name.toLowerCase();
-        const searchTextLower = searchText.toLowerCase();
-  
-        if (cardName.indexOf(searchTextLower) === -1) {
-          return false;
-        } else if (cardName.indexOf(searchTextLower) === 0 || cardName.includes(searchTextLower)) {
-          console.log(card.id);
-          return true;
-        }
+        const checkboxesUnchecked = checkboxes.every(checkbox => !checkbox.checked);
+        const checkedGenres = checkboxes
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.mal_id);
+        const checkedGenresIds = checkedGenres.join(',');
         
-        return false;
-      });
+        // const isTerminerChecked = checkboxes.find(checkbox => checkbox.mal_id === "complete" && checkbox.checked);
+        // console.log(isTerminerChecked.name);
+
+        if (checkboxesUnchecked) {
+          const response = await axios.get(`https://api.jikan.moe/v4/manga?&q=&sfw&timestamp=${timestamp}`);
+          const apiCards = response.data;
+          filteredCards = apiCards;
+          
+          return filteredCards;
+        }; 
+
+
+        if (!checkboxesUnchecked) {
+          const response = await axios.get(`https://api.jikan.moe/v4/manga?q=&genres=${checkedGenresIds}&sfw&timestamp=${timestamp}`);
+          const apiCards = response.data;
+          filteredCards = apiCards;
+          return filteredCards;
+        };
+        
+        return filteredCards;
+
+      } catch (error) {
+        // Gérer les erreurs de l'appel API
+        console.error('Erreur lors de l\'appel API :', error);
+        // Retourner les cartes filtrées jusqu'à présent
+      
+      };
+    };
+   
+
   
-      filteredCards = searchTextMatchedCards;
-    }
-  
-    return filteredCards;
-  }
   

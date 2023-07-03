@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../../styles/BlockNombreChapitre.css'
 import flecheVersLeBas2 from '../../../../assets/fleche-vers-le-bas2.png'
-import { toggleTerminer } from '../../../../actions/checkboxes.action';
+import { toggleCheckboxes, toggleTerminer } from '../../../../actions/filtres.action';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -9,10 +9,11 @@ export default function BlockNombreChapitre() {
     const dispatch = useDispatch();
 
     const handleTerminerChange = (checkboxId) => {
-        dispatch(toggleTerminer(checkboxId));
+        dispatch(toggleCheckboxes(checkboxId));
       };
 
-    const terminer = useSelector(state => state.carteReducer.terminer[0]);
+    const checkboxlist = useSelector(state => state.carteReducer.checkboxes);
+    const terminer = checkboxlist.find((element) => element.mal_id === "complete");
     
   return (
     <div className="container-nbr-chapitre">
@@ -29,11 +30,11 @@ export default function BlockNombreChapitre() {
                 <div className="checkboxText terminer">
                     <input type="checkbox"
                     checked={terminer.checked}
-                    onChange={() => handleTerminerChange(terminer.id)}
+                    onChange={() => handleTerminerChange(terminer.mal_id)}
                     name={terminer.name}
-                    key={terminer.id}
+                    key={terminer.mal_id}
                     />
-                    <p>Terminé</p>
+                    <p>{terminer.name}</p>
                 </div>
             </div>
             

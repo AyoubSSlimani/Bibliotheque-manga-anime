@@ -1,28 +1,115 @@
-import React, { useEffect, useState } from 'react'
-import '../../../../styles/Pagination.css'
-import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png'
+import React from 'react';
+import '../../../../styles/Pagination.css';
+import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPagination } from '../../../../actions/pagination.action';
-import { Link } from 'react-router-dom';
 import { getCards } from '../../../../actions/carte.action';
 
-export default function Pagination({nbCard}) {
+export default function Pagination() {
+  const dispatch = useDispatch();
+  const visibleButtons = 5;
+  const halfVisibleButtons = Math.floor(visibleButtons / 2);
+  const paginationAllCards = useSelector(state => state.carteReducer.paginationAllCards);
+  const paginationFilteredCards = useSelector(state => state.carteReducer.paginationFilteredCards);
+  const currentPageAllCards = paginationAllCards.current_page;
+  const currentPageFilteredCards = paginationFilteredCards.current_page;
+  const totalPagesAllCards = paginationAllCards.last_visible_page;
+  const totalPagesFilteredCards = paginationFilteredCards.last_visible_page;
+  const pagesFilteredCards = [];
+  const pagesAllCards = [];
 
-    const dispatch = useDispatch();
+  const handlePageChange = (page) => {
+    dispatch(getCards(page));
+  };
 
-    useEffect(() => {
-        dispatch(getCards(1));
-        dispatch(getCards(2));
-      }, []);
+  const renderPagination = () => {
+    let currentPage, totalPages, pages, startPage, endPage;
+
+    if (Object.keys(paginationAllCards).length > 0) {
+      currentPage = currentPageAllCards;
+      totalPages = totalPagesAllCards;
+      pages = pagesAllCards;
+
+    } else if (Object.keys(paginationFilteredCards).length > 0) {
+      currentPage = currentPageFilteredCards;
+      totalPages = totalPagesFilteredCards;
+      pages = pagesFilteredCards;
+    } else {
+      return null; // Rendu nul si les données de pagination ne sont pas disponibles
+    }
+
+    const isFirstPage = currentPage === 1;
+    const isLastPage = currentPage === totalPages;
     
+    // Calcul des pages visibles
+    startPage = Math.max(1, currentPage - halfVisibleButtons);
+    endPage = Math.min(startPage + visibleButtons - 1, totalPages);
 
-    const pageData = useSelector(state => state.carteReducer.pagination);
-    
-    const cartes = useSelector(state => state.carteReducer.allCards);
+    if (endPage - startPage + 1 < visibleButtons) {
+      startPage = Math.max(1, endPage - visibleButtons + 1);
+    }
 
-    console.log(cartes);
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          className={currentPage === i ? 'current-button' : 'other-button'}
+          key={i}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </button>
+      );
+    }
 
-    // Fonction pagination()
+    if (endPage < totalPages) {
+      pages.push(
+        <button
+          className="other-button"
+          key={totalPages}
+          onClick={() => handlePageChange(totalPages)}
+        >
+          {totalPages}
+        </button>
+      );
+    }
+
+    return (
+      <>
+        <button
+          className={isFirstPage ? 'bg-fleche-unable prev' : 'bg-fleche prev'}
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={isFirstPage}
+        >
+          <img src={FlecheVersLeBas} alt="fleche-gauche" width="25px" height="25px" />
+        </button>
+        <div className="nombre-page">
+          {pages}
+        </div>
+        <button
+          className={isLastPage ? 'bg-fleche-unable next' : 'bg-fleche next'}
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={isLastPage}
+        >
+          <img src={FlecheVersLeBas} alt="fleche-droite" width="25px" height="25px" />
+        </button>
+      </>
+    );
+  };
+
+  return (
+    <nav className="page">
+      {renderPagination()}
+    </nav>
+  );
+}
+
+
+
+
+
+
+
+
+ // Fonction pagination()
     // Prend en paramètre le nombre de carte à afficher par page (CLEAR)
     // Incrémente le nombre de page si le nombre maximum de carte est dépasser (CLEAR)
     // Récupère les cartes restantes et les affiches sur d'autres page quand je clique sur la page 
@@ -30,49 +117,7 @@ export default function Pagination({nbCard}) {
     // Au début changer la couleur de la flèche de gauche par défaut 
     // Lorsque je change de page avec la flèche de droite la flèche de gauche change de couleur
 
-
-    const pages = [];
-
-    // // Fonction qui permet d'afficher le nombre de page en fonction du nombre de carte et du nombre de carte par page
-    const nombreDePage = (nbCarteParPage, nbCarte) => {
-        let page = 1;
-        if(nbCarteParPage < nbCarte){
-            for(let i=0; i < nbCarte / nbCarteParPage; i++){
-                pages.push(<Link to="" className="page">{page++}</Link>);
-            }} else if(nbCarte == 0) {
-                pages.push(<Link to="" className="page"></Link>);
-            } else {
-                pages.push(<Link to="" className="page">1</Link>);
-            }
-    }
-
-    nombreDePage(nbCard, cartes.length);
-
-    
-
-    //  Gérer la pagination
-    const [currentPage, setCurrentPage] = useState(1);
-
-
-    const startIndex = (currentPage - 1) * nbCard;
-    const endIndex = startIndex + nbCard;
-    const currentItems = cartes.slice(startIndex, endIndex);
-    console.log(currentItems);
-
-  
-
-    const totalPages = Math.ceil(cartes.length / nbCard);
-    const pageOne = currentPage === 1;
-    const lastPage = currentPage === pageData.last_visible_page;
-    console.log(pageData);
-
-    // const handlePageChange = (e) => {
-    //     currentPage = e;
-    // };
-
-    console.log(nbCard);
-
-      // Fonction qui permet de changer la couleur des flèches de pagination par rapport au nombre de page suivant ou précédent
+ // Fonction qui permet de changer la couleur des flèches de pagination par rapport au nombre de page suivant ou précédent
     
     // const [startIndex, setStartIndex] = useState(0);
     // const [isValidLeftPage, setIsValidLeftPage] = useState(false);
@@ -92,30 +137,3 @@ export default function Pagination({nbCard}) {
     //         setIsValidLeftPage(true);
     //     }
     // }
-
-    
-  return (
-    
-
-        <nav className="page">
-            {/* <button  className={pageOne ? 'bg-fleche-unable prev' : 'bg-fleche prev'} onClick={() => handlePageChange()} disabled={pageOne}>
-                <img src={FlecheVersLeBas} alt="fleche-gauche" width="25px" height="25px"/>
-            </button>
-            <div className='nombre-page'>
-                {Array.from(Array(totalPages).keys()).map((index) => (
-                    <button className={currentPage === index + 1 ? 'current-button' : 'other-button' }
-                        key={index + 1}
-                        onClick={() => handlePageChange(index + 1)}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
-            </div> 
-            <button  className={lastPage ? 'bg-fleche-unable next' : 'bg-fleche next'} onClick={() => handlePageChange(currentPage + 1)} disabled={lastPage}>
-                <img src={FlecheVersLeBas} alt="fleche-droite" width="25px" height="25px"/>
-            </button> */}
-        </nav>
-
-  )
-}
-

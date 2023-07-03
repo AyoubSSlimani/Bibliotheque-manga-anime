@@ -25,11 +25,11 @@ function App() {
         <Route path="/" element={<Accueil />} />
         <Route path="/Accueil" element={<Accueil />} />
         <Route path="/Catalogue-choix" element={<CatalogueChoix />}/>
-        <Route path='/Catalogue-manga' element={<CatalogueManga />} />
-        <Route path='/Catalogue-anime' element={<CatalogueAnime />} />
-        <Route path='/Ma-collection' element={<MaCollection />} />
-        <Route path='/Profil' element={<Profil />} />
-        <Route path='/PageCard' element={<PageCard />} />
+        <Route path="/Catalogue-manga" element={<CatalogueManga />} />
+        <Route path="/Catalogue-anime" element={<CatalogueAnime />} />
+        <Route path="/Ma-collection" element={<MaCollection />} />
+        <Route path="/Profil" element={<Profil />} />
+        <Route path="/PageCard" element={<PageCard />} />
 
     </Routes>
     

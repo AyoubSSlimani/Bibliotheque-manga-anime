@@ -6,23 +6,26 @@ export const POST_COLLECTION_CARDS = "POST_COLLECTION_CARDS";
 export const GET_COLLECTION_CARDS = "GET_COLLECTION_CARDS";
 export const DELETE_COLLECTION_CARDS = "DELETE_COLLECTION_CARDS";
 
-// Récupère toutes les cartes de la base de données (sauf caroussels et macollection)
+// Récupère toutes les cartes de l'API Jikan par page lorsque je change de page.
+// par défaut les cartes récupérés = page 1 de jikan.
 export const getCards = (page) => {
-  return (dispatch) => {
-
-    return axios.get(`https://api.jikan.moe/v4/anime?page=${page}`).then((res) => {
-      dispatch({ type: GET_CARDS, payload: res.data.data});
-    }).catch((error) => {
+  return async (dispatch) => {
+    try {
+      const timestamp = parseInt(Date.now() / 1000); // Divisez par 1000 pour obtenir le timestamp en secondes
+      const response = await axios.get(`https://api.jikan.moe/v4/manga?&q=&sfw&page=${page}&timestamp=${timestamp}`);
+      dispatch({ type: GET_CARDS, payload: response.data });
+      return response.data;
+    } catch (error) {
       console.error(error);
       // Gérer les erreurs de récupération des données
-    });
+      throw error;
+    }
   };
 };
 
 // Envoie à la base de données les cartes que l'on a ajouté à maCollection
 
 export const postCollectionCards = (data) => {
-  console.log(data);
   return (dispatch) => {
     return axios
       .post('http://localhost:3010/MaCollection', data)
