@@ -22,6 +22,7 @@ const initialState = {
   nbCard: "25",
   paginationAllCards: [],
   paginationFilteredCards: [],
+  paginationSearchBar: [],
 };
 
 
@@ -30,6 +31,7 @@ export default function carteReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CARDS:
       const newCards = action.payload.data;
+      console.log(newCards);
       const paginationNewCards = action.payload.pagination;
       // // Récupérer les données précédentes en cache
       const cachedCards = localStorage.getItem('cachedCards')
@@ -47,12 +49,14 @@ export default function carteReducer(state = initialState, action) {
       // localStorage.removeItem('cachedCards'); 
       console.log("cachedAllCards",allCards);
       // // pour remove le cache pour débugger.
+
+      
       
       return {
         ...state,
         allCards: allCards,
         paginationAllCards: paginationNewCards,
-        paginationFilteredCards: [],
+        
       };
 
     // GET CHECKBOXES ->
@@ -140,11 +144,13 @@ export default function carteReducer(state = initialState, action) {
 
     case GET_SEARCH_CARDS:
       const updatedSearch = action.payload.search;
-      const allCardsSearchData = action.payload.data ? action.payload.data.data : [];
+      const SearchData = action.payload.data ? action.payload.data.data : [];
+      const paginationSearch = action.payload.data ? action.payload.data.pagination : [];
       return {
         ...state,
         searchText: updatedSearch,
-        allCards: allCardsSearchData.length === 0 ? [...state.allCards] : allCardsSearchData,
+        allCards: SearchData.length === 0 ? [...state.allCards] : SearchData,
+        paginationSearchBar: paginationSearch,
       };
       //FILTRES//
 

@@ -7,6 +7,8 @@ export const TOGGLE_DECOCHER_TOUT = "TOGGLE_DECOCHER_TOUT";
 export const GET_SEARCH_CARDS = "GET_SEARCH_CARDS";
 export const GET_CHECKBOXES_NAME = "GET_CHECKBOXES_NAME";
 export const FILTER_ALL_CARDS = "FILTER_ALL_CARDS";
+export const GET_FILTER_PAGE = "GET_FILTER_PAGE";
+
 
 export const getCheckboxesName = () => {
   return async (dispatch) => {
@@ -37,12 +39,25 @@ export const toggleCheckboxes = (checkboxId) => async (dispatch, getState) => {
   }
 };
 
+export const getFilterPage = (page) => async (dispatch, getState) => {
+  const nbPage = page;
+  console.log(typeof(nbPage));
+  const updatedCheckboxes = getState().carteReducer.checkboxes; // Obtenez les cases à cocher mises à jour
+  try {
+    const filteredCards = await filterCards(updatedCheckboxes, nbPage);
+
+    dispatch({ type: GET_FILTER_PAGE, payload: filteredCards });
+  } catch (error) {
+    console.error('Erreur lors de la filtration des cartes :', error);
+  }
+};
+
 
 
 export const getCardsBySearch = (search) => {
   return (dispatch) => {
     if (search.length >= 3) {
-      return axios.get(`https://api.jikan.moe/v4/anime?q=${search}&sfw`).then((res) => {
+      return axios.get(`https://api.jikan.moe/v4/manga?q=${search}&sfw`).then((res) => {
         console.log(res.data);
         dispatch({ type: GET_SEARCH_CARDS, payload: { data: res.data, search: search }});
       }).catch((error) => {

@@ -13,6 +13,7 @@ export default function Carte() {
   const pagination = useSelector(state => state.carteReducer.paginationAllCards);
   const currentPage = pagination.current_page; 
   const cartes = useSelector(state => state.carteReducer.allCards);
+  console.log(cartes);
   const nbCard = useSelector(state => parseInt(state.carteReducer.nbCard));
  
   const [selectedCardId, setSelectedCardId] = useState(null);
@@ -24,6 +25,7 @@ export default function Carte() {
 
   const startIndex = (currentPage - 1) * nbCard;
   const endIndex = startIndex + nbCard;
+ 
   
 
   return (

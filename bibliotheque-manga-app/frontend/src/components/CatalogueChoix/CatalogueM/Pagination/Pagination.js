@@ -3,39 +3,64 @@ import '../../../../styles/Pagination.css';
 import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCards } from '../../../../actions/carte.action';
+import { getFilterPage } from '../../../../actions/filtres.action';
 
 export default function Pagination() {
+
+  //VARIABLES GLOBALES
   const dispatch = useDispatch();
   const visibleButtons = 5;
   const halfVisibleButtons = Math.floor(visibleButtons / 2);
+  const checkboxes = useSelector(state => state.carteReducer.checkboxes);
   const paginationAllCards = useSelector(state => state.carteReducer.paginationAllCards);
   const paginationFilteredCards = useSelector(state => state.carteReducer.paginationFilteredCards);
+  const paginationSearchBar = useSelector(state => state.carteReducer.paginationSearchBar);
+  const checkboxesUnchecked = checkboxes.every(checkbox => !checkbox.checked);
+  //VARIABLES GLOBALES
+  
   const currentPageAllCards = paginationAllCards.current_page;
   const currentPageFilteredCards = paginationFilteredCards.current_page;
+  const currentPageSearchBar = paginationSearchBar.current_page; 
   const totalPagesAllCards = paginationAllCards.last_visible_page;
   const totalPagesFilteredCards = paginationFilteredCards.last_visible_page;
+  const totalPagesSearchBar = paginationSearchBar.last_visible_page;
   const pagesFilteredCards = [];
   const pagesAllCards = [];
+  const pagesSearchBar = [];
 
+  console.log(Object.keys(paginationFilteredCards).length > 0 && !checkboxesUnchecked || Object.keys(paginationSearchBar).length > 0);
   const handlePageChange = (page) => {
-    dispatch(getCards(page));
+    console.log(page);
+    if (Object.keys(paginationAllCards).length > 0 && checkboxesUnchecked && Object.keys(paginationSearchBar).length === 0) {
+      dispatch(getCards(page));
+    } else if (Object.keys(paginationFilteredCards).length > 0 && !checkboxesUnchecked) {
+      dispatch(getFilterPage(page));
+    } else if (Object.keys(paginationSearchBar).length > 0 && checkboxesUnchecked) {
+      console.log("oui");
+    }
   };
 
   const renderPagination = () => {
     let currentPage, totalPages, pages, startPage, endPage;
+    
 
-    if (Object.keys(paginationAllCards).length > 0) {
+    if (Object.keys(paginationAllCards).length > 0 && checkboxesUnchecked && Object.keys(paginationSearchBar).length === 0) {
       currentPage = currentPageAllCards;
       totalPages = totalPagesAllCards;
       pages = pagesAllCards;
-
-    } else if (Object.keys(paginationFilteredCards).length > 0) {
-      currentPage = currentPageFilteredCards;
-      totalPages = totalPagesFilteredCards;
-      pages = pagesFilteredCards;
+    } else if(Object.keys(paginationFilteredCards).length > 0 && !checkboxesUnchecked) {
+        currentPage = currentPageFilteredCards;
+        totalPages = totalPagesFilteredCards;
+        pages = pagesFilteredCards;
+    } else if(Object.keys(paginationSearchBar).length > 0 && checkboxesUnchecked) {
+      currentPage = currentPageSearchBar;
+      totalPages = totalPagesSearchBar;
+      pages = pagesSearchBar;
     } else {
       return null; // Rendu nul si les données de pagination ne sont pas disponibles
     }
+
+    
 
     const isFirstPage = currentPage === 1;
     const isLastPage = currentPage === totalPages;
@@ -49,6 +74,7 @@ export default function Pagination() {
     }
 
     for (let i = startPage; i <= endPage; i++) {
+      
       pages.push(
         <button
           className={currentPage === i ? 'current-button' : 'other-button'}

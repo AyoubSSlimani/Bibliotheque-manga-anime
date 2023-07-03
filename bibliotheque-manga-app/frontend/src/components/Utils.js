@@ -9,19 +9,25 @@ export const isEmpty = (value) => {
     );
   };
   
-  export async function filterCards(checkboxes) {
+  export async function filterCards(checkboxes, page) {
       try {
         const timestamp = parseInt(Date.now() / 1000); // Divisez par 1000 pour obtenir le timestamp en secondes
         let filteredCards = [];
+        const nbPage = page;
+        console.log(nbPage);
+
+        const checkboxTerminer = checkboxes.find(checkbox => checkbox.mal_id === "complete");
+        const statusTerminer = checkboxTerminer.mal_id;
+        const isCheckboxTerminerChecked = checkboxTerminer.checked;
 
         const checkboxesUnchecked = checkboxes.every(checkbox => !checkbox.checked);
         const checkedGenres = checkboxes
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.mal_id);
-        const checkedGenresIds = checkedGenres.join(',');
+        const checkedGenresWithoutTerminer = checkedGenres.filter(genreId => genreId !== statusTerminer);
+        const checkedGenresIds = checkedGenresWithoutTerminer.join(',');
         
-        // const isTerminerChecked = checkboxes.find(checkbox => checkbox.mal_id === "complete" && checkbox.checked);
-        // console.log(isTerminerChecked.name);
+        
 
         if (checkboxesUnchecked) {
           const response = await axios.get(`https://api.jikan.moe/v4/manga?&q=&sfw&timestamp=${timestamp}`);
@@ -31,13 +37,18 @@ export const isEmpty = (value) => {
           return filteredCards;
         }; 
 
+       
+        
 
-        if (!checkboxesUnchecked) {
-          const response = await axios.get(`https://api.jikan.moe/v4/manga?q=&genres=${checkedGenresIds}&sfw&timestamp=${timestamp}`);
+        if (!checkboxesUnchecked || isCheckboxTerminerChecked) {
+          let response;
+          isCheckboxTerminerChecked === true ? response = await axios.get(`https://api.jikan.moe/v4/manga?q=&genres=${checkedGenresIds}&page=${page}&status=${statusTerminer}&sfw&timestamp=${timestamp}`)
+          : response = await axios.get(`https://api.jikan.moe/v4/manga?q=&genres=${checkedGenresIds}&page=${page}&sfw&timestamp=${timestamp}`);
           const apiCards = response.data;
           filteredCards = apiCards;
           return filteredCards;
         };
+
         
         return filteredCards;
 
