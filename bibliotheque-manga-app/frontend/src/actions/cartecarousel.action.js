@@ -15,12 +15,14 @@ export const getCarouselNouveauteCards = () => {
 
 export const getCarouselDernierAjoutCards = () => {
     return (dispatch) => {
-        return axios.get("http://localhost:3001/caroussel-dernier-ajout").then((res) => {
-            dispatch({ type: GET_CAROUSEL_DERNIER_AJOUT_CARDS, payload: res.data });
-        });       
-};
+      return axios.get("http://localhost:3010/MaCollection/").then((res) => {
+        console.log('Ma Collection: ',res.data);
+  
+        dispatch({ type: GET_CAROUSEL_DERNIER_AJOUT_CARDS, payload: res.data });
+      });
+    };
+  };
 
-};
 
 export const getCarouselPepiteCards = () => {
     return (dispatch) => {

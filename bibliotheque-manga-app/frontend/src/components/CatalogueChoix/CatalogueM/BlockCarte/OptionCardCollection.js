@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 export default function OptionCardCollection({cardId}) {
   // Dispatch Redux pour déclencher une action
   const dispatch = useDispatch();
-  
 
 
   return (

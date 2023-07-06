@@ -25,18 +25,27 @@
 } */
 
 .carte-caroussel img {
-    width: 90%;
-    height: 50%;
-    margin-top: 10px;
+    height:60%;
+    width: 80%;
+    
+}
+
+.carte-caroussel img:hover {
+    height: 100%;
+    width: 100%;
 }
 
 .title-carte-carousel {
-    height: 5px;
-    margin-bottom: -5px;
+    margin: 0 0 0 0;
+    font-size: 1,05rem; 
+}
+.title-carte-carousel[title-length-sup18="true"] {
+    margin: 0 0 0 0;
+    font-size: 0.7rem; 
+    text-align: center;
 }
 
-.ligne {
-    position: relative;
+.ligne-carte-carousel {
     width: 80%;
     border-bottom: 2px solid black;
     margin-bottom: 5px;

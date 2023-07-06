@@ -19,24 +19,25 @@
 }
 
 .container-image-optn {
-    width: auto;
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    
+    
 }
 
 .card {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
     background-color: white;
     border: 2px solid black;
     width: 190px;
     height: 268px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     border-radius: 3px;
     margin-bottom: 30px;
-    padding-top: 10px;
-    position: relative;
     margin-left: 10px;
+    
 }
 
 .card:hover {
@@ -44,36 +45,66 @@
     cursor: pointer;
 }
 
-.ligne {
-    width: 90%;
-    padding-top: 10px;
-    border-bottom: 2px solid black;
-}
-
-.name-card {
+.catalogue-manga-card-image {
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    transform: translateX(-50%) translateY(-100%);
     
-    margin-top: -30px;
+    
+    
 }
 
-
-.add-optn {
-    padding-left: 10px;
+.catalogue-manga-card-image:hover {
+    width:190px;
+    height: 250px;
+    
+    /* transform: translateY(-30%); */
 }
 
 .icone-option-card {
-    position: absolute;
-    right: 10px;
-    margin-top: 4px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background-image: url(../assets/add.png);
     background-color: white;
     background-size: cover;
+    position: absolute;
     
+
     
 }
+
+
 
 .icone-option-card:hover {
     background-color: pink;
 }
+
+
+
+.ligne-carte-catalogue-manga {
+    width: 90%;
+    padding-top: 10px;
+    border-bottom: 2px solid black;
+}
+
+.carte-catalogue-manga-title {
+    margin: 0 0 0 0;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.carte-catalogue-manga-title[title-length-sup18="true"] {
+    font-size: 0.7rem;  
+    text-align: center;
+}
+
+
+
+.add-optn {
+    padding-left: 10px;
+}
+

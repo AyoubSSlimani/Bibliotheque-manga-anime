@@ -1,0 +1,52 @@
+.container-custom-card-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.header-custom-card-page {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.header-custom-card-page h1 {
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+   text-align: center;
+
+}
+
+.main-custom-card-page {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+
+.container-card-image-et-pastille {
+    position: relative;
+    
+}
+
+.pastille-custom-card-page {
+    position: absolute;
+    transform: translateX(-50%) translateY(-35%);
+}
+
+.custom-card-page-container-table {
+    margin-left: 45px;
+    border-left: 5px inset white;
+
+}
+
+.custom-page-table {
+    margin-left: 45px;
+}

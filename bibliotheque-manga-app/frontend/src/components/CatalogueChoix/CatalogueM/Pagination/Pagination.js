@@ -11,64 +11,26 @@ export default function Pagination() {
   const dispatch = useDispatch();
   const visibleButtons = 5;
   const halfVisibleButtons = Math.floor(visibleButtons / 2);
-  const checkboxes = useSelector(state => state.carteReducer.checkboxes);
-  const paginationAllCards = useSelector(state => state.carteReducer.paginationAllCards);
-  const paginationFilteredCards = useSelector(state => state.carteReducer.paginationFilteredCards);
-  const paginationSearchBar = useSelector(state => state.carteReducer.paginationSearchBar);
-  const checkboxesUnchecked = checkboxes.every(checkbox => !checkbox.checked);
+  // const checkboxes = useSelector(state => state.carteReducer.checkboxes);
+  const pagination = useSelector(state => state.carteReducer.pagination);
+  // const checkboxesUnchecked = checkboxes.every(checkbox => !checkbox.checked);
   //VARIABLES GLOBALES
   
-  const currentPageAllCards = paginationAllCards.current_page;
-  const currentPageFilteredCards = paginationFilteredCards.current_page;
-  const currentPageSearchBar = paginationSearchBar.current_page; 
-  const totalPagesAllCards = paginationAllCards.last_visible_page;
-  const totalPagesFilteredCards = paginationFilteredCards.last_visible_page;
-  const totalPagesSearchBar = paginationSearchBar.last_visible_page;
-  const pagesFilteredCards = [];
-  const pagesAllCards = [];
-  const pagesSearchBar = [];
+  const currentPage = pagination.current_page;
+  const totalPages = pagination.last_visible_page;
+  const pages = [];
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === totalPages;
+  let startPage = Math.max(1, currentPage - halfVisibleButtons);
+  let endPage = Math.min(startPage + visibleButtons - 1, totalPages);
+ 
+  const handlePageChange = async (page) => {
 
-  console.log(Object.keys(paginationFilteredCards).length > 0 && !checkboxesUnchecked || Object.keys(paginationSearchBar).length > 0);
-  const handlePageChange = (page) => {
-    console.log(page);
-    if (Object.keys(paginationAllCards).length > 0 && checkboxesUnchecked && Object.keys(paginationSearchBar).length === 0) {
-      dispatch(getCards(page));
-    } else if (Object.keys(paginationFilteredCards).length > 0 && !checkboxesUnchecked) {
-      dispatch(getFilterPage(page));
-    } else if (Object.keys(paginationSearchBar).length > 0 && checkboxesUnchecked) {
-      console.log("oui");
-    }
+    await dispatch(getCards(page));
   };
 
   const renderPagination = () => {
-    let currentPage, totalPages, pages, startPage, endPage;
     
-
-    if (Object.keys(paginationAllCards).length > 0 && checkboxesUnchecked && Object.keys(paginationSearchBar).length === 0) {
-      currentPage = currentPageAllCards;
-      totalPages = totalPagesAllCards;
-      pages = pagesAllCards;
-    } else if(Object.keys(paginationFilteredCards).length > 0 && !checkboxesUnchecked) {
-        currentPage = currentPageFilteredCards;
-        totalPages = totalPagesFilteredCards;
-        pages = pagesFilteredCards;
-    } else if(Object.keys(paginationSearchBar).length > 0 && checkboxesUnchecked) {
-      currentPage = currentPageSearchBar;
-      totalPages = totalPagesSearchBar;
-      pages = pagesSearchBar;
-    } else {
-      return null; // Rendu nul si les données de pagination ne sont pas disponibles
-    }
-
-    
-
-    const isFirstPage = currentPage === 1;
-    const isLastPage = currentPage === totalPages;
-    
-    // Calcul des pages visibles
-    startPage = Math.max(1, currentPage - halfVisibleButtons);
-    endPage = Math.min(startPage + visibleButtons - 1, totalPages);
-
     if (endPage - startPage + 1 < visibleButtons) {
       startPage = Math.max(1, endPage - visibleButtons + 1);
     }

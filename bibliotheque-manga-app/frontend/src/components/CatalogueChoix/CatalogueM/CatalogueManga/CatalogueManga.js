@@ -1,7 +1,7 @@
 //REACT
 import React, { useEffect } from "react";
 //REDUX
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //COMPONENTS
 import SearchBarCatalogue from "../SearchBar/SearchBarCatalogue";
 import Carte from "../BlockCarte/Carte";
@@ -17,16 +17,20 @@ import { getCards } from "../../../../actions/carte.action";
 
 export default function CatalogueManga() {
   const dispatch = useDispatch();
-   useEffect(() => {
-    dispatch(getCheckboxesName());
-  }, []);
 
   useEffect(() => {
-    dispatch(getCards(1));
+    const fetchData = async () => {
+      await dispatch(getCheckboxesName()); 
+      await dispatch(getCards(1));
+    };
+    fetchData(); 
   }, []);
 
+
+  
+
   return (
-    <div className="container">
+    <div className="container-catalogue-manga">
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue />
 
@@ -42,7 +46,8 @@ export default function CatalogueManga() {
         </div>
         
       </div>
-      <div classNameName="container-pagination">
+
+      <div className="container-pagination">
         <div className="sous-container-pagination">
           <Pagination />
         </div>

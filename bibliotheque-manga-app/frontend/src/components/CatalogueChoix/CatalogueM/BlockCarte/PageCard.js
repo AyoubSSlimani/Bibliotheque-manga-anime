@@ -15,7 +15,7 @@ export default function PageCard() {
             <h1>Titre de l'oeuvre</h1>
             <img src={iconSettings} className='settings-card-page' alt='icone-settings' width='30px' height='30px'/>
         </div>
-        <main>
+        <main className="main-card-page">
             <img className='img-card' src={onePiece} alt='img-card' width='250px' height='300px' />
             <div className='container-table'>
                 <table>

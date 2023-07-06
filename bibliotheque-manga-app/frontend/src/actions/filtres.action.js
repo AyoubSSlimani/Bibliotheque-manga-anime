@@ -1,13 +1,10 @@
 import axios from "axios";
-import { filterCards } from "../components/Utils";
+import { getCards } from "./carte.action";
 
-export const TOGGLE_CHECKBOXES = "TOGGLE_CHECKBOXES";
-export const TOGGLE_TERMINER = "TOGGLE_TERMINER";
-export const TOGGLE_DECOCHER_TOUT = "TOGGLE_DECOCHER_TOUT";
-export const GET_SEARCH_CARDS = "GET_SEARCH_CARDS";
 export const GET_CHECKBOXES_NAME = "GET_CHECKBOXES_NAME";
-export const FILTER_ALL_CARDS = "FILTER_ALL_CARDS";
-export const GET_FILTER_PAGE = "GET_FILTER_PAGE";
+export const TOGGLE_CHECKBOXES = "TOGGLE_CHECKBOXES";
+export const GET_SEARCH_TEXT = "GET_SEARCH_TEXT";
+export const GET_NB_CARD = "GET_NB_CARD";
 
 
 export const getCheckboxesName = () => {
@@ -26,49 +23,29 @@ export const getCheckboxesName = () => {
 };
 
 
-export const toggleCheckboxes = (checkboxId) => async (dispatch, getState) => {
+export const toggleCheckboxes = (checkboxId) => {
+  return async (dispatch) => {
   dispatch({ type: TOGGLE_CHECKBOXES, payload: checkboxId });
 
-  const updatedCheckboxes = getState().carteReducer.checkboxes; // Obtenez les cases à cocher mises à jour
-  try {
-    const filteredCards = await filterCards(updatedCheckboxes);
-
-    dispatch({ type: FILTER_ALL_CARDS, payload: filteredCards });
-  } catch (error) {
-    console.error('Erreur lors de la filtration des cartes :', error);
-  }
+  
+  await dispatch(getCards(1));
 };
-
-export const getFilterPage = (page) => async (dispatch, getState) => {
-  const nbPage = page;
-  console.log(typeof(nbPage));
-  const updatedCheckboxes = getState().carteReducer.checkboxes; // Obtenez les cases à cocher mises à jour
-  try {
-    const filteredCards = await filterCards(updatedCheckboxes, nbPage);
-
-    dispatch({ type: GET_FILTER_PAGE, payload: filteredCards });
-  } catch (error) {
-    console.error('Erreur lors de la filtration des cartes :', error);
-  }
 };
 
 
-
-export const getCardsBySearch = (search) => {
-  return (dispatch) => {
-    if (search.length >= 3) {
-      return axios.get(`https://api.jikan.moe/v4/manga?q=${search}&sfw`).then((res) => {
-        console.log(res.data);
-        dispatch({ type: GET_SEARCH_CARDS, payload: { data: res.data, search: search }});
-      }).catch((error) => {
-        console.error(error);
-        // Gérer les erreurs de récupération des données
-      });
-    } else {
+export const getSearchText = (search) => {
+  return async (dispatch) => {
       // Si la longueur de la chaîne de recherche est inférieure à 3
       // Dispatch une action avec la valeur de la recherche
-      dispatch({ type: GET_SEARCH_CARDS, payload: { search: search }});
-    }
+      dispatch({ type: GET_SEARCH_TEXT, payload: search });
+
+      await dispatch(getCards(1));
   };
 };
+
+  export const getNbCard = (nbCard) => {
+    return (dispatch) => {
+      dispatch({ type: GET_NB_CARD, payload: nbCard  });
+    };
+  };
 

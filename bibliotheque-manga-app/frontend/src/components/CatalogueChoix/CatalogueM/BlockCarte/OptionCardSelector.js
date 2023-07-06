@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 import { postCollectionCards } from '../../../../actions/carte.action';
-import { v4 as uuidv4 } from 'uuid';
 
 export default function OptionCardSelector({cardId, cartes}) {
   // Dispatch Redux pour déclencher une action
@@ -15,7 +14,7 @@ export default function OptionCardSelector({cardId, cartes}) {
 
     if (selectedOption === 'Collection') {
       if (carte) {
-        const modifiedCard = {...carte, mal_id: uuidv4()};
+        const modifiedCard = {...carte, mal_id: "customCard" + carte.mal_id.toString()};
         dispatch(postCollectionCards(modifiedCard));
     } else {
       return <div>Carte Introuvable</div>

@@ -8,31 +8,31 @@
 }
 
 .sous-container-genre {
-    width: 90%;
+    width: 100%;
     height: 200px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
     flex-wrap: wrap;
+    overflow: auto;
+}
+
+/*-- Permet de changer la largeur de défilement --*/
+.sous-container-genre::-webkit-scrollbar {
+    width: 15px;
+}
+
+.sous-container-genre::-webkit-scrollbar-thumb {
+    background-color: #3a86ff; /* Couleur de la poignée de défilement au survol */
 }
 
 .checkbox {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-arround;
 }
 
-
-.checkboxText {
+div.checkbox {
+    width: 20%;
+    height: 30%;
     display: flex;
-    margin-left: 10px;
-}
-
-.checkboxText input {
-    margin-right: 15px;
-}
-
-.genre {
-    padding-left: 15px;
-    padding-bottom: 15px;
+    flex-wrap: wrap;
+    align-content: center;
 }

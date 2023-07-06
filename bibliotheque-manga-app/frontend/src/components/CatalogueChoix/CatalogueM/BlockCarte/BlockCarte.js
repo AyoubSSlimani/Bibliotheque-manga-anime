@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../../../../styles/BlockCarte.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { getNbCard} from '../../../../actions/pagination.action';
+import { getNbCard } from '../../../../actions/filtres.action';
+
 
 
 export default function BlockCarte() {

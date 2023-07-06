@@ -1,28 +1,25 @@
 import {
   GET_CARDS,
   GET_COLLECTION_CARDS,
-  POST_COLLECTION_CARDS,
   DELETE_COLLECTION_CARDS,
 } from "../actions/carte.action";
 import {
-  FILTER_ALL_CARDS,
   GET_CHECKBOXES_NAME,
-  GET_SEARCH_CARDS,
+  GET_SEARCH_TEXT,
   TOGGLE_CHECKBOXES,
+  GET_NB_CARD,
 } from "../actions/filtres.action";
-import { GET_NB_CARD } from "../actions/pagination.action";
+
 
 
 const initialState = {
   allCards: [],
-  collectionCardsPost: [],
-  collectionCardsGet: [],
+  postCollectionCards: [],
+  getCollectionCards: [],
   checkboxes: [],
   searchText: "",
   nbCard: "25",
-  paginationAllCards: [],
-  paginationFilteredCards: [],
-  paginationSearchBar: [],
+  pagination: [],
 };
 
 
@@ -31,32 +28,11 @@ export default function carteReducer(state = initialState, action) {
   switch (action.type) {
     case GET_CARDS:
       const newCards = action.payload.data;
-      console.log(newCards);
-      const paginationNewCards = action.payload.pagination;
-      // // Récupérer les données précédentes en cache
-      const cachedCards = localStorage.getItem('cachedCards')
-        ? JSON.parse(localStorage.getItem('cachedCards'))
-        : [];
-      
-      // // Vérifier les doublons dans les nouvelles données
-      const uniqueNewCards = newCards.filter((card) => !cachedCards.some((c) => c.mal_id === card.mal_id));
-
-      // // Combiner les données précédentes avec les nouvelles données uniques
-      const allCards = [...cachedCards, ...uniqueNewCards].map((card) => ({ ...card}));
-
-      // // Mettre à jour le cache avec les nouvelles données combinées
-      localStorage.setItem('cachedCards', JSON.stringify(allCards));
-      // localStorage.removeItem('cachedCards'); 
-      console.log("cachedAllCards",allCards);
-      // // pour remove le cache pour débugger.
-
-      
-      
+      const paginationNewCards = action.payload.pagination;   
       return {
         ...state,
-        allCards: allCards,
-        paginationAllCards: paginationNewCards,
-        
+        allCards: newCards,
+        pagination: paginationNewCards, 
       };
 
     // GET CHECKBOXES ->
@@ -77,28 +53,6 @@ export default function carteReducer(state = initialState, action) {
       };
 
     // GET CHECKBOXES
-
-    // COLLECTION CARDS --> 
-    case POST_COLLECTION_CARDS:
-      return {
-        ...state,
-        collectionCardsPost: [...state.collectionCardsPost, action.payload],
-      };
-    
-    case GET_COLLECTION_CARDS:
-      return {
-        ...state,
-        collectionCardsGet: action.payload,
-      };
-
-    case DELETE_COLLECTION_CARDS:
-      return {
-        ...state,
-        collectionCardsGet: state.collectionCardsGet.filter(
-          (post) => post.id !== action.payload
-        ),
-      };
-    // COLLECTION CARDS
 
     // FILTRES -> 
 
@@ -129,38 +83,39 @@ export default function carteReducer(state = initialState, action) {
         };
     }
 
-    case FILTER_ALL_CARDS:
-      const filteredCards = action.payload.data;
-      const paginationFilteredCards = action.payload.pagination;
-      console.log(filteredCards.map(card => card.genres));
-      console.log(paginationFilteredCards);
-      return {
-        ...state,
-        allCards: filteredCards,
-        paginationFilteredCards: paginationFilteredCards,
-      }
-      
-
-
-    case GET_SEARCH_CARDS:
-      const updatedSearch = action.payload.search;
-      const SearchData = action.payload.data ? action.payload.data.data : [];
-      const paginationSearch = action.payload.data ? action.payload.data.pagination : [];
+    case GET_SEARCH_TEXT:
+      const updatedSearch = action.payload;
       return {
         ...state,
         searchText: updatedSearch,
-        allCards: SearchData.length === 0 ? [...state.allCards] : SearchData,
-        paginationSearchBar: paginationSearch,
       };
+
       //FILTRES//
 
       //NB CARD->
     
-      case GET_NB_CARD:
-        return {
-          ...state,
-          nbCard: action.payload,
-        };
+    case GET_NB_CARD:
+      return {
+        ...state,
+        nbCard: action.payload,
+      };
+
+       // COLLECTION CARDS --> 
+      
+    case GET_COLLECTION_CARDS:
+      return {
+        ...state,
+        getCollectionCards: action.payload,
+      };
+
+    case DELETE_COLLECTION_CARDS:
+      return {
+        ...state,
+        getCollectionCards: state.getCollectionCards.filter(
+          (carte) => carte.mal_id !== action.payload
+        ),
+      };
+    // COLLECTION CARDS <-
       default:
         return state;
   }

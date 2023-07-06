@@ -30,7 +30,7 @@ export default function CheckboxGenre() {
               />
             <p>{checkbox.name}</p>
           </div>
-        )))};
+        )))}
       </div>
       <button id="decocherTout" onClick={handleUncheckAll}>Décocher tout</button>
 

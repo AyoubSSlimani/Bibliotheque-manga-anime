@@ -61,10 +61,10 @@ function Caroussel({ title, data }){
 
                 {!isEmpty(data) && data.slice(startIndex, startIndex + cardPerPage).map((carte) => {
                     return (
-                    <div key={carte.id} className="carte-caroussel">
-                    <img src={carte.cover}  alt={carte.name} height='50px' width='50px'/>
-                    <h3 className='title-carte-carousel'>{carte.name}</h3>
-                    <div className="ligne"></div>
+                    <div key={carte.mal_id} className="carte-caroussel">
+                    <img src={carte.images.jpg.image_url}  alt={carte.title}/>
+                    <h3 className='title-carte-carousel' title-length-sup18={carte.title.length > 18 ? "true" : "false"}>{carte.title}</h3>
+                    <div className="ligne-carte-carousel"></div>
                     <div className="type">{carte.type}</div>
                     </div>
                     );

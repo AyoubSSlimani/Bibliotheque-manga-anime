@@ -8,6 +8,7 @@ import CatalogueChoix from './CatalogueChoix/CatalogueChoix';
 import MaCollection from './MaCollection/MaCollection';
 import Profil from './Profil/Profil'
 import PageCard from './CatalogueChoix/CatalogueM/BlockCarte/PageCard';
+import CustomCardPage from './MaCollection/CustomCardPage';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Catalogue-manga" element={<CatalogueManga />} />
         <Route path="/Catalogue-anime" element={<CatalogueAnime />} />
         <Route path="/Ma-collection" element={<MaCollection />} />
+        <Route path="/Ma-collection/:cardId" element={<CustomCardPage/>}/>
         <Route path="/Profil" element={<Profil />} />
         <Route path="/PageCard" element={<PageCard />} />
 

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../../styles/SearchBarCatalogue.css';
 import loupe from '../../../../assets/loupe.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCardsBySearch } from '../../../../actions/filtres.action';
+import { getSearchText } from '../../../../actions/filtres.action';
 
 
 
@@ -15,7 +15,7 @@ function SearchBarCatalogue() {
 
   const handleSearchChange = (e) => {
     const searchText = e.target.value
-    dispatch(getCardsBySearch(searchText)); 
+    dispatch(getSearchText(searchText)); 
   }
 
   

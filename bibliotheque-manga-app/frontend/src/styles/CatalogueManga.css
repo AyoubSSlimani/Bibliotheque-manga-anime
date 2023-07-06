@@ -1,5 +1,5 @@
 
-.container {
+.container-catalogue-manga {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -43,12 +43,7 @@
 /*----------------------------------------- PAGINATION --------------------------------------*/
 
 .container-pagination {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
+    
 }
 
 .sous-container-pagination {

@@ -10,7 +10,7 @@
     
 }
 
-main  {
+.main-card-page {
     display: flex;
 
     justify-content: space-around;
