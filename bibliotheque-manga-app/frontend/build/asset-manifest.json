@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2d735e1b.css",
+    "main.js": "/static/js/main.43784628.js",
+    "static/media/naruroUzumaki.png": "/static/media/naruroUzumaki.cb00f77bc9c8e34b7c00.png",
+    "static/media/A_l_Aube_d_une_grande_aventure_One_Piece_tome_1-361143691.jpg": "/static/media/A_l_Aube_d_une_grande_aventure_One_Piece_tome_1-361143691.b0473dcf28e60945572b.jpg",
+    "static/media/parametres.png": "/static/media/parametres.936f5b6616ee3febde5e.png",
+    "static/media/profilUser.png": "/static/media/profilUser.63230dce09dc4d51fe65.png",
+    "static/media/add.png": "/static/media/add.132696644e79a1f05c3b.png",
+    "static/media/circle-yellow.png": "/static/media/circle-yellow.611ef9a2f47fae64fbb3.png",
+    "static/media/livreOuvert2.png": "/static/media/livreOuvert2.58326e6d2e421c555b71.png",
+    "static/media/coffreAuTresor.png": "/static/media/coffreAuTresor.73fc2cb93d43ff323c78.png",
+    "static/media/circle-grey.png": "/static/media/circle-grey.eebc854ee171ea68880b.png",
+    "static/media/repeated-square-dark.webp": "/static/media/repeated-square-dark.62c88ea9c16ae9b96df3.webp",
+    "index.html": "/index.html",
+    "main.2d735e1b.css.map": "/static/css/main.2d735e1b.css.map",
+    "main.43784628.js.map": "/static/js/main.43784628.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d735e1b.css",
+    "static/js/main.43784628.js"
+  ]
+}
