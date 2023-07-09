@@ -6,7 +6,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const server = express();
-const port = 3010;
+const port = process.env.SERVER_PORT || 3010;
 
 // const cache = new NodeCache();
 
@@ -15,6 +15,8 @@ server.use(morgan('combined'));
 server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true}));
+
+server.use(express.static('build'));
 
 let cardData = [];
 //POST
@@ -68,3 +70,5 @@ server.delete('/MaCollection', (req, res) => {
 server.listen(port, () => {
   console.log(`Serveur en cours d'exécution sur le port ${port}`);
 });
+
+module.exports = server;
