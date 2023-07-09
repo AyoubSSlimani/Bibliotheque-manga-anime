@@ -36,7 +36,7 @@ export default function CustomCardPage() {
     <div className="container-custom-card-page">
       <div className="header-custom-card-page">
         <img src={leftArrow} className="left-arrow-custom-card-page" alt="icone-arrow" width="60px" height="60px" />
-        <h1>{customCardData.title}</h1>
+        <h1 className="h1-custom-card-page">{customCardData.title}</h1>
         <img
           src={iconSettings}
           className="settings-custom-card-page"
@@ -53,13 +53,6 @@ export default function CustomCardPage() {
             alt="img-card"
             width="400px"
             height="550px"
-            />
-            <img
-            className="pastille-custom-card-page"
-            src={circleYellow}
-            alt="pastille"
-            width="60px"
-            height="60px"
             />
         </div>
         <div className="custom-card-page-container-table">

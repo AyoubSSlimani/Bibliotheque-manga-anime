@@ -16,6 +16,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .container-image-optn {
@@ -30,8 +31,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: white;
-    border: 2px solid black;
+    border: 2px solid rgba(250, 249, 249, 0.237);
     width: 190px;
     height: 268px;
     border-radius: 3px;
@@ -70,6 +70,7 @@
     background-color: white;
     background-size: cover;
     position: absolute;
+   
     
 
     
@@ -90,6 +91,7 @@
 }
 
 .carte-catalogue-manga-title {
+    color: rgba(255, 255, 255, 0.517);
     margin: 0 0 0 0;
     font-size: 1rem;
     margin-top: 10px;
@@ -107,4 +109,7 @@
 .add-optn {
     padding-left: 10px;
 }
+
+
+
 

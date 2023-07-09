@@ -18,7 +18,6 @@ function App() {
       <header>
         <div className="container-header">
           <NavBar>
-
           </NavBar>
         </div>
       </header>

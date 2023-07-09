@@ -1,7 +1,7 @@
 .blockTrier {
     width: 100%;
-    height: auto;
-    background-color: #662D91;
+    height: 100%;
+    border: 2px solid rgba(250, 249, 249, 0.237);
     border-radius: 5px;
     margin-bottom: 40px;
     display: flex;
@@ -9,7 +9,7 @@
 }
 
 .blockTrier h3, p {
-    color: white;
+    color: rgba(255, 255, 255, 0.746)
 }
 
 .petitContainer3 {
@@ -52,4 +52,100 @@
     color: #33B5DF;
     border: 1px solid #33B5DF;
     cursor: pointer;
+}
+
+.container-nbr-chapitre {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+.sous-container {
+    width: 100%;
+}
+
+.sous-container-nbr-chapitre {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 90px;
+}
+
+
+.signe-inferieur {
+    transform: rotate(90deg);
+}
+
+.moinsDe, .plusDe {
+    height: 30px;
+    width: 60px;
+    background-color: white;
+    display: flex;
+    
+}
+
+
+.moinsDe input, .plusDe input {
+    width: 50px;
+    border: none;
+    background-color: transparent;
+}
+
+.moinsDe input:focus, .plusDe input:focus {
+    outline: none;
+}
+
+input[type="checkbox"] {
+    margin: 0 0 0 10px;
+    transform: scale(2.3); 
+    height: 20px;
+  }
+
+
+  .container-genre {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.sous-container-genre {
+    border-top: 2px solid rgba(250, 249, 249, 0.237);
+    border-bottom: 2px solid rgba(250, 249, 249, 0.237);
+    padding: 0 0 0 10px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+/*-- Permet de changer la largeur de défilement --*/
+.sous-container-genre::-webkit-scrollbar {
+    width: 15px;
+}
+
+.sous-container-genre::-webkit-scrollbar-thumb {
+    background-color: #3a86ff; /* Couleur de la poignée de défilement au survol */
+}
+
+
+div.checkbox {
+    width: 20%;
+    height: 30%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+div.checkbox p {
+    
+
+    margin-left: 12px;
+    color: rgba(255, 255, 255, 0.746);
 }

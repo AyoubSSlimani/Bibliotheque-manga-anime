@@ -61,8 +61,8 @@ export default function MaCollection() {
   };
 
   return (
-    <div className="container">
-      <div className="container-ma-collection">
+    <div className="container-ma-collection">
+      <div className="sous-container-ma-collection">
         <div className="option-menu">
           <div className="title-menu-left">
             <div className="page-all">

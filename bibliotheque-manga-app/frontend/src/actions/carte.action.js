@@ -48,7 +48,7 @@ export const getCollectionCards = () => {
 
 export const deleteCollectionCards = (postId) => {
   return (dispatch) => {
-      axios.delete("http://localhost:3010/MaCollection/", postId);
-      dispatch({ type: DELETE_COLLECTION_CARDS, payload: postId });  
+    axios.delete("http://localhost:3010/MaCollection/", postId);
+    dispatch({ type: DELETE_COLLECTION_CARDS, payload: postId });
   };
 };

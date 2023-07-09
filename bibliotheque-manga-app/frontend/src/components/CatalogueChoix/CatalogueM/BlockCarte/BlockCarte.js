@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/BlockCarte.css'
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getNbCard } from '../../../../actions/filtres.action';
 

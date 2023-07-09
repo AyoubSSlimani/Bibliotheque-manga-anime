@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../../styles/Pagination.css';
 import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png';
+import Ellipse from '../../../../assets/ellipse.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCards } from '../../../../actions/carte.action';
 import { getFilterPage } from '../../../../actions/filtres.action';
@@ -30,6 +30,10 @@ export default function Pagination() {
   };
 
   const renderPagination = () => {
+    if (currentPage > 3) {
+      pages.push(<button className="other-button" key="firstpage" onClick={() => handlePageChange(1)}> 1 </button>)
+      pages.push(<img src={Ellipse} alt='ellipse' className='ellipse' key="ellipse"/>)  
+    }
     
     if (endPage - startPage + 1 < visibleButtons) {
       startPage = Math.max(1, endPage - visibleButtons + 1);
@@ -47,8 +51,11 @@ export default function Pagination() {
         </button>
       );
     }
-
+    
+    
+    
     if (endPage < totalPages) {
+      pages.push(<img src={Ellipse} alt='ellipse' className='ellipse' key="ellipse"/>)
       pages.push(
         <button
           className="other-button"
@@ -84,7 +91,7 @@ export default function Pagination() {
   };
 
   return (
-    <nav className="page">
+    <nav className="pagination">
       {renderPagination()}
     </nav>
   );

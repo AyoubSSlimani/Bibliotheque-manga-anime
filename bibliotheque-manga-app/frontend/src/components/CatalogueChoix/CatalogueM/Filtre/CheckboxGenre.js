@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../../../../styles/CheckboxGenre.css';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { DecocherTout, getCheckboxesName, toggleCheckboxes } from '../../../../actions/filtres.action';
 

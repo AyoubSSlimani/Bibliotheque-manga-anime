@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../../../styles/BlockNombreChapitre.css'
 import flecheVersLeBas2 from '../../../../assets/fleche-vers-le-bas2.png'
 import { toggleCheckboxes, toggleTerminer } from '../../../../actions/filtres.action';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,7 +26,7 @@ export default function BlockNombreChapitre() {
                 <div className="plusDe">
                     <input type="number"/>
                 </div>
-                <div className="checkboxText terminer">
+                <div className="checkbox">
                     <input type="checkbox"
                     checked={terminer.checked}
                     onChange={() => handleTerminerChange(terminer.mal_id)}

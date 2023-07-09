@@ -1,4 +1,4 @@
-.page {
+.pagination {
     display: flex;
     justify-content: space-between;
 }
@@ -23,9 +23,7 @@
     overflow: hidden;
 }
 
-.bg-fleche:hover {
-    color: pointer;
-}
+
 
 
 .bg-fleche-unable {
