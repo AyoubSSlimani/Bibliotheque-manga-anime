@@ -19,13 +19,14 @@ h1 {
 }
 
 .anime {
-    width: 500px;
-    height: 500px;
+    width: 40vw;
+    height: 70vh;
     background-color: #FF6767;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .anime h2 {
@@ -33,15 +34,22 @@ h1 {
 }
 
 .manga {
-    width: 500px;
-    height: 500px;
+    width: 40vw;
+    height: 70vh;
     background-color: #33B5DF;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .manga h2 {
     color: white;
+}
+
+@media (max-width: 768px) {
+    .anime, .manga {
+        height: 50vh;
+    }
 }
