@@ -15,7 +15,7 @@ export const GET_CAROUSEL_PEPITE_CARDS = "GET_CAROUSEL_PEPITE_CARDS";
 
 export const getCarouselDernierAjoutCards = () => {
     return (dispatch) => {
-      return axios.get("http://localhost:3010/MaCollection/").then((res) => {
+      return axios.get("https://bibliothequemanga.onrender.com/MaCollection").then((res) => {
   
         dispatch({ type: GET_CAROUSEL_DERNIER_AJOUT_CARDS, payload: res.data });
       });

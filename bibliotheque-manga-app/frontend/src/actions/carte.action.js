@@ -31,14 +31,14 @@ export const getCards = (page, nameComponent) => async (dispatch, getState) => {
 export const postCollectionCards = (data) => {
   return (dispatch) => {
     const cardData = data;
-    axios.post("http://localhost:3010/MaCollection/", cardData);
+    axios.post("https://bibliothequemanga.onrender.com/MaCollection", cardData);
   };
 };
 
 // récupère les cartes de maCollection de la bdd
 export const getCollectionCards = () => {
   return (dispatch) => {
-    return axios.get("http://localhost:3010/MaCollection/").then((res) => {
+    return axios.get("https://bibliothequemanga.onrender.com/MaCollection").then((res) => {
       const cardData = res.data;
 
       dispatch({ type: GET_COLLECTION_CARDS, payload: cardData });
@@ -50,7 +50,7 @@ export const getCollectionCards = () => {
 
 export const deleteCollectionCards = (postId) => {
   return (dispatch) => {
-    axios.delete("http://localhost:3010/MaCollection/", postId);
+    axios.delete("https://bibliothequemanga.onrender.com/MaCollection", postId);
     dispatch({ type: DELETE_COLLECTION_CARDS, payload: postId });
   };
 };
