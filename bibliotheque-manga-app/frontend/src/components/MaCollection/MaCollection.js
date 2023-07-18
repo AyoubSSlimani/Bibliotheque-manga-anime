@@ -50,7 +50,8 @@ useEffect(() => {
       activeElement = pageAllElement;
     };
   });
-
+  
+  
   addPageElement.addEventListener('click', function() {
     if (pages <= maxPages) {
       const customPage = document.createElement('div');
@@ -68,6 +69,22 @@ useEffect(() => {
           activeElement = customPage;
         }
       });
+
+      customPage.addEventListener('dblclick', function() {
+        customPage.contentEditable = 'true';
+        customPage.focus();
+      });
+
+      customPage.addEventListener('blur', function() {
+        customPage.contentEditable = 'false';
+      });
+      
+      customPage.addEventListener('keypress', function(event){
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          customPage.contentEditable = 'false';
+        }
+      })
     }
   });
 }, []);
