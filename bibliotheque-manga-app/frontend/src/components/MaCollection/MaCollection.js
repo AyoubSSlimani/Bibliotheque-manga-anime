@@ -4,42 +4,12 @@ import "../../styles/Carte.css";
 import loupe from "../../assets/loupe.png";
 import MaCollectionFiltre from "./MaCollectionFiltre";
 import MaCollectionSearchBar from "./MaCollectionSearchBar";
-import Newpage from "./Newpage";
 
-import { useDispatch, useSelector } from "react-redux";
-import { getCollectionCards } from "../../actions/carte.action";
-import OptionCardCollection from "../CatalogueChoix/CatalogueM/BlockCarte/OptionCardCollection";
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import CustomPage from "./CustomPage";
 
 export default function MaCollection() {
-  const dispatch = useDispatch();
-  const location = useLocation();
 
-  useEffect(() => {
-    dispatch(getCollectionCards());
-  }, [dispatch, location]);
-
-  const collectionCards = useSelector(
-    (state) => state.carteReducer.getCollectionCards
-  );
-
-  // État local pour stocker l'ID de la carte sélectionnée et l'état de l'option de carte ouverte
-  const [selectedCardId, setSelectedCardId] = useState(null);
-  const [isOptionCardOpen, setIsOptionCardOpen] = useState(false);
-
-  // Gère le clic sur l'icône de l'option de carte
-  const handleIconeOptionCardClick = (carteId) => {
-    if (selectedCardId === carteId) {
-      // Si l'option est déjà ouverte pour cette carte, on la ferme en réinitialisant les états
-      setSelectedCardId(null);
-      setIsOptionCardOpen(false);
-    } else {
-      // Sinon, on ouvre l'option correspondante en mettant à jour les états
-      setSelectedCardId(carteId);
-      setIsOptionCardOpen(true);
-    }
-  };
+  
 
   const [isFiltreVisible, setFiltreVisible] = useState(false);
   const [showWindow, setShowWindow] = useState(false);
@@ -60,15 +30,62 @@ export default function MaCollection() {
     }
   };
 
+let activeElement;
+
+let pages = 1;
+const maxPages = 3;
+
+useEffect(() => {
+  const pageAllElement = document.querySelector('.page-all');
+  activeElement = pageAllElement;
+  const addPageElement = document.querySelector('.icone-add-page');
+  const titleMenuLeft = document.querySelector('.title-menu-left');
+  const customPageElement = document.querySelector(`.custom-page`);
+  
+  pageAllElement.addEventListener('click', function() {
+    if (activeElement !== pageAllElement) {
+          
+      activeElement.style.boxShadow = '';
+      pageAllElement.style.boxShadow = '0px 1px 4px rgb(237 237 237 / 50%)';
+      activeElement = pageAllElement;
+    };
+  });
+
+  addPageElement.addEventListener('click', function() {
+    if (pages <= maxPages) {
+      const customPage = document.createElement('div');
+      customPage.textContent = `Page ${pages}`;
+      customPage.classList.add('custom-page');
+      const key = `custom-page-${pages}`;
+      customPage.setAttribute('key', key);
+      pages = pages + 1;
+      titleMenuLeft.insertBefore(customPage, addPageElement);
+
+      customPage.addEventListener('click', function() {
+        if (activeElement !== customPage) {
+          activeElement.style.boxShadow = '';
+          customPage.style.boxShadow = '0px 1px 4px rgb(237 237 237 / 50%)';
+          activeElement = customPage;
+        }
+      });
+    }
+  });
+}, []);
+
+
+  
+
+  
+
   return (
     <div className="container-ma-collection">
       <div className="sous-container-ma-collection">
         <div className="option-menu">
           <div className="title-menu-left">
-            <div className="page-all">
-              <h3>All</h3>
+          <div className="page-all" style={{ boxShadow: '0px 1px 4px rgb(237 237 237 / 50%)' }}>
+              All
             </div>
-            <Newpage />
+            <div className="icone-add-page"></div>
           </div>
 
           <div className="title-menu-right">
@@ -94,55 +111,7 @@ export default function MaCollection() {
         </div>
 
         {isFiltreVisible && <MaCollectionFiltre></MaCollectionFiltre>}
-
-        <div className="container-card-ma-collection">
-          <div className="sous-container-card-ma-collection">
-            {collectionCards && collectionCards.length > 0 ? (
-              <div className="sous-container-card">
-                {collectionCards.map((carte) => {
-                  const isSelected = selectedCardId === carte.mal_id;
-                  return (
-                    <div key={carte.mal_id} className="card card-carte">
-                      <Link to={`/Ma-collection/${carte.mal_id}`} key={carte.mal_id}>
-                        <div className="container-image-optn">
-                          <img
-                            src={carte.images.jpg.image_url}
-                            className="collection-manga-card-image"
-                            alt={carte.title}
-                            width="150px"
-                            height="200px"
-                          />
-                        </div>
-                        </Link>
-                        <div className="ligne"></div>
-                        <div className="name-card">
-                          <h3 className="carte-catalogue-manga-title" title-length-sup18={carte.title.length > 18 ? "true" : "false"}>{carte.title}</h3>
-                        </div>
-                      
-                      <div
-                        className="icone-option-card"
-                        onClick={() => handleIconeOptionCardClick(carte.mal_id)}
-                      >
-                        {isSelected && isOptionCardOpen && (
-                          <OptionCardCollection cardId={carte.mal_id} />
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-                ;
-              </div>
-            ) : (
-              <p>
-                Vous n'avez pas encore ajouté d'œuvre à votre collection. Pour
-                en ajouter aller dans{" "}
-                <Link to="/Catalogue-choix" className="catalogue-link">
-                  Catalogue
-                </Link>
-              </p>
-            )}
-          </div>
-        </div>
+        <CustomPage activeElement={activeElement}/>
       </div>
     </div>
   );

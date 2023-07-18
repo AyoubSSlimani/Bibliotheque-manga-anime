@@ -6,10 +6,12 @@ import '../../../../styles/OptionCardSelector.css'
 import OptionCardSelector from './OptionCardSelector'
 import { getCards } from '../../../../actions/carte.action'
 
-export default function Carte () {
+export default function Carte ({nameComponent}) {
   // Sélectionne les données de cartes à partir du state avec useSelector
   const dispatch = useDispatch()
-
+  const compName = nameComponent;
+  const animeTypeArray = ["TV", "Movie", "OVA", "Special", "ONA", "Music"];
+  const mangaTypeArray = ["Manga", "Novel", "Light Novel", "One-shot", "Doujin", "Manhwa", "Manhua"];
   const pagination = useSelector(state => state.carteReducer.pagination)
   const currentPage = pagination.current_page
   const cartes = useSelector(state => state.carteReducer.allCards)
@@ -30,6 +32,9 @@ export default function Carte () {
     <div className="sous-container-card">
       {!isEmpty(cartes) && cartes.slice(0, endSlice).map((carte) => {
         const isSelected = selectedCardId === carte.mal_id
+        const isMangaType = mangaTypeArray.includes(carte.type);
+        const isAnimeType = animeTypeArray.includes(carte.type);
+        const typeClassName = `${isAnimeType ? "type-catalogue-anime" : isMangaType ? "type-catalogue-manga" : "type-catalogue-else"}`;
         return (
           <div key={carte.mal_id} className="card card-carte">
             <Link to="/PageCard">
@@ -40,8 +45,9 @@ export default function Carte () {
             <div className="icone-option-card" onClick={() => handleIconeOptionCardClick(carte.mal_id)}>
               {isSelected && <OptionCardSelector cartes={cartes} cardId={carte.mal_id} />}
             </div>
+            <h3 className='carte-catalogue-manga-title' title-length-sup18={carte.title.length > 18 ? 'true' : 'false'}>{carte.title}</h3>
             <div className="ligne-carte-catalogue-manga"></div>
-              <h3 className='carte-catalogue-manga-title' title-length-sup18={carte.title.length > 18 ? 'true' : 'false'}>{carte.title}</h3>
+            <div className={typeClassName}>{carte.type}</div>
           </div>
         )
       })}

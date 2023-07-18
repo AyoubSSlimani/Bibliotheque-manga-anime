@@ -19,12 +19,6 @@
     justify-content: center;
 }
 
-.container-image-optn {
-    position: relative;
-    display: flex;
-    
-    
-}
 
 .card {
     display:flex;
@@ -37,29 +31,33 @@
     border-radius: 3px;
     margin-bottom: 30px;
     margin-left: 10px;
+    position: relative;
     
 }
 
 .card:hover {
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, 0.372);
     cursor: pointer;
 }
 
+
+.container-image-optn {
+    position: relative;
+}
+
+
 .catalogue-manga-card-image {
-    position: absolute;
     height: 200px;
-    width: 150px;
-    transform: translateX(-50%) translateY(-100%);
-    
-    
-    
+    width: 170px; 
+    padding-top: 5px;
+   
 }
 
 .catalogue-manga-card-image:hover {
-    width:190px;
+    width:194px;
     height: 250px;
+    padding-top: 0;
     
-    /* transform: translateY(-30%); */
 }
 
 .icone-option-card {
@@ -67,43 +65,76 @@
     height: 30px;
     border-radius: 50%;
     background-image: url(../assets/add.png);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.722);
     background-size: cover;
     position: absolute;
-   
-    
-
-    
+    top: -10px;
+    right: -7px;    
 }
+
 
 
 
 .icone-option-card:hover {
-    background-color: pink;
+    background-color: rgba(255, 255, 255, 0.922);
 }
+
 
 
 
 .ligne-carte-catalogue-manga {
     width: 90%;
-    padding-top: 10px;
-    border-bottom: 2px solid black;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgba(66, 66, 66, 0.297);
 }
 
 .carte-catalogue-manga-title {
-    color: rgba(255, 255, 255, 0.517);
-    margin: 0 0 0 0;
-    font-size: 1rem;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.963);
+    margin: 5px 0 5px 0;
+    font-size: 0.9rem;
     text-align: center;
 }
 
 .carte-catalogue-manga-title[title-length-sup18="true"] {
-    font-size: 0.7rem;  
+    font-size: 0.65rem;  
     text-align: center;
+    margin: 2px 0 2px 0;
 }
 
+.type-catalogue-manga {
+    display: flex;
+    width: auto;
+    height: auto;
+    border-radius: 2px;
+    background-color: #33B5DF;
+    color: rgba(236, 232, 232, 0.924);
+    padding: 3px;
+    font-size: 0.75rem;
+    text-align: center;
+}
+.type-catalogue-anime {
+    display: flex;
+    width: auto;
+    height: auto;
+    border-radius: 2px;
+    background-color: rgba(248, 18, 18, 0.488);
+    color: rgba(236, 232, 232, 0.924);
+    padding: 3px;
+    font-size: 0.75rem;
+    text-align: center;
+}
+.type-catalogue-else {
+    display: flex;
+    width: auto;
+    height: auto;
+    border-radius: 2px;
+    background-color: rgba(214, 214, 14, 0.736);
+    color: rgba(236, 232, 232, 0.924);
+    padding: 3px;
+    font-size: 0.75rem;
+    text-align: center;
+}
 
 
 .add-optn {

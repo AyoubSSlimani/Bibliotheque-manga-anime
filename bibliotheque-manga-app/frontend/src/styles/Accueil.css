@@ -79,7 +79,7 @@
 }
 
 .carte-caroussel:hover {
-  background-color: silver;
+  background-color: rgba(192, 192, 192, 0.445);
   cursor: pointer;
 }
 
@@ -92,7 +92,7 @@
 
 .carte-caroussel img:hover {
   height: 100%;
-  width: 100%;
+  width: 102%;
 }
 
 .title-carte-carousel {
@@ -116,15 +116,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: auto;
   height: 3%;
-  border-radius: 2px solid black;
+  border-radius: 2px;
   background-color: rgba(248, 18, 18, 0.488);
-  color: rgba(255, 255, 255, 0.618);
+  color: rgba(236, 232, 232, 0.924);
   padding: 10px;
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 1rem;
+  text-align: center;
 }   
+
+.type-anime {
+  background-color: rgba(248, 18, 18, 0.488);
+}
+
+.type-manga {
+  background-color: #33B5DF;
+}
+.type-else {
+  background-color: rgba(214, 214, 14, 0.736);
+}
 
 
 

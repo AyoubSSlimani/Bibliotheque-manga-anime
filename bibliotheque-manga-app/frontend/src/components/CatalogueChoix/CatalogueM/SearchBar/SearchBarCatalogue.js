@@ -8,14 +8,15 @@ import { getSearchText } from '../../../../actions/filtres.action';
 
 
 
-function SearchBarCatalogue() {
+function SearchBarCatalogue({nameComponent}) {
   const dispatch = useDispatch();
+  const compName = nameComponent;
   const searchValue = useSelector(state => state.carteReducer.searchText);
   
 
   const handleSearchChange = (e) => {
     const searchText = e.target.value
-    dispatch(getSearchText(searchText)); 
+    dispatch(getSearchText(searchText, compName)); 
   }
 
   

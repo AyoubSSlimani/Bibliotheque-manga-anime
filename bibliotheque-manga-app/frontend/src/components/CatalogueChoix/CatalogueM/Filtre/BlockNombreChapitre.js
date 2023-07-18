@@ -4,11 +4,12 @@ import { toggleCheckboxes, toggleTerminer } from '../../../../actions/filtres.ac
 import { useDispatch, useSelector } from 'react-redux';
 
 
-export default function BlockNombreChapitre() {
+export default function BlockNombreChapitre({nameComponent}) {
     const dispatch = useDispatch();
+    const compName = nameComponent;
 
     const handleTerminerChange = (checkboxId) => {
-        dispatch(toggleCheckboxes(checkboxId));
+        dispatch(toggleCheckboxes(checkboxId, compName));
       };
 
     const checkboxlist = useSelector(state => state.carteReducer.checkboxes);

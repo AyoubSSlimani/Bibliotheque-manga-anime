@@ -16,7 +16,6 @@ export const GET_CAROUSEL_PEPITE_CARDS = "GET_CAROUSEL_PEPITE_CARDS";
 export const getCarouselDernierAjoutCards = () => {
     return (dispatch) => {
       return axios.get("http://localhost:3010/MaCollection/").then((res) => {
-        console.log('Ma Collection: ',res.data);
   
         dispatch({ type: GET_CAROUSEL_DERNIER_AJOUT_CARDS, payload: res.data });
       });

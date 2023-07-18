@@ -4,7 +4,7 @@ import '../../../../styles/ButtonFiltre.css';
 import BlockNombreChapitre from './BlockNombreChapitre';
 
 
-export default function ButtonFiltre() {
+export default function ButtonFiltre({nameComponent}) {
     const [isDivVisible, setDivVisible] = useState(false);
 
 
@@ -22,7 +22,7 @@ export default function ButtonFiltre() {
     <div className='button-filtre'>
       <button onClick={handleButtonClick}>Filtrer</button>
       {isDivVisible && (
-        <CatalogueFiltre/>
+        <CatalogueFiltre nameComponent={nameComponent}/>
       )}
     </div>
   );

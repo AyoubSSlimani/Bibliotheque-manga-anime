@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 
-import leftArrow from "../../assets/flecheGauche.png";
+import leftArrow from "../../assets/arrow-left-circle.svg";
 import iconSettings from "../../assets/parametres-de-lapplication.png";
-import circleYellow from "../../assets/circle-yellow.png";
 import circleGrey from "../../assets/circle-grey.png";
 import "../../styles/CustomCardPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCollectionCards } from "../../actions/carte.action";
-import { useLocation, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 export default function CustomCardPage() {
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getCollectionCards());
   }, [dispatch, location]);
@@ -35,7 +35,9 @@ export default function CustomCardPage() {
   return (
     <div className="container-custom-card-page">
       <div className="header-custom-card-page">
-        <img src={leftArrow} className="left-arrow-custom-card-page" alt="icone-arrow" width="60px" height="60px" />
+        <img src={leftArrow} className="left-arrow-custom-card-page" 
+        onClick={() => navigate(-1)}
+        alt="icone-arrow" width="60px" height="60px" />
         <h1 className="h1-custom-card-page">{customCardData.title}</h1>
         <img
           src={iconSettings}
@@ -45,16 +47,13 @@ export default function CustomCardPage() {
           height="30px"
         />
       </div>
-      <main className="main-custom-card-page">
-        <div className="container-card-image-et-pastille">
+      <div className="container-card-image-and-info">
             <img
             className="img-custom-card"
             src={customCardData.images.jpg.large_image_url}
             alt="img-card"
-            width="400px"
-            height="550px"
             />
-        </div>
+            <main className="main-custom-card-page">
         <div className="custom-card-page-container-table">
           <table className="custom-page-table">
             <tbody>
@@ -64,7 +63,7 @@ export default function CustomCardPage() {
               </tr>
               <tr>
                 <td>auteurs</td>
-                <td>{customCardData.authors.map((author) => author.name)}</td>
+                <td></td>
               </tr>
               <tr>
                 <td>Nombre de chapitres</td>
@@ -102,7 +101,9 @@ export default function CustomCardPage() {
             nouvelle propriété
           </p>
         </div>
-      </main>
+        </main>
+      </div>
+      
 
       <div className="commentary">
         <img src={circleGrey} alt="icone-profil" height="30px" width="30px" />

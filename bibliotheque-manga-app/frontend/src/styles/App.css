@@ -50,6 +50,11 @@ header {
     padding: 0;
 }
 
+.container-header img {
+    height: 30px;
+    width: 30px
+}
+
 .container-header li div a{
     display: flex;
     align-items: center;
@@ -58,6 +63,57 @@ header {
 .container-header li div a img {
     padding-right: 10px;
 }
+
+.container-header p {
+    color: white;
+}
+
+/*--------------------------------------------- LARGE SCREEN ----------------------------------------------*/
+@media (max-width: 850px) and (min-width: 581px) {
+    .container-header ul {
+        display: flex;
+        font-size: 10px;
+    }
+
+    .container-header img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/*--------------------------------------------- MOBILE SCREEN ----------------------------------------------*/
+@media (max-width: 580px) {
+    .container-header {
+        height: 20%;
+    }
+
+    .container-header ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .container-header li {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .container-header a {
+        width: 100%;
+    }
+
+    .container-header li:hover {
+        background-color: lightblue;
+        cursor: pointer;
+    }
+
+    .container-header p {
+        padding-left: 10px;
+    }
+
+}
+
 
 /*--------------------------------------------- CAROUSSEL -------------------------------------------------*/
 

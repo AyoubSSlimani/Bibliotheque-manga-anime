@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCards } from '../../../../actions/carte.action';
 import { getFilterPage } from '../../../../actions/filtres.action';
 
-export default function Pagination() {
+export default function Pagination({nameComponent}) {
 
   //VARIABLES GLOBALES
+  const compName = nameComponent;
   const dispatch = useDispatch();
   const visibleButtons = 5;
   const halfVisibleButtons = Math.floor(visibleButtons / 2);
@@ -26,7 +27,7 @@ export default function Pagination() {
  
   const handlePageChange = async (page) => {
 
-    await dispatch(getCards(page));
+    await dispatch(getCards(page, compName));
   };
 
   const renderPagination = () => {

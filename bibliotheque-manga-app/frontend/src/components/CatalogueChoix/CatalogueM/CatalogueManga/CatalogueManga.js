@@ -17,11 +17,12 @@ import { getCards } from "../../../../actions/carte.action";
 
 export default function CatalogueManga() {
   const dispatch = useDispatch();
+  const nameComponent = "Manga";
 
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch(getCheckboxesName()); 
-      await dispatch(getCards(1));
+      await dispatch(getCheckboxesName(nameComponent)); 
+      await dispatch(getCards(1, nameComponent));
     };
     fetchData(); 
   }, []);
@@ -32,24 +33,24 @@ export default function CatalogueManga() {
   return (
     <div className="container-catalogue-manga">
       <h1>Catalogue Manga</h1>
-      <SearchBarCatalogue />
+      <SearchBarCatalogue nameComponent={nameComponent}/>
 
       <div className="button-filtre-component">
         <div className="button-filtre">
-          <ButtonFiltre />
+          <ButtonFiltre nameComponent={nameComponent}/>
         </div>
       </div>
       <div className="blockCarteManga">
         <BlockCarte />
         <div className="container-card">
-          <Carte />
+          <Carte nameComponent={nameComponent}/>
         </div>
         
       </div>
 
       <div className="container-pagination">
         <div className="sous-container-pagination">
-          <Pagination />
+          <Pagination nameComponent={nameComponent}/>
         </div>
       </div>
     </div>

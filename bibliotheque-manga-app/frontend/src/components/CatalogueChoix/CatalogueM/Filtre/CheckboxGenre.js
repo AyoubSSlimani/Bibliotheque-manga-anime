@@ -3,19 +3,20 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DecocherTout, getCheckboxesName, toggleCheckboxes } from '../../../../actions/filtres.action';
 
-export default function CheckboxGenre() {
+export default function CheckboxGenre({nameComponent}) {
   
   const dispatch = useDispatch();
+  const compName = nameComponent;
   
   const checkboxes = useSelector(state => state.carteReducer.checkboxes);
 
   const handleCheckboxChange = (checkboxId) => {
-    dispatch(toggleCheckboxes(checkboxId));
+    dispatch(toggleCheckboxes(checkboxId, compName));
   };
 
   const handleUncheckAll = (event) => {
     const terminerId = event.target.id; 
-    dispatch(toggleCheckboxes(terminerId));
+    dispatch(toggleCheckboxes(terminerId, compName));
   };
 
   return (

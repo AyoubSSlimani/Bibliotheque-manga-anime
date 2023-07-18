@@ -1,3 +1,7 @@
+.container-navbar {
+    width: 100%;
+}
+
 .navbar li div {
     display: flex;
     align-items: center;

@@ -8,6 +8,10 @@ import {isEmpty} from "../Utils"
 
 function Caroussel({ title, data }){
 
+    const animeTypeArray = ["TV", "Movie", "OVA", "Special", "ONA", "Music"];
+    const mangaTypeArray = ["Manga", "Novel", "Light Novel", "One-shot", "Doujin", "Manhwa", "Manhua"];
+    
+
     const cardPerPage = 4;
     const [startIndex, setStartIndex] = useState(0);
 
@@ -37,12 +41,15 @@ function Caroussel({ title, data }){
                 className= 'icone-fleche-gauche'/>
                 <div className='block-caroussel'>
                 {!isEmpty(data) && data.slice(startIndex, startIndex + cardPerPage).map((carte) => {
+                    const isMangaType = mangaTypeArray.includes(carte.type);
+                    const isAnimeType = animeTypeArray.includes(carte.type);
+                    const typeClassName = `type ${isAnimeType ? "type-anime" : isMangaType ? "type-manga" : "type-else"}`;
                     return (
                     <div key={carte.mal_id} className="carte-caroussel">
                     <img src={carte.images.jpg.image_url}  alt={carte.title}/>
                     <h3 className='title-carte-carousel' title-length-sup21={carte.title.length > 21 ? "true" : "false"}>{carte.title}</h3>
                     <div className="ligne-carte-carousel"></div>
-                    <div className="type">{carte.type}</div>
+                    <div className={typeClassName}>{carte.type}</div>
                     </div>
                     );
        
