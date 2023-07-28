@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(../assets/fonts/Inter.ttf);
+}
+@font-face {
+    font-family: 'Merri';
+    src: url(../assets/fonts/Merriweather-Light.ttf);
+}
+$color1: #a1a19f;
+$white: #fffffff9;
+$black: black;
+$color-border: #faf9f93c;
+$color-fill: #ffffff14;
+$color-manga: #33b5df;
+$color-anime: #ff6767;
+$searchbar-color: #d9d9d9;
+$button-filter-color: #4c4c4c;
+$button-filter-border-color: #ffffff7f;
+$ligne-color: #4242424c;
+$card-bg-color: #f2e9e998;
+$icone-selector-color: #ffffffb8;
+$icone-selector-hover-color: #ffffffeb;
+$current-button-color: #726e6eb3;
+$other-button-color: #f2e9e998;
+$color-else-type: #d6d60ebc;
+$color-manga-type: #33B5DF;
+$color-anime-type: #f812127c;
+$color-pagination-arrow: #1f305e;
+$color-box-shadow: #ffffff80;
+
+@mixin title {
+   text-transform: uppercase;
+   font-family: Inter, sans-serif; 
+}
+

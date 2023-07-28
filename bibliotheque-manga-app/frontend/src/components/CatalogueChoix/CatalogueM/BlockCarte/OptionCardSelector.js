@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { postCollectionCards } from '../../../../actions/carte.action';
+import { getCardData, postCollectionCards } from '../../../../actions/carte.action';
+import CardPage from './CardPage';
+import { Navigate, useNavigate } from 'react-router';
 
-export default function OptionCardSelector({cardId, cartes}) {
+export default function OptionCardSelector({cardId, cartes, cardTitle}) {
   // Dispatch Redux pour déclencher une action
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const carte = cartes.find(carte => carte.mal_id === cardId);
-  
+  const carteTitle = cardTitle;
 
  // Gère le clic à l'intérieur de la liste déroulante de l'option de carte
   const handleOptionClick = async (event) => {
@@ -20,7 +23,9 @@ export default function OptionCardSelector({cardId, cartes}) {
       return <div>Carte Introuvable</div>
     }
     } else if (selectedOption === 'PageCard') {
-      window.location.href = '/PageCard'
+        dispatch(getCardData(carte));
+        navigate(`/Catalogue-manga/${carteTitle}`);
+      
     }
   
 };
@@ -38,6 +43,7 @@ export default function OptionCardSelector({cardId, cartes}) {
         <option value="Collection">Ajouter à ma collection</option>
         <option value="PageCard">Afficher la carte</option>
       </select>
+      
     </div>
   );
 };

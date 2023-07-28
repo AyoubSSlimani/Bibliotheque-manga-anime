@@ -1,40 +1,22 @@
 import React, { useEffect } from "react";
 
-import leftArrow from "../../assets/arrow-left-circle.svg";
-import add from "../../assets/add.png";
-import circleGrey from "../../assets/circle-grey.png";
-
-import { useDispatch, useSelector } from "react-redux";
-import { getCollectionCards } from "../../actions/carte.action";
+import leftArrow from "../../../../assets/arrow-left-circle.svg";
+import add from "../../../../assets/add.png";
+import circleGrey from "../../../../assets/circle-grey.png";
 import { useLocation, useNavigate, useParams } from "react-router";
+import { useSelector } from "react-redux";
 
-export default function CustomCardPage() {
+export default function CardPage() {
+  const carte = useSelector(state => state.carteReducer.cardData);
   useEffect(() => {
     // Déplace la vue vers le haut de la page lorsque le composant est monté
     window.scrollTo(0, 0);
-  }, []);
-  const dispatch = useDispatch();
+  }, [carte]);
   const location = useLocation();
   const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(getCollectionCards());
-  }, [dispatch, location]);
+  
 
-  const { cardId } = useParams();
-  const collectionCards = useSelector(
-    (state) => state.carteReducer.getCollectionCards
-  );
-  const customCardData = collectionCards.find(
-    (carte) => carte.mal_id === cardId
-  );
-  let marquePage = 0;
-  if (collectionCards.length === 0) {
-    return <p>Aucune carte trouvée dans votre collection.</p>;
-  }
-
-  if (!customCardData) {
-    return <p>Carte non trouvée.</p>;
-  }
+  const { cardTitle } = useParams();
 
   return (
     <div className="container-custom-card-page">
@@ -42,12 +24,12 @@ export default function CustomCardPage() {
         <img src={leftArrow} className="left-arrow-custom-card-page" 
         onClick={() => navigate(-1)}
         alt="icone-arrow"/>
-        <h1 className="h1-custom-card-page">{customCardData.title}</h1>
+        <h1 className="h1-custom-card-page">{carte.title}</h1>
       </div>
       <div className="container-card-image-and-info">
             <img
             className="img-custom-card"
-            src={customCardData.images.jpg.large_image_url}
+            src={carte.images.jpg.large_image_url}
             alt="img-card"
             />
             <main className="main-custom-card-page">
@@ -65,8 +47,8 @@ export default function CustomCardPage() {
               <tr>
                 <td>Nombre de chapitres</td>
                 <td>
-                  {customCardData.chapters
-                    ? customCardData.chapters
+                  {carte.chapters
+                    ? carte.chapters
                     : "En cours"}
                 </td>
               </tr>
@@ -77,14 +59,14 @@ export default function CustomCardPage() {
               </tr>
               <tr>
                 <td>Synopsis</td>
-                <td>{customCardData.synopsis}</td>
+                <td>{carte.synopsis}</td>
               </tr>
               <tr>
                 <td>Score MyAnimeList</td>
                 <td>
-                  {customCardData.score !== 0 ? (
+                  {carte.score !== 0 ? (
                     <>
-                      {customCardData.score}/10, voté par {customCardData.scored_by} personnes.
+                      {carte.score}/10, voté par {carte.scored_by} personnes.
                     </>
                   ) : (
                     <>Score non défini.</>

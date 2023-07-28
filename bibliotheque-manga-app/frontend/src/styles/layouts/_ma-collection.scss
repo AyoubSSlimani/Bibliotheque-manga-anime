@@ -1,0 +1,173 @@
+.container-ma-collection {
+    .sous-container-ma-collection {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 20px auto;
+        color: $white;
+        text-align: center;
+        
+        @include title;
+        h1 {
+            background-color: gray;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            width: fit-content;
+            padding: 10px 20px;
+            align-self: center;
+            @include title;
+            @media screen and (max-width:850px) {
+                font-size: 1rem;
+                font-weight: 400;
+            }
+            @media screen and (max-width:450px) {
+                font-size: 0.7rem;
+                font-weight: 500;
+                padding: 5px;
+            }
+        }
+        .option-menu {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-bottom: 5px;
+            border-bottom: 2px solid $color-border;
+            .title-menu-left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 5px;
+                .page-all {
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    margin: 0 5px 0 0;
+                }
+                .icone-add-page {
+                    background: url('../assets/add2.png');
+                    background-size: cover;
+                    background-color: $icone-selector-color;
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    &:hover {
+                        background-color: $icone-selector-hover-color;
+                    }
+                }
+                .custom-page {
+                    border-left: 2px solid $color-border;
+                    padding-left: 5px;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    margin: 0 5px 0 0;
+                }
+            }
+            .title-menu-right {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                .button-filter {
+                    background-color: $button-filter-color;
+                    border: 2px solid $button-filter-border-color;
+                    font-size: 1rem;
+                    padding: 15px 30px;
+                    border-radius: 10px;
+                    color: $white;
+                    &:hover {
+                      background-color: $card-bg-color;
+                      font-weight: bold;  
+                    }
+                }
+                .loupe {
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #dedede;
+                    }
+                } 
+            }
+        }
+        .container-card-ma-collection {
+            border: 2px solid $color-border;
+            display: flex;
+            height: auto;
+            justify-content: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            margin-top: 40px;
+            width: 100%;
+            .sous-container-card-ma-collection {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                width: 80%;
+                .sous-container-card {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    width: 100%;
+                    .card {
+                        align-items: center;
+                        border: 2px solid hsla(0,9%,98%,.237);
+                        border-radius: 3px;
+                        display: flex;
+                        flex-direction: column;
+                        height: 268px;
+                        justify-content: flex-end;
+                        margin-bottom: 30px;
+                        margin-left: 10px;
+                        position: relative;
+                        width: 190px;
+                        &:hover {
+                            background-color: $card-bg-color;
+                            cursor: pointer;
+                        }
+                        .catalogue-manga-card-image {
+                            height: 200px;
+                            width: 170px;
+                            padding-top: 5px;
+                            &:hover {
+                                height: 250px;
+                                width: 190px;
+                                padding-top: 0;
+                            }
+                        }
+                        .icone-option-card {
+                            background-color: hsla(0,0%,100%,.722);
+                            background-image: url('../assets/add2.png');
+                            background-size: cover;
+                            border-radius: 50%;
+                            height: 30px;
+                            position: absolute;
+                            right: -7px;
+                            top: -10px;
+                            width: 30px;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: $icone-selector-hover-color;
+                            }
+                        }
+                        .carte-catalogue-manga-title {
+                            color: $white;
+                            font-size: .9rem;
+                            margin: 5px 0;
+                           
+                        }
+                        .ligne-carte-catalogue-manga {
+                            border-bottom: 2px solid rgba(66,66,66,.297);
+                            margin-bottom: 5px;
+                            padding-top: 5px;
+                            width: 90%;
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+}

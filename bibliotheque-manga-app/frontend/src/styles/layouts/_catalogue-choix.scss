@@ -1,0 +1,88 @@
+.container-catalogue-choix {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    h1 {
+        background-color: gray;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        width: fit-content;
+        padding: 10px;
+        align-self: center;
+        @include title;
+        @media screen and (max-width:850px) {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        @media screen and (max-width:450px) {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 5px;
+        }
+    }
+    a, a:visited {
+        color: inherit;
+        text-decoration: none;
+    }
+    .sous-container-catalogue-choix {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        gap: 10px;
+        width: 100%;
+        .anime {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 500px;
+            background-color: $color-anime;
+            border-radius: 10px;
+            h2 {
+                font-size: 1.5rem;
+            }
+            @media screen and (max-width:1050px) {
+                width: 350px;
+                height: 350px;
+            }
+            @media screen and (max-width:750px) {
+                width: 250px;
+                height: 250px;
+            }
+            @media screen and (max-width:550px) {
+                width: 140px;
+                height: 140px;
+            }
+        }
+        .manga {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 500px;
+            background-color: $color-manga;
+            border-radius: 10px;
+            @media screen and (max-width:1050px) {
+                width: 350px;
+                height: 350px;
+            }
+            @media screen and (max-width:750px) {
+                width: 250px;
+                height: 250px;
+            }
+            @media screen and (max-width:550px) {
+                width: 140px;
+                height: 140px;
+            }
+
+        }
+    }
+}

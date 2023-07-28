@@ -1,0 +1,84 @@
+
+.navbar {
+    color: white;
+    text-align: center;
+    margin: 0 0 20px 0;
+    .navlinks {
+        background-color: $color1;
+        padding: 10px 20px;
+        }
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            li {
+                a, a:visited {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: inherit;
+                text-decoration: none;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin: 0 10px;
+                    @include title;
+                    font-size: 1rem;  
+                }
+                img {
+                    cursor: pointer;
+                }
+            }
+            .logo {
+                img {
+                cursor: pointer;
+                width: 140px;
+                height: 70px;
+                }
+            }
+    }
+}
+
+@media screen and (max-width:650px) {
+    
+.navbar {
+    color: white;
+    margin: 0 0 20px 0;
+    .navlinks {
+        position: relative;
+        background-color: $color1;
+        padding: 5px 5px;
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li { 
+                a, a:visited {
+                display: flex;
+                color: inherit;
+                text-decoration: none;
+                }
+                h3 {
+                    padding-top: 5px;
+                    margin: 0 5px;
+                    @include title;
+                    font-size: 0.45rem;  
+                }
+                img {
+                    cursor: pointer;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+            .logo {
+                img {
+                cursor: pointer;
+                width: 58px;
+                height: 33px;
+                }
+            }
+        }
+    }
+}    
+}

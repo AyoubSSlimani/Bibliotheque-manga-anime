@@ -1,0 +1,32 @@
+.container-catalogue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    margin: 0 auto;
+    color: $white;
+    text-align: center;
+    h1 {
+        background-color: gray;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        width: fit-content;
+        padding: 10px;
+        align-self: center;
+        @include title;
+        @media screen and (max-width:850px) {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        @media screen and (max-width:450px) {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 5px;
+        }
+    }
+
+}

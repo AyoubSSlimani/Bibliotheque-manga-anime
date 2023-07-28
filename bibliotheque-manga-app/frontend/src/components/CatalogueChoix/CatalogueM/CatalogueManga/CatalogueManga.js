@@ -8,14 +8,17 @@ import Carte from "../BlockCarte/Carte";
 import BlockCarte from "../BlockCarte/BlockCarte";
 import Pagination from "../Pagination/Pagination";
 //CSS
-import "../../../../styles/Carte.css";
-import "../../../../styles/CatalogueManga.css";
+
 import ButtonFiltre from "../Filtre/ButtonFiltre";
 import { getCheckboxesName } from "../../../../actions/filtres.action";
 import { getCards } from "../../../../actions/carte.action";
 
 
 export default function CatalogueManga() {
+  useEffect(() => {
+    // Déplace la vue vers le haut de la page lorsque le composant est monté
+    window.scrollTo(0, 0);
+  }, []);
   const dispatch = useDispatch();
   const nameComponent = "Manga";
 
@@ -31,23 +34,11 @@ export default function CatalogueManga() {
   
 
   return (
-    <div className="container-catalogue-manga">
+    <div className="container-catalogue">
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue nameComponent={nameComponent}/>
-
-      <div className="button-filtre-component">
-        <div className="button-filtre">
-          <ButtonFiltre nameComponent={nameComponent}/>
-        </div>
-      </div>
-      <div className="blockCarteManga">
-        <BlockCarte />
-        <div className="container-card">
-          <Carte nameComponent={nameComponent}/>
-        </div>
-        
-      </div>
-
+      <ButtonFiltre nameComponent={nameComponent}/>  
+      <Carte nameComponent={nameComponent}/>
       <div className="container-pagination">
         <div className="sous-container-pagination">
           <Pagination nameComponent={nameComponent}/>

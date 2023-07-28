@@ -1,13 +1,16 @@
-import React from 'react'
-import '../../styles/CatalogueChoix.css'
+import React, { useEffect } from 'react'
 import {Link, Outlet} from 'react-router-dom'
 
 export default function CatalogueChoix() {
+    useEffect(() => {
+        // Déplace la vue vers le haut de la page lorsque le composant est monté
+        window.scrollTo(0, 0);
+      }, []);
   return (
-    <div className='container'>
+    <div className='container-catalogue-choix'>
         <h1>Catalogue</h1>
 
-        <div className="containerCatalogueChoix">
+        <div className="sous-container-catalogue-choix">
                 <Link to="/Catalogue-anime" className='link-catalogue'>
                     <div className="anime">
                         <h2>ANIME</h2>

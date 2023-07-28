@@ -1,0 +1,23 @@
+.search-bar {
+    display: flex;
+    align-self: flex-start;
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background: $searchbar-color;
+    input {
+        border: none;
+        background-color: initial;
+        outline: none;
+        width: 90%;
+        color: $black;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+    }
+    img {
+        margin-right: 10px;
+        width: 32px;
+        height: 32px;
+    }
+}

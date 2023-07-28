@@ -1,0 +1,92 @@
+.container-custom-card-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    margin: 30px;
+    color: $white;
+    text-align: center;
+    td, th, p, input {
+        font-family: 'merri', sans-serif;
+    }
+    .header-custom-card-page {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        margin-bottom: 30px;
+        .left-arrow-custom-card-page {
+            width: 60px;
+            height: 60px;
+        }
+        h1 {
+            background-color: gray;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            width: fit-content;
+            padding: 10px 20px;
+            align-self: center;
+            transform: translateX(50%);
+            @include title;
+            @media screen and (max-width:850px) {
+                font-size: 1rem;
+                font-weight: 400;
+            }
+            @media screen and (max-width:450px) {
+                font-size: 0.7rem;
+                font-weight: 500;
+                padding: 5px;
+            }
+        }
+
+        
+    }
+    .container-card-image-and-info {
+        display: flex;
+        flex-direction: row;
+        .img-custom-card {
+            border-radius: 4px;
+            box-shadow: 0 0 10px $color-box-shadow;
+            height: 600px;
+            margin-right: 30px;
+            width: 400px;
+        }
+        .main-custom-card-page {
+            margin-left: 30px;
+            .custom-card-page-container-table {
+                display: flex;
+                flex-direction: column;
+                max-width: 1000px;
+                .custom-page-table {
+                    border-color: $color-border;
+                    border-collapse: collapse;
+                    width: 100%;
+                    td {
+                        
+                        border: 2px solid $color-border;
+                        padding: 10px;
+                    }
+                }
+                p {
+                    margin-top: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        cursor: pointer;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

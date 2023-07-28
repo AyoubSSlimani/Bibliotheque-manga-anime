@@ -28,27 +28,27 @@ function Caroussel({ title, data }){
     };
     
     return(
-        <div className='containerCaroussel'>    
-            <div className='title'>
+        <div className='container-carousel'>    
+            <div className='title-carousel'>
                 <div className="icone-title">
-                <img src={oeil} alt="icone-oeil" height="30px" width="30px"/>
+                <img src={oeil} alt="icone-oeil"/>
                 </div>
                 <h2>{title}</h2>
             </div>
-            <div className="page">
+            <div className="container-card-carousel">
 
                 <img  src={flecheGauche} onClick={handleNextLefttPage} alt="icone-flecheGauche" 
                 className= 'icone-fleche-gauche'/>
-                <div className='block-caroussel'>
+                <div className='sous-container-card-carousel'>
                 {!isEmpty(data) && data.slice(startIndex, startIndex + cardPerPage).map((carte) => {
                     const isMangaType = mangaTypeArray.includes(carte.type);
                     const isAnimeType = animeTypeArray.includes(carte.type);
                     const typeClassName = `type ${isAnimeType ? "type-anime" : isMangaType ? "type-manga" : "type-else"}`;
                     return (
-                    <div key={carte.mal_id} className="carte-caroussel">
-                    <img src={carte.images.jpg.image_url}  alt={carte.title}/>
-                    <h3 className='title-carte-carousel' title-length-sup21={carte.title.length > 21 ? "true" : "false"}>{carte.title}</h3>
-                    <div className="ligne-carte-carousel"></div>
+                    <div key={carte.mal_id} className="card-carousel">
+                    <img src={carte.images.jpg.image_url}  alt={carte.title} className='carousel-card-image'/>
+                    <h3 className='carousel-card-title' title-length-sup21={carte.title.length > 21 ? "true" : "false"}>{carte.title}</h3>
+                    <div className="ligne-card-carousel"></div>
                     <div className={typeClassName}>{carte.type}</div>
                     </div>
                     );

@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../../../styles/SearchBarCatalogue.css';
 import loupe from '../../../../assets/loupe.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSearchText } from '../../../../actions/filtres.action';
+import ButtonFiltre from '../Filtre/ButtonFiltre';
 
 
 
@@ -21,7 +21,7 @@ function SearchBarCatalogue({nameComponent}) {
 
   
   return (
-    <form className="searchBar" >
+    <form className="search-bar" >
       <img src={loupe} alt="icone-loupe" width="50px" height="50px" />
       <input
         type="text"

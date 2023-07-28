@@ -1,44 +1,33 @@
-import React from 'react'
-import flecheVersLeBas2 from '../../../../assets/fleche-vers-le-bas2.png'
-import { toggleCheckboxes, toggleTerminer } from '../../../../actions/filtres.action';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import arrowRight from '../../../../assets/superior.png'
+import {
+  toggleCheckboxes,
+  toggleTerminer,
+} from "../../../../actions/filtres.action";
+import { useDispatch, useSelector } from "react-redux";
 
+export default function BlockNombreChapitre({ nameComponent }) {
+  const dispatch = useDispatch();
+  const compName = nameComponent;
 
-export default function BlockNombreChapitre({nameComponent}) {
-    const dispatch = useDispatch();
-    const compName = nameComponent;
+  const handleTerminerChange = (checkboxId) => {
+    dispatch(toggleCheckboxes(checkboxId, compName));
+  };
 
-    const handleTerminerChange = (checkboxId) => {
-        dispatch(toggleCheckboxes(checkboxId, compName));
-      };
+  const checkboxlist = useSelector((state) => state.carteReducer.checkboxes);
+  const terminer = checkboxlist.find(
+    (element) => element.mal_id === "complete"
+  );
 
-    const checkboxlist = useSelector(state => state.carteReducer.checkboxes);
-    const terminer = checkboxlist.find((element) => element.mal_id === "complete");
-    
   return (
-    <div className="container-nbr-chapitre">
-        <div className="sous-container">
-            <div className='sous-container-nbr-chapitre'>
-                <h3>Nombre de chapitre :</h3>
-                <div className="moinsDe">
-                    <input type="number"/>
-                </div>
-                <img className="signe-inferieur" src={flecheVersLeBas2} alt="icone-fleche" width="30px" height="30px"/>
-                <div className="plusDe">
-                    <input type="number"/>
-                </div>
-                <div className="checkbox">
-                    <input type="checkbox"
-                    checked={terminer.checked}
-                    onChange={() => handleTerminerChange(terminer.mal_id)}
-                    name={terminer.name}
-                    key={terminer.mal_id}
-                    />
-                    <p>{terminer.name}</p>
-                </div>
-            </div>
-            
+    <div className="filtre-chapitre">
+        <div className="filtre-chapitre-container">
+            <h3>Nombre de chapitres</h3>
+            <input type="number" name="nb-chapitre-prev" id="nb-chapitre-prev" />
+            <img src={arrowRight} alt="hello" className="superior" />
+            <input type="number" name="nb-chapitre-next" id="nb-chapitre-next" />
         </div>
     </div>
-  )
+    
+  );
 }

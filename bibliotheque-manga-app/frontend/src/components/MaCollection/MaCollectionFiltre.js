@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/MaCollectionFiltre.css'
+
 import buttonPlus from '../../assets/btn-plus.png'
 
 

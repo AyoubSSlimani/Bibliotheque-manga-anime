@@ -1,0 +1,101 @@
+@import './layouts/settings';
+@import './layouts/navbar';
+@import './layouts/accueil';
+@import './layouts/catalogue-choix';
+@import './layouts/catalogue-manga';
+@import './layouts/searchbar';
+@import './layouts/button-filtre';
+@import './layouts/container-card';
+@import './layouts/pagination';
+@import './layouts/optioncard';
+@import './layouts/custom-card-page';
+@import './layouts/ma-collection';
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../assets/repeated-square-dark.webp);
+}
+
+
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: 'Merri', sans-serif;
+    margin: 0 10px;
+}
+
+.type-manga {
+    display: flex;
+    width: 50px;
+    height: auto;
+    border-radius: 2px;
+    background-color: $color-manga-type;
+    color: rgba(236, 232, 232, 0.924);
+    padding: 3px;
+    font-size: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    justify-content: center;
+    @media screen and (max-width:850px) {
+        padding: 1px;
+        width: fit-content;
+        font-size: 0.45rem;
+    }
+    @media screen and (max-width:450px) {
+        padding: 1px;
+        width: fit-content;
+        font-size: 0.4rem;
+    }
+}
+.type-anime {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: auto;
+    border-radius: 2px;
+    background-color: $color-anime-type;
+    color: rgba(236, 232, 232, 0.924);
+    padding: 3px;
+    font-size: 0.75rem;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    @media screen and (max-width:850px) {
+        padding: 1px;
+        width: fit-content;
+        font-size: 0.45rem;
+    }
+    @media screen and (max-width:450px) {
+        padding: 1px;
+        width: fit-content;
+        font-size: 0.4rem;
+    }
+}
+.type-else {
+    display: flex;
+    width: 50px;
+    height: auto;
+    border-radius: 2px;
+    background-color: $color-else-type;
+    color: $white;
+    padding: 3px;
+    font-size: 0.75rem;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    @media screen and (max-width:850px) {
+        padding: 1px;
+        width: fit-content;
+        font-size: 0.45rem;
+    }
+    @media screen and (max-width:450px) {
+        padding: 1px;
+        width: fit-content;
+        font-size: 0.4rem;
+    }
+}
+

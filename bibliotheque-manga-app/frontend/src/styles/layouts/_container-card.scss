@@ -1,0 +1,70 @@
+.container-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    .sous-container-card {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .card {
+            display:flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 2px solid rgba(250, 249, 249, 0.237);
+            width: 190px;
+            height: 268px;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            margin-left: 15px;
+            position: relative;
+            &:hover {
+                background-color: $card-bg-color;
+                cursor: pointer;
+            }
+            .catalogue-manga-card-image {
+                height: 200px;
+                width: 170px;
+                padding-top: 5px;
+                &:hover {
+                    height: 250px;
+                    width: 190px;
+                    padding-top: 0;
+                }
+            }
+            .icone-option-card {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-image: url(../assets/add2.png);
+                background-color: $icone-selector-color;
+                background-size: cover;
+                top: -10px;
+                right: -7px;
+                &:hover {
+                    background-color: $icone-selector-hover-color;
+                }    
+            }
+            .carte-catalogue-manga-title {
+                @include title;
+                color: $white;
+                margin: 5px 0 5px 0;
+                font-size: 0.8rem;
+                
+                &[title-length-sup18="true"] {
+                    font-size: 0.6rem;  
+                    margin: 2px 0 2px 0;
+                }
+            }
+            .ligne-carte-catalogue-manga {
+                width: 90%;
+                padding-top: 5px;
+                margin-bottom: 5px;
+                border-bottom: 2px solid $ligne-color;
+            }
+        }
+    }
+}

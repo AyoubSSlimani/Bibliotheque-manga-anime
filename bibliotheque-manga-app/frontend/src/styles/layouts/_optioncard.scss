@@ -1,0 +1,47 @@
+.option-card-selector {
+    width: 180px;
+    height: auto;
+    display: flex;
+    position: absolute;
+    top: 50px;
+    left: -155px;
+    select {
+        background-color: #f2f2f2;
+        border: 2px solid #515151ea;
+        border-radius: 4px;
+        color: #333;
+        font-family: 'Inter',sans-serif;
+        font-size: 0.8rem;
+        padding: 8px 8px;
+        z-index: 10;
+        overflow-y: hidden;
+        &:hover {
+            background-color: $button-filter-color;
+        }
+        option:nth-child(1) {
+            background-color: #f2f2f2;
+            border: 2px solid #ccc;
+            color: #333;
+            font-family: Arial,sans-serif;
+            font-size: 0.8rem;
+            padding: 8px 8px;
+            cursor: pointer;
+            &:hover {
+                background-color: $card-bg-color;
+            }    
+        }
+        option:nth-child(2) {
+            background-color: #f2f2f2;
+            border: 2px solid #ccc;
+            border-top: none;
+            color: #333;
+            font-family: Arial,sans-serif;
+            font-size: 0.8rem;
+            padding: 8px 8px;
+            cursor: pointer;
+            &:hover {
+                background-color: $card-bg-color;
+            }
+        }
+    }
+}

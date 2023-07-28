@@ -5,6 +5,7 @@ export const GET_CARDS = "GET_CARDS";
 export const POST_COLLECTION_CARDS = "POST_COLLECTION_CARDS";
 export const GET_COLLECTION_CARDS = "GET_COLLECTION_CARDS";
 export const DELETE_COLLECTION_CARDS = "DELETE_COLLECTION_CARDS";
+export const GET_CARD_DATA = "GET_CARD_DATA";
 
 // Récupère toutes les cartes de l'API Jikan par page lorsque je change de page.
 // par défaut les cartes récupérés = page 1 de jikan.
@@ -55,3 +56,9 @@ export const deleteCollectionCards = (postId) => {
   };
 };
   
+// Récupère les données de la carte cliquée.
+export const getCardData = (card) => {
+  return (dispatch) => {
+    dispatch({ type: GET_CARD_DATA, payload: card });
+  };
+};

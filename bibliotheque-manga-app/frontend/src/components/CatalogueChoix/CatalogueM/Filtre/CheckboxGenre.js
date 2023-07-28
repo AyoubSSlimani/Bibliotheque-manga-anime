@@ -33,8 +33,9 @@ export default function CheckboxGenre({nameComponent}) {
           </div>
         )))}
       </div>
-      <button id="decocherTout" onClick={handleUncheckAll}>Décocher tout</button>
-
+      <div className="decocher">
+        <button id="decocherTout" onClick={handleUncheckAll}>Décocher tout</button>
+      </div>
     </div>
     
   );

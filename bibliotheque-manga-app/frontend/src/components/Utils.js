@@ -14,7 +14,6 @@ export const isEmpty = (value) => {
   export async function filterCards(page, checkboxes, searchText, animeOrManga) {
       try {
         if (animeOrManga === "Manga") {
-          console.log(animeOrManga);
           const timestamp = parseInt(Date.now() / 1000); // Divisez par 1000 pour obtenir le timestamp en secondes
           let filteredCards = [];
           let response;
@@ -50,7 +49,7 @@ export const isEmpty = (value) => {
           return filteredCards;
 
         } else {
-          console.log(animeOrManga);
+         
           const timestamp = parseInt(Date.now() / 1000); // Divisez par 1000 pour obtenir le timestamp en secondes
           let filteredCards = [];
           let response;

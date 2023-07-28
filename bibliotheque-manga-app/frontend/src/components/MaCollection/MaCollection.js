@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/MaCollection.css";
-import "../../styles/Carte.css";
+
 import loupe from "../../assets/loupe.png";
 import MaCollectionFiltre from "./MaCollectionFiltre";
 import MaCollectionSearchBar from "./MaCollectionSearchBar";
 
-import CustomPage from "./CustomPage";
+import CustomPage from "./MaCollectionCards";
+import MaCollectionCards from "./MaCollectionCards";
 
 export default function MaCollection() {
-
+  useEffect(() => {
+    // Déplace la vue vers le haut de la page lorsque le composant est monté
+    window.scrollTo(0, 0);
+  }, []);
   
-
   const [isFiltreVisible, setFiltreVisible] = useState(false);
   const [showWindow, setShowWindow] = useState(false);
 
@@ -97,6 +99,7 @@ useEffect(() => {
   return (
     <div className="container-ma-collection">
       <div className="sous-container-ma-collection">
+        <h1>Ma collection</h1>
         <div className="option-menu">
           <div className="title-menu-left">
           <div className="page-all" style={{ boxShadow: '0px 1px 4px rgb(237 237 237 / 50%)' }}>
@@ -128,7 +131,7 @@ useEffect(() => {
         </div>
 
         {isFiltreVisible && <MaCollectionFiltre></MaCollectionFiltre>}
-        <CustomPage activeElement={activeElement}/>
+        <MaCollectionCards activeElement={activeElement}/>
       </div>
     </div>
   );

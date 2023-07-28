@@ -1,9 +1,9 @@
 import React from 'react';
-import FlecheVersLeBas from '../../../../assets/fleche-vers-le-bas-pour-naviguer.png';
+import arrowLeft from '../../../../assets/left-arrow.png';
+import arrowRight from '../../../../assets/arrow-right.png';
 import Ellipse from '../../../../assets/ellipse.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCards } from '../../../../actions/carte.action';
-import { getFilterPage } from '../../../../actions/filtres.action';
 
 export default function Pagination({nameComponent}) {
 
@@ -71,21 +71,20 @@ export default function Pagination({nameComponent}) {
     return (
       <>
         <button
-          className={isFirstPage ? 'bg-fleche-unable prev' : 'bg-fleche prev'}
+          className={isFirstPage ? 'prev-unable ' : 'prev'}
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={isFirstPage}
         >
-          <img src={FlecheVersLeBas} alt="fleche-gauche" width="25px" height="25px" />
         </button>
         <div className="nombre-page">
           {pages}
         </div>
         <button
-          className={isLastPage ? 'bg-fleche-unable next' : 'bg-fleche next'}
+          className={isLastPage ? 'next-unable' : 'next'}
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={isLastPage}
         >
-          <img src={FlecheVersLeBas} alt="fleche-droite" width="25px" height="25px" />
+          
         </button>
       </>
     );

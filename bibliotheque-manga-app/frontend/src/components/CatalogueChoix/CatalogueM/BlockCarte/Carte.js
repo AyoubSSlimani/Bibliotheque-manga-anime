@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { isEmpty } from '../../../Utils'
 import { Link } from 'react-router-dom'
-import '../../../../styles/OptionCardSelector.css'
 import OptionCardSelector from './OptionCardSelector'
 import { getCards } from '../../../../actions/carte.action'
 
@@ -29,28 +28,29 @@ export default function Carte ({nameComponent}) {
   const endSlice = cartes.length < 25 ? cartes.length : 25
 
   return (
-    <div className="sous-container-card">
-      {!isEmpty(cartes) && cartes.slice(0, endSlice).map((carte) => {
-        const isSelected = selectedCardId === carte.mal_id
-        const isMangaType = mangaTypeArray.includes(carte.type);
-        const isAnimeType = animeTypeArray.includes(carte.type);
-        const typeClassName = `${isAnimeType ? "type-catalogue-anime" : isMangaType ? "type-catalogue-manga" : "type-catalogue-else"}`;
-        return (
-          <div key={carte.mal_id} className="card card-carte">
-            <Link to="/PageCard">
-              <div className='container-image-optn'>
+    <div className="container-card">
+      <div className="sous-container-card">
+        {!isEmpty(cartes) && cartes.slice(0, endSlice).map((carte) => {
+          const isSelected = selectedCardId === carte.mal_id
+          const isMangaType = mangaTypeArray.includes(carte.type);
+          const isAnimeType = animeTypeArray.includes(carte.type);
+          const typeClassName = `${isAnimeType ? "type-anime" : isMangaType ? "type-manga" : "type-else"}`;
+          return (
+            <div key={carte.mal_id} className="card card-carte">
+              <div className='container-image'>
                 <img src={carte.images.jpg.image_url} className="catalogue-manga-card-image" alt={carte.title} />
               </div>
-            </Link>
-            <div className="icone-option-card" onClick={() => handleIconeOptionCardClick(carte.mal_id)}>
-              {isSelected && <OptionCardSelector cartes={cartes} cardId={carte.mal_id} />}
+              
+              <div className="icone-option-card" onClick={() => handleIconeOptionCardClick(carte.mal_id)}>
+                {isSelected && <OptionCardSelector cartes={cartes} cardId={carte.mal_id} cardTitle={carte.title}/>}
+              </div>
+              <h3 className='carte-catalogue-manga-title' title-length-sup18={carte.title.length > 18 ? 'true' : 'false'}>{carte.title}</h3>
+              <div className="ligne-carte-catalogue-manga"></div>
+              <div className={typeClassName}>{carte.type}</div>
             </div>
-            <h3 className='carte-catalogue-manga-title' title-length-sup18={carte.title.length > 18 ? 'true' : 'false'}>{carte.title}</h3>
-            <div className="ligne-carte-catalogue-manga"></div>
-            <div className={typeClassName}>{carte.type}</div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   )
 }

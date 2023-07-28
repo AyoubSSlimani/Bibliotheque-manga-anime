@@ -1,0 +1,91 @@
+.container-pagination {
+    height: 50px;
+    margin-bottom: 50px;
+    width: 20%;
+    .sous-container-pagination {
+        display: flex;
+        height: auto;
+        justify-content: center;
+        .pagination {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            button:disabled {
+                background-color: none;
+                color: initial;
+                border-color: grey;
+            }
+            .next  {
+                background: url('../assets/arrow-right.png') center/cover;
+                width: 40px;
+                height: 40px;
+                background-color: #1F305E;
+                border-radius: 50%;
+                overflow: hidden;
+                cursor: pointer;
+                &:hover {
+                    background-color: blue;
+                }
+            }
+            .prev {
+                background: url('../assets/left-arrow.png') center/cover;
+                width: 40px;
+                height: 40px;
+                background-color: #1F305E;
+                border-radius: 50%;
+                overflow: hidden;
+                cursor: pointer;
+                &:hover {
+                    background-color: blue;
+                }
+            }
+            
+            .prev-unable {
+                background: url('../assets/left-arrow.png') center/cover;
+                width: 40px;
+                height: 40px;
+                background-color: grey;
+                border-radius: 50%;
+                overflow: hidden; 
+            }
+            .next-unable {
+                background: url('../assets/arrow-right.png') center/cover;
+                width: 40px;
+                height: 40px;
+                background-color: grey;
+                border-radius: 50%;
+                overflow: hidden; 
+            }
+            .nombre-page {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .current-button {
+                color: $current-button-color;
+                background-color: initial;
+                border: none;
+                font-size: 30px;
+                padding: 0 1.5px;
+                cursor: pointer;
+                &:hover {
+                    color: $white;
+                }
+            }
+            .other-button {
+                border: none;
+                padding: 0;
+                background-color: transparent;
+                font-size: 25px;
+                color: $other-button-color;
+                padding: 0 1.5px;
+                cursor: pointer;
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+        
+}

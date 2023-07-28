@@ -1,0 +1,109 @@
+.button-filtre {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin: 20px 0;
+    
+    width: 100%;
+    
+    button {
+        padding: 15px 50px;
+        @include title;
+        font-size: 1rem;
+        background-color: $button-filter-color;
+        border: 1px solid $button-filter-border-color;
+        border-radius: 5px;
+        color: $white;
+        cursor: pointer;
+        width: 200px;
+        margin: 10px 0;
+        &:hover {
+            background-color: $card-bg-color;
+            font-weight: bold; 
+        }
+    }
+    .filtre-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 2px solid $color-border;
+        .filtre-chapitre {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .filtre-chapitre-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin: 10px 0;
+                h3 {
+                    @include title;
+                    font-size: 0.9rem;
+                }
+                input {
+                    padding: 6px;
+                    font-family: 'Inter', sans-serif;
+                    width: 80px;
+                    border-radius: 5px;
+                    
+                }
+                .superior {
+                    width: 32px;
+                    height: 32px;
+                }       
+            }
+         
+        }
+        .container-genre {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            width: 100%;
+            .sous-container-genre {
+                padding: 10px 20px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                height: 200px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                width: 100%;
+                border-top: 2px solid $color-border;
+                &::-webkit-scrollbar {
+                    width: 10px;
+                    background: $color-border;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: $color-manga-type;
+                }
+                .checkbox {
+                    height: 30%;
+                    width: 20%;
+                    display: flex;
+                    align-items: center;
+                    align-content: center;
+                    margin-left: 10px;
+                }
+                input[type=checkbox] {
+                    transform: scale(2.3);
+                    
+                }
+                p {
+                    @include title;
+                    font-size: 1rem;
+                    margin-left: 15px;
+                }
+
+            }
+            .decocher {
+                width: 100%;
+                border-top: 2px solid $color-border;
+            }
+        }     
+    }
+    
+}

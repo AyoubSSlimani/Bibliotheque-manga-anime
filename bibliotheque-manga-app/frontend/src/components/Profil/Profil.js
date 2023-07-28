@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/Profil.css'
 import Badge from './Badge'
 
 const Profil = () => {

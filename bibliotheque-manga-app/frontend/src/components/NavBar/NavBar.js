@@ -1,160 +1,53 @@
-import '../../styles/NavBar.css'
-import loupe from '../../assets/loupe.png'
-import abri from '../../assets/abri.png'
-import livreOuvert2 from '../../assets/livreOuvert2.png'
-import coffreAuTresor from '../../assets/coffreAuTresor.png'
-import profilUser from '../../assets/profilUser.png'
-import parametres from '../../assets/parametres.png'
-import { Link } from 'react-router-dom'
-import menu from '../../assets/menu.png'
-import { useState, useEffect } from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import livreOuvert2 from "../../assets/livreOuvert2.png";
+import coffreAuTresor from "../../assets/coffreAuTresor.png";
+import profilUser from "../../assets/profilUser.png";
+import parametres from "../../assets/parametres.png";
+import logo from "../../assets/manga_logo.png";
+import loupe from '../../assets/loupe.png';
+import menu from '../../assets/menu.png';
 
-
-
-
-
-function NavBar(){
-
-    const mobileSize = window.innerWidth <= 580;
-    console.log(mobileSize);
-
+export default function NavBar() {
+  return (
+    <nav className='navbar'>
+      <div className="navlinks">
         
-        const [isOpen, setIsOpen] = useState(false);
-        const [isMobile, setIsMobile] = useState(false);
-
-        useEffect(() => {
-          const handleResize = () => {
-            setIsMobile(window.innerWidth <= 580);
-          };
-      
-          // Écoute le redimensionnement de la fenêtre
-          window.addEventListener('resize', handleResize);
-      
-          // Vérifie la taille de l'écran au chargement de la page
-          handleResize();
-      
-          // Nettoie l'écouteur d'événement lors du démontage du composant
-          return () => {
-            window.removeEventListener('resize', handleResize);
-          };
-        }, []);
-      
-        const handleToggleMenu = () => {
-          setIsOpen(!isOpen);
-        };
-      
-
-
-
-    return(
-        <div className='container-navbar'>
-            {isMobile ? 
-            (<button className='burger-icon'><img src='menu' alt="menu-icon" width="50px" height="50px" onClick={handleToggleMenu} /></button>)
-            : 
-            (<ul className='navbar'>
-                <li>
-                    <Link to="Accueil">
-                        Logo+Name
-                        {/* <img src={""} alt=""/> */}
-                    </Link> 
-                </li>
-                <li>
-                    <div className="Search-bar">
-                        <input type="text" name="searchBar" id="" placeholder="Rechercher..."/>
-                        <img className="loupe" src={loupe} alt="icone-loupe"/>
-                    </div>
-                </li>
-                <li>
-                    <div>                    
-                        <Link to="/Accueil">
-                            <img src={abri} alt="icone-maison"/>
-                            <p>ACCUEIL</p>
-                        </Link>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <Link to="/Catalogue-choix">
-                            <img src={livreOuvert2} alt="icone-livre"/>
-                            <p>CATALOGUE</p>
-                        </Link> 
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <Link to="Ma-collection">
-                            <img src={coffreAuTresor} alt="icone-coffre"/>
-                            <p>MA COLLECTION</p>
-                        </Link>
-                    </div>
-                </li>
-                <Link to="Profil">
-                    <li>
-                        <img src={profilUser} alt="icone-profil"/>
-                    </li>
-                </Link>
-
-                <li>
-                    <Link to="Parametre">
-                        <img src={parametres} alt="icone-paramètre"/>
-                    </Link>
-                </li>
-            </ul>)
-            }
-
-            {isOpen && isMobile ? (<ul className='navbar'>
-                <Link to="Accueil">
-                    <li>
-                        Logo+Name
-                        {/* <img src={""} alt=""/> */}
-                    </li>
-                </Link> 
-                <li>
-                    <div className="Search-bar">
-                        <input type="text" name="searchBar" id="" placeholder="Rechercher..."/>
-                        <img className="loupe" src={loupe} alt="icone-loupe"/>
-                    </div>
-                </li>
-                <Link to="/Accueil">
-                    <li>
-                        <div>                    
-                            <img src={abri} alt="icone-maison"/>
-                            <p>ACCUEIL</p>
-                        </div>
-                    </li>
-                </Link>
-                <Link to="/Catalogue-choix">
-                    <li>
-                        <div>
-                            <img src={livreOuvert2} alt="icone-livre"/>
-                            <p>CATALOGUE</p>
-                        </div>
-                    </li>
-                </Link> 
-
-                <Link to="Ma-collection">
-                    <li>
-                        <div>
-                            <img src={coffreAuTresor} alt="icone-coffre"/>
-                            <p>MA COLLECTION</p>
-                        </div>
-                    </li>
-                </Link>
-
-                <Link to="Profil">
-                    <li>
-                        <img src={profilUser} alt="icone-profil"/>
-                    </li>
-                </Link>
-                <Link to="Parametre">
-                    <li>
-                        <img src={parametres} alt="icone-paramètre"/>
-                    </li>
-                </Link>
-
-            </ul>) : "" }
-            </div>
-    )
+        <ul>
+          <li className="logo">
+            <Link to="/">
+                <img src={logo} alt="logo manga"/>
+            </Link>
+          </li>
+          <li>
+            <Link to="/">
+              <h3>Accueil</h3>
+            </Link>
+          </li>
+          <li>
+            <Link to="/Catalogue-choix">
+              <h3>Catalogue</h3>
+              <img src={livreOuvert2} alt="catalogue" width="32" height="32" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/Ma-Collection">
+              <h3>Ma Collection</h3>
+              <img src={coffreAuTresor} alt="MaCollection" width="32" height="32" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/Profil">
+              <img src={profilUser} alt="profil" width="32" height="32" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/parametres">
+              <img src={parametres} alt="paramètres" width="32" height="32" />
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
-
-export default NavBar

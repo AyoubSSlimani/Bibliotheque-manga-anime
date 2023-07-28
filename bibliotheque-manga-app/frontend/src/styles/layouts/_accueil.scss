@@ -1,0 +1,216 @@
+.title-accueil-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    h1 {
+        background-color: gray;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        width: fit-content;
+        padding: 10px;
+        align-self: center;
+        @include title;
+        @media screen and (max-width:850px) {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        @media screen and (max-width:450px) {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 5px;
+        }
+    }
+}
+
+.container-accueil {
+    display: flex;
+    color: $white;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80vw;
+    margin: 30px auto;
+    gap: 50px;
+    @media screen and (max-width:850px) {
+        width: 90vw;
+    }
+    .container-carousel {
+        background-color: $color-fill;
+        border: 1px solid $color-border;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width:850px) {
+            padding: 0px;
+        }
+        .title-carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0 10px;
+            img {
+                width: 32px;
+                height: 32px;
+                @media screen and (max-width:1140px) {
+                    width: 18px;
+                    height: 18px;
+                }
+                @media screen and (max-width:850px) {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+            h2 {
+                @media screen and (max-width:1140px) {
+                    font-size: 0.65rem;
+                }  
+                @media screen and (max-width:850px) {
+                    font-size: 0.5rem;
+                }  
+            } 
+        }
+        .icone-fleche-gauche, .icone-fleche-droite {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            @media screen and (max-width:1140px) {
+                width: 24px;
+                height: 24px;
+            }
+            @media screen and (max-width:850px) {
+                width: 18px;
+                height: 18px;
+            }   
+        }
+        .container-card-carousel {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .sous-container-card-carousel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .card-carousel {
+                    display:flex;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    border: 2px solid rgba(250, 249, 249, 0.237);
+                    width: 190px;
+                    height: 268px;
+                    border-radius: 3px;
+                    margin-bottom: 30px;
+                    margin-left: 15px;
+                    position: relative;
+                    @media screen and (max-width:1140px) {
+                        width: 130px;
+                        height: 220px;
+                        margin-bottom: 10px;
+                        margin-left: 15px;
+                    }
+                    @media screen and (max-width:850px) {
+                        width: 80px;
+                        height:150px;
+                        margin-bottom: 10px;
+                        margin-left: 10px;
+                    }
+                    @media screen and (max-width:450px) {
+                        width: 65px;
+                        height: 110px;
+                        margin-bottom: 10px;
+                        margin-left: 4px;
+                    }
+
+                    &:hover {
+                        background-color: $card-bg-color;
+                        cursor: pointer;
+                    }
+                    .carousel-card-image {
+                        height: 200px;
+                        width: 170px;
+                        padding-top: 5px;
+                        &:hover {
+                            height: 250px;
+                            width: 190px;
+                            padding-top: 0;
+                            @media screen and (max-width:1140px) {
+                                padding-top: 0;
+                                width: 130px;
+                                height: 230px;
+                            }
+                            @media screen and (max-width:850px) {
+                                height: 150px;
+                                width: 80px;
+                            }
+                            @media screen and (max-width:450px) {
+                                width: 65px;
+                                height: 150px;
+                            }
+                        }
+                        @media screen and (max-width:1140px) {
+                            padding-top: 4px;
+                            width: 110px;
+                            height: 150px;
+                        }
+                        @media screen and (max-width:850px) {
+                            padding-top: 2px;
+                            width: 75px;
+                            height: 100px;
+                            
+                        }
+                        @media screen and (max-width:450px) {
+                            width: 60px;
+                            height: 80px;
+                            padding-top:1px;
+                        }
+                    }
+                    .carousel-card-title {
+                        @include title;
+                        color: $white;
+                        margin: 2px 0 2px 0;
+                        font-size: 0.8rem;
+                        text-align: center;
+                
+                        &[title-length-sup21="true"] {
+                            font-size: 0.6rem;  
+                            margin: 2px 0 2px 0;
+                            @media screen and (max-width:1140px) {
+                                font-size: 0.53rem;
+                            }
+                            @media screen and (max-width:850px) {
+                                font-size: 0.48rem;
+                            }
+                            @media screen and (max-width:450px) {
+                                font-size: 0.35rem;
+                            }
+                        }
+                        @media screen and (max-width:1140px) {
+                            font-size: 0.65rem;
+                        }
+                        @media screen and (max-width:850px) {
+                            font-size: 0.45rem;
+                        }
+                        @media screen and (max-width:450px) {
+                            font-size: 0.3rem;
+                        }
+                    }
+                    .ligne-card-carousel {
+                        width: 90%;
+                        padding-top: 5px;
+                        margin-bottom: 5px;
+                        border-bottom: 2px solid $ligne-color;
+                        @media screen and (max-width:850px) {
+                            margin-bottom: 2px;
+                            padding-top: 2px
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

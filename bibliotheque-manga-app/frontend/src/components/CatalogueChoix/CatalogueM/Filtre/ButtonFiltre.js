@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import CatalogueFiltre from './CatalogueFiltre';
-import '../../../../styles/ButtonFiltre.css';
 import BlockNombreChapitre from './BlockNombreChapitre';
 
 

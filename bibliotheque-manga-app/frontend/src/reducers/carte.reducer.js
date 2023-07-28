@@ -2,6 +2,7 @@ import {
   GET_CARDS,
   GET_COLLECTION_CARDS,
   DELETE_COLLECTION_CARDS,
+  GET_CARD_DATA,
 } from "../actions/carte.action";
 import {
   GET_CHECKBOXES_NAME,
@@ -20,6 +21,7 @@ const initialState = {
   searchText: "",
   nbCard: "25",
   pagination: [],
+  cardData: [],
 };
 
 
@@ -34,7 +36,12 @@ export default function carteReducer(state = initialState, action) {
         allCards: newCards,
         pagination: paginationNewCards, 
       };
-
+    case GET_CARD_DATA:
+        const carteData = action.payload;
+        return {
+          ...state,
+          cardData: carteData,
+        };
     // GET CHECKBOXES ->
     case GET_CHECKBOXES_NAME:
       const checkboxes = action.payload.map((checkbox) => {
