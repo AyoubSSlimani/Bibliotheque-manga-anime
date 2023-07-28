@@ -67,8 +67,7 @@ export default function MaCollectionCards({activeElement}) {
                         <div className={typeClassName}>{carte.type}</div>
                     </div>
                   );
-                })}
-                ;
+                })};
               </div>
             ) : (
               <p>

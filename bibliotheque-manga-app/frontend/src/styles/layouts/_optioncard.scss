@@ -14,7 +14,7 @@
         font-family: 'Inter',sans-serif;
         font-size: 0.8rem;
         padding: 8px 8px;
-        z-index: 10;
+        z-index: 1000;
         overflow-y: hidden;
         &:hover {
             background-color: $button-filter-color;
@@ -27,6 +27,7 @@
             font-size: 0.8rem;
             padding: 8px 8px;
             cursor: pointer;
+            z-index: 1000;
             &:hover {
                 background-color: $card-bg-color;
             }    
@@ -39,6 +40,7 @@
             font-family: Arial,sans-serif;
             font-size: 0.8rem;
             padding: 8px 8px;
+            z-index: 1000;
             cursor: pointer;
             &:hover {
                 background-color: $card-bg-color;

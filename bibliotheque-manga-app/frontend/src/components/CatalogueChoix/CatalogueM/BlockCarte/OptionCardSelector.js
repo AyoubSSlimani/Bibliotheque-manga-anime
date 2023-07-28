@@ -24,7 +24,7 @@ export default function OptionCardSelector({cardId, cartes, cardTitle}) {
     }
     } else if (selectedOption === 'PageCard') {
         dispatch(getCardData(carte));
-        navigate(`/Catalogue-manga/${carteTitle}`);
+        navigate(`/Catalogue/${carteTitle}`);
       
     }
   

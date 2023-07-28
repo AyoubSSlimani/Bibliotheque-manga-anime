@@ -24,7 +24,7 @@ function App() {
         <Route path="/Accueil" element={<Accueil />} />
         <Route path="/Catalogue-choix" element={<CatalogueChoix />}/>
         <Route path="/Catalogue-manga" element={<CatalogueManga />} />
-        <Route path="/Catalogue-manga/:cardTitle" element={<CardPage/>}/>
+        <Route path="/Catalogue/:cardTitle" element={<CardPage/>}/>
         <Route path="/Catalogue-anime" element={<CatalogueAnime />} />
         <Route path="/Ma-collection" element={<MaCollection />} />
         <Route path="/Ma-collection/:cardId" element={<CustomCardPage/>}/>

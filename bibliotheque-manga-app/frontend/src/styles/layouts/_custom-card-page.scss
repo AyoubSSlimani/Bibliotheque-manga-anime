@@ -19,6 +19,11 @@
         .left-arrow-custom-card-page {
             width: 60px;
             height: 60px;
+            border-radius: 500px;
+            cursor: pointer;
+            &:hover {
+                background-color: $card-bg-color;
+            }
         }
         h1 {
             background-color: gray;

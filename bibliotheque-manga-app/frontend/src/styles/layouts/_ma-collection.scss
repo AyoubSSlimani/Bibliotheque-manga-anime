@@ -149,6 +149,7 @@
                             cursor: pointer;
                             &:hover {
                                 background-color: $icone-selector-hover-color;
+                                transform: scale(1.1);
                             }
                         }
                         .carte-catalogue-manga-title {

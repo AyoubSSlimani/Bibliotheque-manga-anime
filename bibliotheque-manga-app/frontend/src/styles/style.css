@@ -982,6 +982,8 @@
 }
 .container-card .sous-container-card .card .icone-option-card:hover {
   background-color: rgba(255, 255, 255, 0.9215686275);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .container-card .sous-container-card .card .carte-catalogue-manga-title {
   text-transform: uppercase;
@@ -1127,7 +1129,7 @@
   font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   padding: 8px 8px;
-  z-index: 10;
+  z-index: 1000;
   overflow-y: hidden;
 }
 .option-card-selector select:hover {
@@ -1141,6 +1143,7 @@
   font-size: 0.8rem;
   padding: 8px 8px;
   cursor: pointer;
+  z-index: 1000;
 }
 .option-card-selector select option:nth-child(1):hover {
   background-color: rgba(242, 233, 233, 0.5960784314);
@@ -1153,6 +1156,7 @@
   font-family: Arial, sans-serif;
   font-size: 0.8rem;
   padding: 8px 8px;
+  z-index: 1000;
   cursor: pointer;
 }
 .option-card-selector select option:nth-child(2):hover {
@@ -1196,6 +1200,11 @@
 .container-custom-card-page .header-custom-card-page .left-arrow-custom-card-page {
   width: 60px;
   height: 60px;
+  border-radius: 500px;
+  cursor: pointer;
+}
+.container-custom-card-page .header-custom-card-page .left-arrow-custom-card-page:hover {
+  background-color: rgba(242, 233, 233, 0.5960784314);
 }
 .container-custom-card-page .header-custom-card-page h1 {
   background-color: gray;
@@ -1493,6 +1502,8 @@
 }
 .container-ma-collection .sous-container-ma-collection .container-card-ma-collection .sous-container-card-ma-collection .sous-container-card .card .icone-option-card:hover {
   background-color: rgba(255, 255, 255, 0.9215686275);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .container-ma-collection .sous-container-ma-collection .container-card-ma-collection .sous-container-card-ma-collection .sous-container-card .card .carte-catalogue-manga-title {
   color: rgba(255, 255, 255, 0.9764705882);

@@ -31,7 +31,7 @@ export default function Carte ({nameComponent}) {
     <div className="container-card">
       <div className="sous-container-card">
         {!isEmpty(cartes) && cartes.slice(0, endSlice).map((carte) => {
-          const isSelected = selectedCardId === carte.mal_id
+          const isSelected = selectedCardId === carte.mal_id 
           const isMangaType = mangaTypeArray.includes(carte.type);
           const isAnimeType = animeTypeArray.includes(carte.type);
           const typeClassName = `${isAnimeType ? "type-anime" : isMangaType ? "type-manga" : "type-else"}`;
@@ -40,7 +40,6 @@ export default function Carte ({nameComponent}) {
               <div className='container-image'>
                 <img src={carte.images.jpg.image_url} className="catalogue-manga-card-image" alt={carte.title} />
               </div>
-              
               <div className="icone-option-card" onClick={() => handleIconeOptionCardClick(carte.mal_id)}>
                 {isSelected && <OptionCardSelector cartes={cartes} cardId={carte.mal_id} cardTitle={carte.title}/>}
               </div>
