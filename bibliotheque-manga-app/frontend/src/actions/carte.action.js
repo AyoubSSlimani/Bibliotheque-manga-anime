@@ -29,19 +29,27 @@ export const getCards = (page, nameComponent) => async (dispatch, getState) => {
 
 
 // Envoie à la base de données les cartes que l'on a ajouté à maCollection
+// Supposez que vous avez déjà importé axios dans votre fichier
+
 export const postCollectionCards = (data) => {
-  return (dispatch) => {
-    const cardData = data;
-    axios.post("https://bibliothequemanga.onrender.com/MaCollection", cardData);
+  return async (dispatch) => {
+    try {
+      const response = await axios.post("https://bibliothequemanga.onrender.com/MaCollection", data);
+      console.log(response.data.message);
+      const message = response.data.message;
+      dispatch({ type: POST_COLLECTION_CARDS, payload: message });
+    } catch (error) {
+      console.error('Une erreur s\'est produite lors de la requête POST :', error);
+    }
   };
 };
+
 
 // récupère les cartes de maCollection de la bdd
 export const getCollectionCards = () => {
   return (dispatch) => {
     return axios.get("https://bibliothequemanga.onrender.com/MaCollection").then((res) => {
       const cardData = res.data;
-
       dispatch({ type: GET_COLLECTION_CARDS, payload: cardData });
     });
   };
@@ -50,9 +58,15 @@ export const getCollectionCards = () => {
 // supprime une carte de ma collection
 
 export const deleteCollectionCards = (postId) => {
-  return (dispatch) => {
-    axios.delete("https://bibliothequemanga.onrender.com/MaCollection", postId);
-    dispatch({ type: DELETE_COLLECTION_CARDS, payload: postId });
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete("https://bibliothequemanga.onrender.com/MaCollection", postId);
+      console.log(response.data.message);
+      const message = response.data.message;
+      dispatch({ type: DELETE_COLLECTION_CARDS, payload: { postId, message } });
+    } catch (error) {
+      console.error('Une erreur s\'est produite lors de la requête POST :', error);
+    }
   };
 };
   

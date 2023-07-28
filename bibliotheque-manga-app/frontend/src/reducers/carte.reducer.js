@@ -3,6 +3,7 @@ import {
   GET_COLLECTION_CARDS,
   DELETE_COLLECTION_CARDS,
   GET_CARD_DATA,
+  POST_COLLECTION_CARDS,
 } from "../actions/carte.action";
 import {
   GET_CHECKBOXES_NAME,
@@ -22,6 +23,8 @@ const initialState = {
   nbCard: "25",
   pagination: [],
   cardData: [],
+  postCardMessage: "",
+  deleteCardMessage: "",
 };
 
 
@@ -119,9 +122,15 @@ export default function carteReducer(state = initialState, action) {
       return {
         ...state,
         getCollectionCards: state.getCollectionCards.filter(
-          (carte) => carte.mal_id !== action.payload
+          (carte) => carte.mal_id !== action.payload.postId
         ),
+        deleteCardMessage: action.payload.message,
       };
+    case POST_COLLECTION_CARDS:
+      return {
+        ...state,
+        postCardMessage: action.payload,
+      }
     // COLLECTION CARDS <-
       default:
         return state;

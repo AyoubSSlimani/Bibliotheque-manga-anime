@@ -40,11 +40,16 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-bottom: 5px;
                 .page-all {
                     cursor: pointer;
                     font-size: 1.5rem;
                     margin: 0 5px 0 0;
+                    @media screen and (max-width:700px) {
+                        font-size: 1rem;
+                    }
+                    @media screen and (max-width: 500px) {
+                        font-size: 0.7rem;
+                    }
                 }
                 .icone-add-page {
                     background: url('../assets/add2.png');
@@ -54,8 +59,13 @@
                     height: 26px;
                     cursor: pointer;
                     border-radius: 50%;
+                    @media screen and (max-width:500px) {
+                        width: 18px;
+                        height: 18px;
+                    }
                     &:hover {
                         background-color: $icone-selector-hover-color;
+                        transform: scale(1.1);
                     }
                 }
                 .custom-page {
@@ -64,6 +74,12 @@
                     cursor: pointer;
                     font-size: 1.5rem;
                     margin: 0 5px 0 0;
+                    @media screen and (max-width:700px) {
+                        font-size: 1rem;
+                    }
+                    @media screen and (max-width:500px) {
+                        font-size: 0.7rem;
+                    }
                 }
             }
             .title-menu-right {
@@ -78,6 +94,13 @@
                     padding: 15px 30px;
                     border-radius: 10px;
                     color: $white;
+                    @media screen and (max-width: 700px) {
+                        padding: 5px 15px;
+                    }
+                    @media screen and (max-width:500px) {
+                        padding: 3px 10px;
+                        font-size: 0.9rem
+                    }
                     &:hover {
                       background-color: $card-bg-color;
                       font-weight: bold;  
@@ -85,6 +108,16 @@
                 }
                 .loupe {
                     cursor: pointer;
+                    width: 50px;
+                    height: 50px;
+                    @media screen and (max-width:700px) {
+                        width: 32px;
+                        height: 32px;
+                    }
+                    @media screen and (max-width:500px) {
+                        width: 24px;
+                        height: 24px;
+                    }
                     &:hover {
                         background-color: #dedede;
                     }
@@ -122,6 +155,7 @@
                         margin-left: 10px;
                         position: relative;
                         width: 190px;
+                        transition: 0.6s ease;
                         &:hover {
                             background-color: $card-bg-color;
                             cursor: pointer;
@@ -136,20 +170,17 @@
                                 padding-top: 0;
                             }
                         }
-                        .icone-option-card {
+                        .icone-remove-card {
                             background-color: hsla(0,0%,100%,.722);
-                            background-image: url('../assets/add2.png');
-                            background-size: cover;
-                            border-radius: 50%;
-                            height: 30px;
+                            background: url('../assets/poubelle.png') center/cover;
+                            height: 20px;
                             position: absolute;
                             right: -7px;
-                            top: -10px;
-                            width: 30px;
+                            top: -9px;
+                            width: 20px;
                             cursor: pointer;
                             &:hover {
-                                background-color: $icone-selector-hover-color;
-                                transform: scale(1.1);
+                                transform: scale(1.2);
                             }
                         }
                         .carte-catalogue-manga-title {
@@ -165,6 +196,17 @@
                             width: 90%;
                         }
 
+                    }
+                    @keyframes cardDeleted {
+                        from {
+                            opacity: 1;
+                        }
+                        to {
+                            opacity: 0;
+                        }
+                    }
+                    .cardDeleted {
+                        animation: cardDeleted 0.4s;
                     }
                 }
 

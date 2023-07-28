@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import loupe from "../../assets/loupe.png";
 import MaCollectionFiltre from "./MaCollectionFiltre";
-import MaCollectionSearchBar from "./MaCollectionSearchBar";
-
-import CustomPage from "./MaCollectionCards";
 import MaCollectionCards from "./MaCollectionCards";
 
 export default function MaCollection() {
@@ -14,14 +11,9 @@ export default function MaCollection() {
   }, []);
   
   const [isFiltreVisible, setFiltreVisible] = useState(false);
-  const [showWindow, setShowWindow] = useState(false);
 
   const handleIconClick = (event) => {
     setShowWindow(true);
-  };
-
-  const handleCloseWindow = () => {
-    setShowWindow(false);
   };
 
   const handleButtonClick = () => {
@@ -112,21 +104,6 @@ useEffect(() => {
             <button className="button-filter" onClick={handleButtonClick}>
               Filtrer
             </button>
-            <button onClick={handleIconClick}>
-              <img
-                src={loupe}
-                className="loupe"
-                alt="rechercher"
-                width="50px"
-                height="50px"
-              />
-            </button>
-            {showWindow && (
-              <div className="window">
-                <MaCollectionSearchBar></MaCollectionSearchBar>
-                <button onClick={handleCloseWindow}>Fermer</button>
-              </div>
-            )}
           </div>
         </div>
 

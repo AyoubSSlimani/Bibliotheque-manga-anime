@@ -36,6 +36,20 @@ export default function CustomCardPage() {
     return <p>Carte non trouvée.</p>;
   }
 
+  const toggleSynopsis = () => {
+    const synopsisElement = document.querySelector('.synopsis');
+    const toggleSynopsisElement = document.querySelector('.toggle-synopsis');
+
+    if (synopsisElement.classList.contains('collapsed')) {
+      synopsisElement.classList.remove('collapsed');
+      toggleSynopsisElement.textContent = 'Voir plus';
+    } else {
+      synopsisElement.classList.add('collapsed');
+      toggleSynopsisElement.textContent = 'Voir moins';
+    }
+    
+  };
+
   return (
     <div className="container-custom-card-page">
       <div className="header-custom-card-page">
@@ -55,15 +69,15 @@ export default function CustomCardPage() {
           <table className="custom-page-table">
             <tbody>
               <tr>
-                <td>Date de sortie</td>
+                <td className="thead">Date de sortie</td>
                 <td>20/10/1997</td>
               </tr>
               <tr>
-                <td>auteurs</td>
+                <td className="thead">auteurs</td>
                 <td></td>
               </tr>
               <tr>
-                <td>Nombre de chapitres</td>
+                <td className="thead">Nombre de chapitres</td>
                 <td>
                   {customCardData.chapters
                     ? customCardData.chapters
@@ -71,16 +85,23 @@ export default function CustomCardPage() {
                 </td>
               </tr>
               <tr>
-                <td>Marque page</td>
+                <td className="thead">Marque page</td>
                 <td>625</td>
               
               </tr>
               <tr>
-                <td>Synopsis</td>
-                <td>{customCardData.synopsis}</td>
+                <td className="thead">Synopsis</td>
+                <td className="synopsis">{customCardData.synopsis}
+                  <div className="container-toggle-synopsis">
+                    <button className="toggle-synopsis" onClick={() => toggleSynopsis()}>
+                      Voir plus <i className="fa-solid fa-caret-right"></i>
+                    </button>
+                  </div>
+                </td>
+                
               </tr>
               <tr>
-                <td>Score MyAnimeList</td>
+                <td className="thead">Score MyAnimeList</td>
                 <td>
                   {customCardData.score !== 0 ? (
                     <>
