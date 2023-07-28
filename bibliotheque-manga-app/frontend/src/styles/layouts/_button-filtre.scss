@@ -7,7 +7,7 @@
     width: 100%;
     
     button {
-        padding: 15px 50px;
+        padding: 15px 5px;
         @include title;
         font-size: 1rem;
         background-color: $button-filter-color;
@@ -21,6 +21,11 @@
             background-color: $card-bg-color;
             font-weight: bold; 
         }
+        @media screen and (max-width:650px) {
+            width: 100px;
+            font-size: 0.7rem;
+            padding: 5px 5px;
+        }
     }
     .filtre-container {
         display: flex;
@@ -31,22 +36,55 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-bottom: 2px solid $color-border;
             .filtre-chapitre-container {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
                 margin: 10px 0;
+                text-align: center;
                 h3 {
                     @include title;
                     font-size: 0.9rem;
+                    @media screen and (max-width:1040px) {
+                        font-size: 0.8rem;
+                        
+                    }
+                    @media screen and (max-width:930px) {
+                        font-size: 0.7rem;
+                        
+                    }
+                    @media screen and (max-width:650px) {
+                        font-size: 0.55rem;
+                        margin-left: 7px;
+                    }
+                    @media screen and (max-width:400px) {
+                        font-size: 0.5rem;
+                        margin-left: 6px;
+                    }
                 }
                 input {
                     padding: 6px;
                     font-family: 'Inter', sans-serif;
                     width: 80px;
                     border-radius: 5px;
-                    
+                    @media screen and (max-width:1040px) {
+                      padding: 5px;  
+                      width: 70px;
+                    }
+                    @media screen and (max-width:930px) {
+                        padding: 4px;  
+                        width: 65px;
+                    }
+                    @media screen and (max-width:650px) {
+                        padding: 2px;
+                        width: 60px;
+                    }
+                    @media screen and (max-width:400px) {
+                        padding: 1px;
+                        width: 55px;
+                    }
                 }
                 .superior {
                     width: 32px;
@@ -63,7 +101,7 @@
             height: 300px;
             width: 100%;
             .sous-container-genre {
-                padding: 10px 20px;
+                padding: 1px 20px;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -72,7 +110,7 @@
                 overflow-x: hidden;
                 overflow-y: auto;
                 width: 100%;
-                border-top: 2px solid $color-border;
+                text-align: justify;
                 &::-webkit-scrollbar {
                     width: 10px;
                     background: $color-border;
@@ -87,15 +125,55 @@
                     align-items: center;
                     align-content: center;
                     margin-left: 10px;
+                    @media screen and (max-width:1040px) {
+                        width: 27%;
+                        height: 35%;
+                    }
+                    @media screen and (max-width:400px) {
+                        width: 35%;
+                        height: 35%;
+                    }
                 }
                 input[type=checkbox] {
                     transform: scale(2.3);
-                    
+                    @media screen and (max-width:1230px) {
+                        transform: scale(1.8);
+                    }
+                    @media screen and (max-width:1040px) {
+                        transform: scale(1.5);
+                    }
+                    @media screen and (max-width:650px) {
+                        transform: scale(1.2);
+                    }
+                    @media screen and (max-width:400px) {
+                        transform: scale(1.1);
+                    }
                 }
                 p {
                     @include title;
                     font-size: 1rem;
                     margin-left: 15px;
+                    @media screen and (max-width:1230px) {
+                        font-size: 0.8rem;
+                        margin-left: 10px;
+                    }
+                    @media screen and (max-width:1040px) {
+                        font-size: 0.8rem;
+                        margin-left: 10px;
+                    }
+                    @media screen and (max-width:930px) {
+                        font-size: 0.8rem;
+                        margin-left: 10px;
+                    }
+                    @media screen and (max-width:820px) {
+                        font-size: 0.7rem;
+                        margin-left: 10px;
+                    }
+                    @media screen and (max-width:650px) {
+                        font-size: 0.52rem;
+                        margin-left: 7px;
+                    }
+                    
                 }
 
             }
