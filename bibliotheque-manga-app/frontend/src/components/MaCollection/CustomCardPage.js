@@ -36,6 +36,20 @@ export default function CustomCardPage() {
     return <p>Carte non trouvée.</p>;
   }
 
+  const toggleSynopsis = () => {
+    const synopsisElement = document.querySelector('.synopsis');
+    const toggleSynopsisElement = document.querySelector('.toggle-synopsis');
+
+    if (synopsisElement.classList.contains('collapsed')) {
+      synopsisElement.classList.remove('collapsed');
+      toggleSynopsisElement.textContent = 'Voir plus';
+    } else {
+      synopsisElement.classList.add('collapsed');
+      toggleSynopsisElement.textContent = 'Voir moins';
+    }
+    
+  };
+
  
 
   return (
