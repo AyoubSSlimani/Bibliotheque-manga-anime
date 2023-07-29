@@ -959,9 +959,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 .container-card .sous-container-card {
@@ -1077,7 +1077,7 @@
 
 .container-pagination {
   height: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   width: 20%;
 }
 .container-pagination .sous-container-pagination {
@@ -1115,8 +1115,20 @@
   overflow: hidden;
   cursor: pointer;
 }
+@media screen and (max-width: 600px) {
+  .container-pagination .sous-container-pagination .pagination .next {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-pagination .sous-container-pagination .pagination .next {
+    width: 26px;
+    height: 26px;
+  }
+}
 .container-pagination .sous-container-pagination .pagination .next:hover {
-  background-color: blue;
+  background-color: rgba(62, 62, 215, 0.748);
 }
 .container-pagination .sous-container-pagination .pagination .prev {
   background: url("../assets/left-arrow.png") center/cover;
@@ -1127,8 +1139,20 @@
   overflow: hidden;
   cursor: pointer;
 }
+@media screen and (max-width: 600px) {
+  .container-pagination .sous-container-pagination .pagination .prev {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-pagination .sous-container-pagination .pagination .prev {
+    width: 26px;
+    height: 26px;
+  }
+}
 .container-pagination .sous-container-pagination .pagination .prev:hover {
-  background-color: blue;
+  background-color: rgba(62, 62, 215, 0.748);
 }
 .container-pagination .sous-container-pagination .pagination .prev-unable {
   background: url("../assets/left-arrow.png") center/cover;
@@ -1138,6 +1162,18 @@
   border-radius: 50%;
   overflow: hidden;
 }
+@media screen and (max-width: 600px) {
+  .container-pagination .sous-container-pagination .pagination .prev-unable {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-pagination .sous-container-pagination .pagination .prev-unable {
+    width: 26px;
+    height: 26px;
+  }
+}
 .container-pagination .sous-container-pagination .pagination .next-unable {
   background: url("../assets/arrow-right.png") center/cover;
   width: 40px;
@@ -1145,6 +1181,18 @@
   background-color: grey;
   border-radius: 50%;
   overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+  .container-pagination .sous-container-pagination .pagination .next-unable {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-pagination .sous-container-pagination .pagination .next-unable {
+    width: 26px;
+    height: 26px;
+  }
 }
 .container-pagination .sous-container-pagination .pagination .nombre-page {
   display: -webkit-box;
@@ -1166,6 +1214,16 @@
   padding: 0 1.5px;
   cursor: pointer;
 }
+@media screen and (max-width: 600px) {
+  .container-pagination .sous-container-pagination .pagination .current-button {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-pagination .sous-container-pagination .pagination .current-button {
+    font-size: 18px;
+  }
+}
 .container-pagination .sous-container-pagination .pagination .current-button:hover {
   color: rgba(255, 255, 255, 0.9764705882);
 }
@@ -1177,6 +1235,16 @@
   color: rgba(242, 233, 233, 0.5960784314);
   padding: 0 1.5px;
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .container-pagination .sous-container-pagination .pagination .other-button {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-pagination .sous-container-pagination .pagination .other-button {
+    font-size: 15px;
+  }
 }
 .container-pagination .sous-container-pagination .pagination .other-button:hover {
   color: rgba(255, 255, 255, 0.9764705882);

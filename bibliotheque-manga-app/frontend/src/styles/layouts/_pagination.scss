@@ -1,6 +1,7 @@
+
 .container-pagination {
     height: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     width: 20%;
     .sous-container-pagination {
         display: flex;
@@ -24,8 +25,16 @@
                 border-radius: 50%;
                 overflow: hidden;
                 cursor: pointer;
+                @media screen and (max-width:600px) {
+                    width: 32px;
+                    height: 32px;
+                }
+                @media screen and (max-width:400px) {
+                    width: 26px;
+                    height: 26px;
+                }
                 &:hover {
-                    background-color: blue;
+                    background-color: rgba(62, 62, 215, 0.748);
                 }
             }
             .prev {
@@ -36,8 +45,16 @@
                 border-radius: 50%;
                 overflow: hidden;
                 cursor: pointer;
+                @media screen and (max-width:600px) {
+                    width: 32px;
+                    height: 32px;
+                }
+                @media screen and (max-width:400px) {
+                    width: 26px;
+                    height: 26px;
+                }
                 &:hover {
-                    background-color: blue;
+                    background-color: rgba(62, 62, 215, 0.748);
                 }
             }
             
@@ -48,6 +65,14 @@
                 background-color: grey;
                 border-radius: 50%;
                 overflow: hidden; 
+                @media screen and (max-width:600px) {
+                    width: 32px;
+                    height: 32px;
+                }
+                @media screen and (max-width:400px) {
+                    width: 26px;
+                    height: 26px;
+                }
             }
             .next-unable {
                 background: url('../assets/arrow-right.png') center/cover;
@@ -55,7 +80,15 @@
                 height: 40px;
                 background-color: grey;
                 border-radius: 50%;
-                overflow: hidden; 
+                overflow: hidden;
+                @media screen and (max-width:600px) {
+                    width: 32px;
+                    height: 32px;
+                } 
+                @media screen and (max-width:400px) {
+                    width: 26px;
+                    height: 26px;
+                }
             }
             .nombre-page {
                 display: flex;
@@ -69,6 +102,12 @@
                 font-size: 30px;
                 padding: 0 1.5px;
                 cursor: pointer;
+                @media screen and (max-width:600px) {
+                    font-size: 22px;
+                }
+                @media screen and (max-width:400px) {
+                    font-size: 18px;
+                }
                 &:hover {
                     color: $white;
                 }
@@ -81,6 +120,12 @@
                 color: $other-button-color;
                 padding: 0 1.5px;
                 cursor: pointer;
+                @media screen and (max-width:600px) {
+                    font-size: 18px;
+                }
+                @media screen and (max-width:400px) {
+                    font-size: 15px;
+                }
                 &:hover {
                     color: $white;
                 }

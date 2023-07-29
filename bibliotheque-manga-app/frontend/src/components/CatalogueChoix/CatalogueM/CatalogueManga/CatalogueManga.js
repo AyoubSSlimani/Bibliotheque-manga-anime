@@ -37,7 +37,12 @@ export default function CatalogueManga() {
     <div className="container-catalogue">
       <h1>Catalogue Manga</h1>
       <SearchBarCatalogue nameComponent={nameComponent}/>
-      <ButtonFiltre nameComponent={nameComponent}/>  
+      <ButtonFiltre nameComponent={nameComponent}/>
+      <div className="container-pagination">
+        <div className="sous-container-pagination">
+          <Pagination nameComponent={nameComponent}/>
+        </div>
+      </div>  
       <Carte nameComponent={nameComponent}/>
       <div className="container-pagination">
         <div className="sous-container-pagination">
