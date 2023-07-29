@@ -1,24 +1,27 @@
+import React from 'react';
 import Caroussel from './Caroussel';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCarouselDernierAjoutCards, getCarouselNouveauteCards, getCarouselPepiteCards } from '../../actions/cartecarousel.action';
-
+import { getCarouselDernierAjoutCards, getCarouselNouveautesAnime, getCarouselNouveautesManga } from '../../actions/cartecarousel.action';
 import { useEffect } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+
 
 
 
 function Accueil() {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     useEffect(() => {
-        // dispatch(getCarouselNouveauteCards());
+        dispatch(getCarouselNouveautesAnime());
         dispatch(getCarouselDernierAjoutCards());
-        // dispatch(getCarouselPepiteCards());
+        dispatch(getCarouselNouveautesManga());
       }, []);
     
 
-    const cartesCarouselNouveaute = useSelector(state => state.carteCarouselReducer.nouveauteCards);
+    const cartesCarouselNouveautesAnime = useSelector(state => state.carteCarouselReducer.nouveauteCards);
     const cartesCarouselDernierAjout = useSelector(state => state.carteCarouselReducer.dernierAjoutCards);
-    const cartesCarouselPepite = useSelector(state => state.carteCarouselReducer.pepiteCards);
+    const cartesCarouselNouveautesManga = useSelector(state => state.carteCarouselReducer.pepiteCards);
+
 return(
     <>
     <div className="title-accueil-div">
@@ -26,9 +29,17 @@ return(
     </div>
         
     <div className='container-accueil'>
-    <Caroussel title={"Nouveautés"} data={cartesCarouselNouveaute}  ></Caroussel>
-    <Caroussel title={"Les derniers ajouts à ma collection"} data={cartesCarouselDernierAjout}></Caroussel>
-    <Caroussel title={"Les pépites"} data={cartesCarouselPepite}></Caroussel>
+    <Caroussel title={"Animés en cours"} data={cartesCarouselNouveautesAnime} />
+    <Caroussel title={"Mangas en cours"} data={cartesCarouselNouveautesManga} />
+    {cartesCarouselDernierAjout.length === 0 ? (
+          <div className='ajoute-a-ta-collection'>
+            <button onClick={() => navigate('Catalogue-choix')}>
+                <h3>Ajoute des œuvres à ta collection en cliquant ici!</h3>
+            </button>
+          </div>
+        ) : (
+          <Caroussel title={"Les derniers ajouts à ma collection"} data={cartesCarouselDernierAjout} />
+    )}
     </div>
     </>
     )}

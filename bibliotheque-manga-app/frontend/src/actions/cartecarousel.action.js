@@ -1,17 +1,18 @@
 import axios from "axios";
 
-export const GET_CAROUSEL_NOUVEAUTE_CARDS = "GET_CAROUSEL_NOUVEAUTE_CARDS";
+export const GET_CAROUSEL_NOUVEAUTES_ANIME = "GET_CAROUSEL_NOUVEAUTES_ANIME";
 export const GET_CAROUSEL_DERNIER_AJOUT_CARDS = "GET_CAROUSEL_DERNIER_AJOUT_CARDS";
-export const GET_CAROUSEL_PEPITE_CARDS = "GET_CAROUSEL_PEPITE_CARDS";
+export const GET_CAROUSEL_NOUVEAUTES_MANGA = "GET_CAROUSEL_NOUVEAUTES_MANGA";
 
-// export const getCarouselNouveauteCards = () => {
-//     return (dispatch) => {
-//         return axios.get("http://localhost:3001/caroussel-nouveaute").then((res) => {
-//           dispatch({ type: GET_CAROUSEL_NOUVEAUTE_CARDS, payload: res.data });
-//         });       
-//     };
+export const getCarouselNouveautesAnime = () => {
+    return (dispatch) => {
+        const timestamp = parseInt(Date.now() / 1000);
+        return axios.get(`https://api.jikan.moe/v4/top/anime?&q=&sfw&filter=airing&timestamp=${timestamp}`).then((res) => {
+          dispatch({ type: GET_CAROUSEL_NOUVEAUTES_ANIME, payload: res.data });
+        });       
+    };
 
-//   };
+  };
 
 export const getCarouselDernierAjoutCards = () => {
     return (dispatch) => {
@@ -23,12 +24,13 @@ export const getCarouselDernierAjoutCards = () => {
   };
 
 
-// export const getCarouselPepiteCards = () => {
-//     return (dispatch) => {
-//         return axios.get("http://localhost:3001/caroussel-pepite").then((res) => {
-//             dispatch({ type: GET_CAROUSEL_PEPITE_CARDS, payload: res.data });
-//         });
-// };
+export const getCarouselNouveautesManga = () => {
+    return (dispatch) => {
+      const timestamp = parseInt(Date.now() / 1000);
+        return axios.get(`https://api.jikan.moe/v4/top/manga?&q=&sfw&filter=publishing&timestamp=${timestamp}`).then((res) => {
+            dispatch({ type: GET_CAROUSEL_NOUVEAUTES_MANGA, payload: res.data });
+        });
+};
 
-// };
+};
 
