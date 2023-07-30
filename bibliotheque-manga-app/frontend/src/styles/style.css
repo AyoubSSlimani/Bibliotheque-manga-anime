@@ -10,6 +10,12 @@
   color: white;
   text-align: center;
   margin: 0 0 20px 0;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 .navbar .navlinks {
   background-color: #a1a19f;
@@ -60,6 +66,11 @@
   .navbar {
     color: white;
     margin: 0 0 20px 0;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
   }
   .navbar .navlinks {
     position: relative;

@@ -9,8 +9,18 @@ import loupe from '../../assets/loupe.png';
 import menu from '../../assets/menu.png';
 
 export default function NavBar() {
+  let scrollPosition = 0;
+  
+  window.addEventListener('scroll', (e) => {
+    if (window.scrollY < scrollPosition) {
+      navbar.style.top = 0;
+    } else {
+      navbar.style.top = "-200px";
+    }
+    scrollPosition = window.scrollY;
+  })
   return (
-    <nav className='navbar'>
+    <nav className='navbar' id='navbar'>
       <div className="navlinks">
         
         <ul>
