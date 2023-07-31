@@ -33,7 +33,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 120px;
+    @media screen and (max-width:650px) {
+        margin-top: 70px;
+    }
     h1 {
         background-color: gray;
         border: 2px solid #fff;

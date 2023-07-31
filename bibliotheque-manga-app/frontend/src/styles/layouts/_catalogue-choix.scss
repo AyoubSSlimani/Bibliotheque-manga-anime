@@ -15,11 +15,14 @@
         width: fit-content;
         padding: 10px;
         align-self: center;
-        margin-top: 50px;
+        margin-top: 100px;
         @include title;
         @media screen and (max-width:850px) {
             font-size: 1rem;
             font-weight: 400;
+        }
+        @media screen and (max-width:650px) {
+            margin-top: 50px;
         }
         @media screen and (max-width:450px) {
             font-size: 0.7rem;
