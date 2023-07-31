@@ -49,13 +49,13 @@ export default function Carte ({nameComponent}) {
           const typeClassName = `${isAnimeType ? "type-anime" : isMangaType ? "type-manga" : "type-else"}`;
           return (
               <div id={carte.mal_id} className="card card-carte" key={carte.mal_id}>
-                {/* <Link to={`/Catalogue/${carte.title}`} key={carte.mal_id}> */}
+                
                 <div className='container-image' onClick={() => openPageCard(carte, carte.title)}>
                   <img src={carte.images.jpg.image_url} className="catalogue-manga-card-image" alt={carte.title} />
                 </div>
                 
                 <div className="icone-add-card" onClick={() => addCollectionCard(carte)}>
-                  {/* {isSelected && <OptionCardSelector cartes={cartes} cardId={carte.mal_id} cardTitle={carte.title}/>} */}
+            
                 </div>
                 <h3 className='carte-catalogue-manga-title' title-length-sup18={carte.title.length > 18 ? 'true' : 'false'}>{carte.title}</h3>
                 <div className="ligne-carte-catalogue-manga"></div>

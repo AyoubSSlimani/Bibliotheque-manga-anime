@@ -1964,6 +1964,20 @@
   text-transform: uppercase;
   font-family: Inter, sans-serif;
 }
+.container-card-page .header-card-page h1[title-length-sup18=true] {
+  font-size: 1.3rem;
+}
+@media screen and (max-width: 850px) {
+  .container-card-page .header-card-page h1[title-length-sup18=true] {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container-card-page .header-card-page h1[title-length-sup18=true] {
+    font-size: 0.7rem;
+  }
+}
 @media screen and (max-width: 850px) {
   .container-card-page .header-card-page h1 {
     font-size: 1rem;
