@@ -15,10 +15,7 @@ import { getCards } from "../../../../actions/carte.action";
 
 
 export default function CatalogueManga() {
-  useEffect(() => {
-    // Déplace la vue vers le haut de la page lorsque le composant est monté
-    window.scrollTo(0, 0);
-  }, []);
+  
   const dispatch = useDispatch();
   const nameComponent = "Manga";
 
