@@ -162,7 +162,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 .title-accueil-div h1 {
   background-color: gray;
@@ -500,6 +500,7 @@
   padding: 10px;
   -ms-flex-item-align: center;
       align-self: center;
+  margin-top: 50px;
   text-transform: uppercase;
   font-family: Inter, sans-serif;
 }
@@ -645,6 +646,7 @@
   padding: 10px;
   -ms-flex-item-align: center;
       align-self: center;
+  margin-top: 120px;
   text-transform: uppercase;
   font-family: Inter, sans-serif;
 }
@@ -652,6 +654,11 @@
   .container-catalogue h1 {
     font-size: 1rem;
     font-weight: 400;
+  }
+}
+@media screen and (max-width: 650px) {
+  .container-catalogue h1 {
+    margin-top: 70px;
   }
 }
 @media screen and (max-width: 450px) {
@@ -674,6 +681,11 @@
   border-radius: 5px;
   background: #d9d9d9;
 }
+@media screen and (max-width: 450px) {
+  .search-bar {
+    height: 40px;
+  }
+}
 .search-bar input {
   border: none;
   background-color: initial;
@@ -683,10 +695,21 @@
   font-family: "Inter", sans-serif;
   font-size: 1rem;
 }
+@media screen and (max-width: 450px) {
+  .search-bar input {
+    font-size: 0.8rem;
+  }
+}
 .search-bar img {
   margin-right: 10px;
   width: 32px;
   height: 32px;
+}
+@media screen and (max-width: 450px) {
+  .search-bar img {
+    height: 22px;
+    width: 22px;
+  }
 }
 
 .button-filtre {
@@ -1062,6 +1085,7 @@
   background-size: cover;
   top: -10px;
   right: -7px;
+  z-index: 1000;
 }
 .container-card .sous-container-card .card .icone-add-card:hover {
   background-color: rgba(255, 255, 255, 0.9215686275);
@@ -1343,6 +1367,12 @@
           align-items: center;
   width: 50%;
   margin-bottom: 30px;
+  margin-top: 100px;
+}
+@media screen and (max-width: 650px) {
+  .container-custom-card-page .header-custom-card-page {
+    margin-top: 50px;
+  }
 }
 .container-custom-card-page .header-custom-card-page .left-arrow-custom-card-page {
   width: 60px;
@@ -1354,6 +1384,12 @@
   .container-custom-card-page .header-custom-card-page .left-arrow-custom-card-page {
     width: 50px;
     height: 50px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .container-custom-card-page .header-custom-card-page .left-arrow-custom-card-page {
+    width: 40px;
+    height: 40px;
   }
 }
 .container-custom-card-page .header-custom-card-page .left-arrow-custom-card-page:hover {
@@ -1383,6 +1419,11 @@
   .container-custom-card-page .header-custom-card-page h1 {
     font-size: 1rem;
     font-weight: 400;
+  }
+}
+@media screen and (max-width: 650px) {
+  .container-custom-card-page .header-custom-card-page h1 {
+    font-size: 0.8rem;
   }
 }
 .container-custom-card-page .container-custom-card-image-and-info {
@@ -1559,6 +1600,7 @@
   padding: 10px 20px;
   -ms-flex-item-align: center;
       align-self: center;
+  margin-top: 50px;
   text-transform: uppercase;
   font-family: Inter, sans-serif;
 }
@@ -1786,6 +1828,7 @@
   right: -7px;
   top: -9px;
   width: 20px;
+  z-index: 1000;
   cursor: pointer;
 }
 .container-ma-collection .sous-container-ma-collection .container-card-ma-collection .sous-container-card-ma-collection .sous-container-card .card .icone-remove-card:hover {
@@ -1853,6 +1896,17 @@
           align-items: center;
   width: 50%;
   margin-bottom: 30px;
+  margin-top: 100px;
+}
+@media screen and (max-width: 650px) {
+  .container-card-page .header-card-page {
+    margin-top: 60px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container-card-page .header-card-page {
+    margin-top: 40px;
+  }
 }
 .container-card-page .header-card-page .left-arrow-card-page {
   width: 60px;
@@ -1864,6 +1918,12 @@
   .container-card-page .header-card-page .left-arrow-card-page {
     width: 50px;
     height: 50px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container-card-page .header-card-page .left-arrow-card-page {
+    width: 40px;
+    height: 40px;
   }
 }
 .container-card-page .header-card-page .left-arrow-card-page:hover {
@@ -1893,6 +1953,11 @@
   .container-card-page .header-card-page h1 {
     font-size: 1rem;
     font-weight: 400;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container-card-page .header-card-page h1 {
+    font-size: 0.8rem;
   }
 }
 .container-card-page .container-card-image-and-info {

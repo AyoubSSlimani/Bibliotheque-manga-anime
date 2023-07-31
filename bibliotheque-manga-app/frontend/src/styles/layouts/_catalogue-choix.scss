@@ -15,6 +15,7 @@
         width: fit-content;
         padding: 10px;
         align-self: center;
+        margin-top: 50px;
         @include title;
         @media screen and (max-width:850px) {
             font-size: 1rem;

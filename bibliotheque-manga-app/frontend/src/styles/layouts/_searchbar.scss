@@ -6,6 +6,9 @@
     width: 100%;
     border-radius: 5px;
     background: $searchbar-color;
+    @media screen and (max-width:450px) {
+        height: 40px;
+    }
     input {
         border: none;
         background-color: initial;
@@ -14,10 +17,17 @@
         color: $black;
         font-family: 'Inter', sans-serif;
         font-size: 1rem;
+        @media screen and (max-width:450px) {
+            font-size: 0.8rem;
+        }
     }
     img {
         margin-right: 10px;
         width: 32px;
         height: 32px;
+        @media screen and (max-width:450px) {
+            height: 22px;
+            width: 22px;
+        }
     }
 }

@@ -66,6 +66,7 @@
                 background-size: cover;
                 top: -10px;
                 right: -7px;
+                z-index: 1000;
                 &:hover {
                     background-color: $icone-selector-hover-color;
                     transform: scale(1.1);

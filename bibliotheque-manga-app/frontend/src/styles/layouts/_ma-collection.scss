@@ -18,6 +18,7 @@
             width: fit-content;
             padding: 10px 20px;
             align-self: center;
+            margin-top: 50px;
             @include title;
             @media screen and (max-width:850px) {
                 font-size: 1rem;
@@ -178,6 +179,7 @@
                             right: -7px;
                             top: -9px;
                             width: 20px;
+                            z-index: 1000;
                             cursor: pointer;
                             &:hover {
                                 transform: scale(1.2);

@@ -12,14 +12,23 @@
         align-items: center;
         width: 50%;
         margin-bottom: 30px;
+        margin-top: 100px;
+        @media screen and (max-width:650px) {
+            margin-top: 50px;
+        }
         .left-arrow-custom-card-page {
             width: 60px;
             height: 60px;
             border-radius: 500px;
             cursor: pointer;
+
             @media screen and (max-width:850px) {
                 width: 50px;
                 height: 50px;
+            }
+            @media screen and (max-width:650px) {
+                width: 40px;
+                height: 40px;
             }
             &:hover {
                 background-color: $card-bg-color;
@@ -42,6 +51,9 @@
             @media screen and (max-width:850px) {
                 font-size: 1rem;
                 font-weight: 400;
+            }
+            @media screen and (max-width:650px) {
+                font-size: 0.8rem;
             }
 
         }
